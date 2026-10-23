@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software in research, cite its versioned GitHub/Zenodo release."
+title: "NS25Lean: Sharp Type Bounds and Finite Equality Classification for Four-Generated Numerical Semigroups"
+type: software
+authors:
+  - family-names: Sato
+    given-names: Keisuke
+version: 1.0.0
+license: Apache-2.0
+repository-code: "https://github.com/stksk310/NS-P25-Lean"
+url: "https://github.com/stksk310/NS-P25-Lean"
+abstract: >-
+  Lean 4 formalization of sharp type bounds for minimally four-generated numerical
+  semigroups, including P2/P3 strong bounds and a noncircular finite intrinsic
+  equality classification with finite ALL-PIVOTS. The historical geometric
+  NEIT/NEIT* and six-case PCR classification is not part of this verified scope.
+keywords:
+  - Lean 4
+  - numerical semigroup
+  - formal verification
+  - type bound
+  - equality classification

@@ -1,0 +1,10 @@
+NS25Lean
+Copyright 2026 Keisuke Sato
+
+The original NS25Lean source code is licensed under the Apache License,
+Version 2.0. See the accompanying LICENSE file for the complete terms.
+
+This distribution is source-only and uses third-party Lean dependencies at
+pinned revisions. Those dependencies retain their own licenses; their
+identities and license texts are listed in THIRD_PARTY_NOTICES.md and
+third-party-licenses/ respectively. This notice does not relicense them.

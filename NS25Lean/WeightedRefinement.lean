@@ -1,0 +1,144 @@
+import NS25Lean.WeightedMonomialOrder
+import NS25Lean.WeightedHomogeneousLift
+
+set_option linter.style.header false
+noncomputable section
+namespace NS25Lean.L2B
+open ChosenBase MvPolynomial
+open scoped MonomialOrder
+variable {Gamma : NumericalSemigroup}
+
+theorem refinement_degree_weight (k : Type*) [Field k] (B : Data Gamma)
+    (m : MonomialOrder (Fin 3)) (f : MvPolynomial (Fin 3) k) (hf : f ≠ 0) :
+    weight B ((weightRefinement B m).degree f) = weightedTotalDegree (weights B) f := by
+  apply le_antisymm
+  · exact le_weightedTotalDegree _ ((weightRefinement B m).degree_mem_support hf)
+  · apply Finset.sup_le
+    intro u hu
+    have h := (weightRefinement_le_iff B m u _).mp ((weightRefinement B m).le_degree hu)
+    rcases h with h | h
+    · exact le_of_lt h
+    · exact le_of_eq h.1
+
+theorem refinement_degree_initial (k : Type*) [Field k] (B : Data Gamma)
+    (m : MonomialOrder (Fin 3)) (f : MvPolynomial (Fin 3) k) (hf : f ≠ 0) :
+    m.degree (weightInitial k B f) = (weightRefinement B m).degree f := by
+  classical
+  have hw := refinement_degree_weight k B m f hf
+  have hu := (weightRefinement B m).degree_mem_support hf
+  apply m.toSyn.injective
+  apply le_antisymm
+  · apply m.degree_le_iff.mpr
+    intro x hx
+    rw [weightInitial, support_weightedHomogeneousComponent, Finset.mem_filter] at hx
+    have h := (weightRefinement_le_iff B m x _).mp ((weightRefinement B m).le_degree hx.1)
+    rcases h with h | h
+    · have hxw : weight B x = weightedTotalDegree (weights B) f := hx.2
+      omega
+    · exact h.2
+  · apply m.le_degree
+    rw [weightInitial, support_weightedHomogeneousComponent, Finset.mem_filter]
+    exact ⟨hu, hw⟩
+
+/-- The whole tied maximal-weight form is retained before the tie-break order is applied. -/
+theorem leadingTerm_weightInitial (k : Type*) [Field k] (B : Data Gamma)
+    (m : MonomialOrder (Fin 3)) (f : MvPolynomial (Fin 3) k) :
+    m.leadingTerm (weightInitial k B f) = (weightRefinement B m).leadingTerm f := by
+  by_cases hf : f = 0
+  · subst f; simp [weightInitial]
+  · unfold MonomialOrder.leadingTerm MonomialOrder.leadingCoeff
+    rw [refinement_degree_initial k B m f hf, coeff_weightInitial,
+      ite_eq_left (refinement_degree_weight k B m f hf)]
+
+theorem leadingTerm_component_at_degree (k : Type*) [Field k] (B : Data Gamma)
+    (m : MonomialOrder (Fin 3)) (g : MvPolynomial (Fin 3) k) (hg : g ≠ 0) :
+    m.leadingTerm (weightedHomogeneousComponent (weights B) (weight B (m.degree g)) g) =
+      m.leadingTerm g := by
+  classical
+  have hdeg : m.degree (weightedHomogeneousComponent (weights B) (weight B (m.degree g)) g)
+      = m.degree g := by
+    apply m.toSyn.injective
+    apply le_antisymm
+    · apply m.degree_le_iff.mpr
+      intro u hu
+      rw [support_weightedHomogeneousComponent, Finset.mem_filter] at hu
+      exact m.le_degree hu.1
+    · apply m.le_degree
+      rw [support_weightedHomogeneousComponent, Finset.mem_filter]
+      exact ⟨m.degree_mem_support hg, rfl⟩
+  unfold MonomialOrder.leadingTerm MonomialOrder.leadingCoeff
+  rw [hdeg, coeff_weightedHomogeneousComponent]
+  simp only [weight, ite_true]
+
+/-- Paper refinement identity for the actual lattice ideal and every monomial order. -/
+theorem J_monomialInitial_eq_refinement (k : Type*) [Field k] (B : Data Gamma)
+    (m : MonomialOrder (Fin 3)) :
+    monomialInitialIdeal k m (B.J k) =
+      monomialInitialIdeal k (weightRefinement B m) (latticeIdeal k B) := by
+  apply le_antisymm
+  · apply Ideal.span_le.mpr
+    rintro _ ⟨g, hg, rfl⟩
+    by_cases hz : g = 0
+    · subst g; simp
+    let d := weight B (m.degree g)
+    let c := weightedHomogeneousComponent (weights B) d g
+    have hc : c.IsWeightedHomogeneous (weights B) d :=
+      weightedHomogeneousComponent_isWeightedHomogeneous _ _
+    have hcJ : c ∈ B.J k := J_component_mem k B g hg d
+    have hcn : c ≠ 0 := by
+      intro he
+      have ht := leadingTerm_component_at_degree k B m g hz
+      change m.leadingTerm c = m.leadingTerm g at ht
+      rw [he, MonomialOrder.leadingTerm_zero] at ht
+      have : m.leadingCoeff g = 0 := by
+        have hco := congrArg (coeff (m.degree g)) ht
+        simpa [MonomialOrder.leadingTerm] using hco.symm
+      exact hz (m.leadingCoeff_eq_zero_iff.mp this)
+    obtain ⟨f, hf, hfc⟩ := homogeneous_J_lift k B c d hc hcJ hcn
+    apply Ideal.subset_span
+    refine ⟨f, hf, ?_⟩
+    rw [← leadingTerm_weightInitial, hfc]
+    exact leadingTerm_component_at_degree k B m g hz
+  · apply Ideal.span_le.mpr
+    rintro _ ⟨f, hf, rfl⟩
+    rw [← leadingTerm_weightInitial]
+    exact Ideal.subset_span ⟨weightInitial k B f, weightInitial_mem_J k B f hf, rfl⟩
+
+theorem weightInitial_refinement_identity (k : Type*) [Field k] (B : Data Gamma)
+    (m : MonomialOrder (Fin 3)) :
+    monomialInitialIdeal k m (weightInitialIdeal k B (latticeIdeal k B)) =
+      monomialInitialIdeal k (weightRefinement B m) (latticeIdeal k B) := by
+  rw [← J_eq_weightInitial_latticeIdeal]
+  exact J_monomialInitial_eq_refinement k B m
+
+/-- The usual property of being generated by monomials, with no pivot theorem assumed. -/
+def IsMonomialIdeal (k : Type*) [Field k] (I : Ideal (MvPolynomial (Fin 3) k)) : Prop :=
+  ∃ S : Set (Fin 3 →₀ ℕ), I = Ideal.span ((fun u => monomial u (1 : k)) '' S)
+
+theorem monomialInitial_eq_self (k : Type*) [Field k] (m : MonomialOrder (Fin 3))
+    (I : Ideal (MvPolynomial (Fin 3) k)) (hI : IsMonomialIdeal k I) :
+    monomialInitialIdeal k m I = I := by
+  classical
+  obtain ⟨S, rfl⟩ := hI
+  apply le_antisymm
+  · apply Ideal.span_le.mpr
+    rintro _ ⟨f, hf, rfl⟩
+    by_cases hz : f = 0
+    · subst f; simp
+    apply mem_ideal_span_monomial_image.mpr
+    intro u hu
+    have he : u = m.degree f := Finset.mem_singleton.mp (support_monomial_subset hu)
+    subst u
+    exact mem_ideal_span_monomial_image.mp hf _ (m.degree_mem_support hz)
+  · apply Ideal.span_le.mpr
+    rintro _ ⟨u, hu, rfl⟩
+    exact Ideal.subset_span ⟨monomial u 1, Ideal.subset_span ⟨u, hu, rfl⟩,
+      m.leadingTerm_monomial u 1⟩
+
+/-- W6: conditional monomial-J consequence, for every tie-breaking monomial order. -/
+theorem monomial_J_eq_refinement (k : Type*) [Field k] (B : Data Gamma)
+    (m : MonomialOrder (Fin 3)) (hJ : IsMonomialIdeal k (B.J k)) :
+    B.J k = monomialInitialIdeal k (weightRefinement B m) (latticeIdeal k B) := by
+  rw [← J_monomialInitial_eq_refinement, monomialInitial_eq_self k m (B.J k) hJ]
+
+end NS25Lean.L2B
