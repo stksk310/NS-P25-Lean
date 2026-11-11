@@ -1,0 +1,66 @@
+NS25Lean/MonomialTwoAxisRigidity.lean:110:45: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/MonomialTwoAxisRigidity.lean:160:45: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/MonomialTwoAxisRigidity.lean:90:18: warning: This simp argument is unused:
+  Ne.symm hxy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Ne.symm hzy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/MonomialTwoAxisRigidity.lean:91:18: warning: This simp argument is unused:
+  hzx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hzy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/MonomialTwoAxisRigidity.lean:122:47: warning: This simp argument is unused:
+  hzy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [w, ux, hwix, hwiy, hwiz, hxy, hzx] at heix heiy heiz
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/MonomialTwoAxisRigidity.lean:141:18: warning: This simp argument is unused:
+  hxy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hzx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/MonomialTwoAxisRigidity.lean:143:23: warning: This simp argument is unused:
+  hzy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hzx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/MonomialTwoAxisRigidity.lean:172:42: warning: This simp argument is unused:
+  hzx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [w, uy, hwix, hwiy, hwiz, hxy, hzy] at heix heiy heiz
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/MonomialTwoAxisRigidity.lean:229:18: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/MonomialTwoAxisRigidity.lean:229:31: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/MonomialTwoAxisRigidity.lean:232:28: warning: Variable name `hmu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hmu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

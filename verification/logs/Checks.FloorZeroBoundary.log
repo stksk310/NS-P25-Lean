@@ -1,0 +1,27 @@
+Checks/FloorZeroBoundary.lean:24:61: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Checks/FloorZeroBoundary.lean:26:51: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Checks/FloorZeroBoundary.lean:51:55: warning: Unused tactic linter: `omega` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Checks/FloorZeroBoundary.lean:51:55: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Checks/FloorZeroBoundary.lean:68:2: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'NS25Lean.GenericFloorDirectional.c_nonexceptional_of_left_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.GenericFloorDirectional.b_nonexceptional_of_right_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.GenericFloorStaircase.c_exceptional_has_least_first' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.GenericFloorStaircase.b_exceptional_has_greatest_first' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

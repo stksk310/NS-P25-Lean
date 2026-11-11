@@ -1,0 +1,22 @@
+NS25Lean/GenericFloorSentinel.lean:53:19: warning: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only at hq1
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/GenericFloorSentinel.lean:57:19: warning: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only at hq2
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'NS25Lean.GenericFloorStaircase.floor_staircase_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericFloorStaircase.sentinel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericFloorStaircase.c_nonexceptional_of_earlier_floor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.GenericFloorStaircase.b_nonexceptional_of_later_floor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

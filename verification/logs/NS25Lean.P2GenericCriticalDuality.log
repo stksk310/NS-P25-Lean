@@ -1,0 +1,32 @@
+NS25Lean/P2GenericCriticalDuality.lean:19:68: warning: Variable name `F` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _F
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2GenericCriticalDuality.lean:87:58: warning: This simp argument is unused:
+  hm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SharedCap.Below, SharedCap.Wrap, tuple, endpoint, hs]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2GenericCriticalDuality.lean:114:0: warning: Definition `remainingSignature` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+NS25Lean/P2GenericCriticalDuality.lean:203:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2GenericCriticalDuality.lean:257:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

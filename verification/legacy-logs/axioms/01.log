@@ -1,0 +1,1 @@
+'NS25Lean.L4B.ns_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]

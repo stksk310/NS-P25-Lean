@@ -1,4 +1,5 @@
 import NS25Lean.AppendixAPCR
+import NS25Lean.EqualityLossAlgebra
 
 set_option linter.style.header false
 noncomputable section
@@ -32,8 +33,23 @@ theorem delta_PCR_nonneg (F : InternalFrontend k M h) : 0 ≤ delta_PCR F := by
 theorem one_defect_slack_identity (F : InternalFrontend k M h) :
     (sourceCount M.base : ℤ) - (Gamma.asRelativeIdeal.idealType : ℤ) =
       delta_BPS F + delta_PCR F := by
-  unfold delta_BPS delta_PCR InternalFrontend.delta1 InternalFrontend.delta3
-  omega
+  have hi := EqualityLossAlgebra.two_loss_identity
+    ((sourceCount M.base : ℤ) + 1) (Gamma.asRelativeIdeal.idealType : ℤ)
+    (L3A.mu F.initial.ideal : ℤ) (L3A.quotientType F.initial.ideal : ℤ)
+    (L3A.q_fs F.initial.ideal : ℤ)
+  calc
+    (sourceCount M.base : ℤ) - (Gamma.asRelativeIdeal.idealType : ℤ) =
+        ((sourceCount M.base : ℤ) + 1) - 1 - (Gamma.asRelativeIdeal.idealType : ℤ) := by omega
+    _ = EqualityLossAlgebra.bpsLoss (L3A.mu F.initial.ideal)
+          (L3A.quotientType F.initial.ideal) (L3A.q_fs F.initial.ideal) +
+        EqualityLossAlgebra.compensationLoss ((sourceCount M.base : ℤ) + 1)
+          (Gamma.asRelativeIdeal.idealType : ℤ) (L3A.mu F.initial.ideal)
+          (L3A.quotientType F.initial.ideal) (L3A.q_fs F.initial.ideal) := hi
+    _ = delta_BPS F + delta_PCR F := by
+      unfold EqualityLossAlgebra.bpsLoss EqualityLossAlgebra.compensationLoss
+        EqualityLossAlgebra.typeLoss EqualityLossAlgebra.generatorLoss
+        delta_BPS delta_PCR InternalFrontend.delta1 InternalFrontend.delta3
+      ring
 
 theorem internal_type_le_sourceCount (F : InternalFrontend k M h) :
     Gamma.asRelativeIdeal.idealType ≤ sourceCount M.base := by

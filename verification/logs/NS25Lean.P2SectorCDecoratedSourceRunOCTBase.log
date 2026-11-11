@@ -1,0 +1,62 @@
+NS25Lean/P2SectorCDecoratedSourceRunOCTBase.lean:119:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4L.ResidueData.sourceHitIndex_le`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCDecoratedSourceRunOCTBase.lean:128:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4L.ResidueData.sourceHitIndex_state`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCDecoratedSourceRunOCTBase.lean:182:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4L.ResidueData.literalDecoratedReplay_raw`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCDecoratedSourceRunOCTBase.lean:187:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4L.ResidueData.literalDecoratedReplay_package`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCDecoratedSourceRunOCTBase.lean:191:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4L.ResidueData.literalDecoratedReplay_of_package_eq_word_eq`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCDecoratedSourceRunOCTBase.lean:214:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCDecoratedSourceRunOCTBase.lean:246:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCDecoratedSourceRunOCTBase.lean:277:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCDecoratedSourceRunOCTBase.lean:291:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

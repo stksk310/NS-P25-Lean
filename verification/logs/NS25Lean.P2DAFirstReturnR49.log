@@ -1,0 +1,28 @@
+NS25Lean/P2DAFirstReturnR49.lean:67:14: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+NS25Lean/P2DAFirstReturnR49.lean:71:5: warning: Variable name `hJM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hJM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2DAFirstReturnR49.lean:81:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P2DAFirstReturnR49.lean:357:48: warning: Try `simp at hrir` instead of `simpa using hrir`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2DAFirstReturnR49.lean:358:48: warning: Try `simp at hrir` instead of `simpa using hrir`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2DAFirstReturnR49.lean:360:50: warning: Try `simp at hviv` instead of `simpa using hviv`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2DAFirstReturnR49.lean:361:50: warning: Try `simp at hviv` instead of `simpa using hviv`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2DAFirstReturnR49.lean:311:5: warning: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

@@ -1,6 +1,6 @@
 import NS25Lean.P2SectorYFinalClosure
 import NS25Lean.P2SectorBFinalRepairClosure
-import NS25Lean.P2SectorCPureBoundaryExceptionalCapR47
+import NS25Lean.P2SectorCSharedClosure
 
 set_option linter.style.header false
 
@@ -17,7 +17,7 @@ theorem p2_type_bound_or_sectorA_or_sectorD
   · exact Or.inl (sectorY_type_le_sourceCount P hY)
   · exact Or.inr (Or.inl hA)
   · exact Or.inl (L5A2BFinalRepair.sectorB_actual_type_le_sourceCount P hB)
-  · exact Or.inl (L5A2C4OR47.sectorC_type_bound P hC)
+  · exact Or.inl (SectorCSharedClosure.sectorC_type_bound P hC)
   · exact Or.inr (Or.inr hD)
 
 end NS25Lean.L5A2R48

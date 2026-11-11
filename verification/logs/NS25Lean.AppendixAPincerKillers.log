@@ -1,0 +1,36 @@
+NS25Lean/AppendixAPincerKillers.lean:53:32: warning: This simp argument is unused:
+  Finsupp.single_eq_of_ne (by decide : (1 : Fin 2) ≠ 0)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [core, Finsupp.tsub_apply, planarTie, Finsupp.add_apply, Finsupp.single_eq_same, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/AppendixAPincerKillers.lean:53:87: warning: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [core, Finsupp.tsub_apply, planarTie, Finsupp.add_apply, Finsupp.single_eq_same,
+    Finsupp.single_eq_of_ne (by decide : (1 : Fin 2) ≠ 0)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/AppendixAPincerKillers.lean:58:32: warning: This simp argument is unused:
+  Finsupp.single_eq_of_ne (by decide : (0 : Fin 2) ≠ 1)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [core, Finsupp.tsub_apply, planarTie, Finsupp.add_apply, Finsupp.single_eq_same, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/AppendixAPincerKillers.lean:58:87: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [core, Finsupp.tsub_apply, planarTie, Finsupp.add_apply, Finsupp.single_eq_same,
+    Finsupp.single_eq_of_ne (by decide : (0 : Fin 2) ≠ 1)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/AppendixAPincerKillers.lean:30:31: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/AppendixAPincerKillers.lean:35:31: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

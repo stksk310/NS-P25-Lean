@@ -1,0 +1,73 @@
+NS25Lean/P2BranchBNonsymmetricFinalRepair.lean:200:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBNonsymmetricFinalRepair.lean:244:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBNonsymmetricFinalRepair.lean:387:39: warning: Variable name `hxy` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hxy
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2BranchBNonsymmetricFinalRepair.lean:398:39: warning: Variable name `hxy` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hxy
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2BranchBNonsymmetricFinalRepair.lean:409:39: warning: Variable name `hxy` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hxy
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2BranchBNonsymmetricFinalRepair.lean:418:32: warning: Variable name `R` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _R
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2BranchBNonsymmetricFinalRepair.lean:706:26: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [X_pow_eq_monomial, monomial_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBNonsymmetricFinalRepair.lean:746:43: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P2BranchBNonsymmetricFinalRepair.lean:748:43: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P2BranchBNonsymmetricFinalRepair.lean:938:33: warning: Variable name `R` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _R
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2BranchBNonsymmetricFinalRepair.lean:941:34: warning: Variable name `R` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _R
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2BranchBNonsymmetricFinalRepair.lean:975:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

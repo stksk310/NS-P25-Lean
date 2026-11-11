@@ -1,0 +1,32 @@
+NS25Lean/P2PurePairCapAdapter.lean:117:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2PurePairCapAdapter.lean:267:50: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2PurePairCapAdapter.lean:286:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2PurePairCapAdapter.lean:292:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/P2PurePairCapAdapter.lean:297:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean.PurePairCapAdapter.boundary_compensation {Gamma : NS25Lean.NumericalSemigroup} {P : NS25Lean.L5A1.P2Data Gamma}
+  (G : NS25Lean.L5A2C3G.SectorCActualFibers P) (A : NS25Lean.L5A2B4AR4R1.SectorBCriticalRoleBranchA P)
+  (hm : A.mixedDegree = G.internalDegree) (hk : NS25Lean.L2B.BoundaryKilled P.M A.pairDegree A.pair.leftComponent)
+  (hl : ¬NS25Lean.L2B.BoundaryKilled P.M A.pairDegree A.pair.rightComponent) :
+  NS25Lean.L5A2C4OR46.boundarySurvivingWrapCount A + NS25Lean.L5A2C4OR46.boundaryFullSourceCount A ≤
+    Nat.card { p // p ∈ NS25Lean.L5A2C4OR46.boundaryBorderExceptional A }
+'NS25Lean.PurePairCapAdapter.capData' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.PurePairCapAdapter.additional_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.PurePairCapAdapter.exceptional_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.PurePairCapAdapter.full_support_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.PurePairCapAdapter.boundary_compensation' depends on axioms: [propext, Classical.choice, Quot.sound]

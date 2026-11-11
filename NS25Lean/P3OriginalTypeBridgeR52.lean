@@ -1,5 +1,6 @@
 import NS25Lean.P3FreshProvenanceR52
 import NS25Lean.P2SectorCLocalCollisionAccounting
+import NS25Lean.P3CommonFinalCountAlignment
 
 set_option linter.style.header false
 set_option linter.style.haveILetI false
@@ -67,6 +68,27 @@ theorem routing_actualSinkCount (M : MultiplicityBase Gamma) (e : Fin 3 ≃ Fin 
       (fourGenerated_idealType_eq_natCard_socle Gamma B.q.val _ _ _
         (chosenBase_minimalFour B e).m_pos (chosenBase_minimalFour B e).generated).symm
 
+/-- Direct D5 total-count route on the original final cut, before first-exit
+cancellation. Fake sinks are retained as a separate nonnegative resource. -/
+theorem type_fake_total_identity (M : MultiplicityBase Gamma) (e : Fin 3 ≃ Fin 3) :
+    letI : NeZero (routingA M.base e) := ⟨Nat.ne_of_gt (routingA_pos M.base e)⟩
+    let D := routingData M.base e
+    Gamma.asRelativeIdeal.idealType +
+      fakeSinkCount (routingI M.base e) (routingA M.base e)
+        (routingB M.base e) (routingC M.base e) (routingHB M.base e) (routingHC M.base e) +
+      Nat.card (ResidueData.ExactUnusedMergeBases D) =
+        L2B.sourceCount M.base + ResidueData.sourceTargetBranchCount D := by
+  letI : NeZero (routingA M.base e) := ⟨Nat.ne_of_gt (routingA_pos M.base e)⟩
+  have hsource := routing_sourceCount M e
+  have htype := routing_actualSinkCount M e
+  have hsinks := fullSinkCount_eq_actual_add_fake (routingI M.base e) (routingA M.base e)
+    (routingB M.base e) (routingC M.base e) (routingHB M.base e) (routingHC M.base e)
+  have he := P3CommonFinal.euler_total (routingData M.base e)
+  rw [htype] at hsinks
+  change (routingData M.base e).sourceCount = L2B.sourceCount M.base at hsource
+  change (routingData M.base e).sinkCount = _ + _ at hsinks
+  omega
+
 /-- Exact original-M accounting: fake sinks are retained, and only genuinely fresh
 unused merges appear. Every term uses the same routing role permutation. -/
 theorem type_fake_fresh_identity (M : MultiplicityBase Gamma) (e : Fin 3 ≃ Fin 3) :
@@ -83,17 +105,27 @@ theorem type_fake_fresh_identity (M : MultiplicityBase Gamma) (e : Fin 3 ≃ Fin
   have htype := routing_actualSinkCount M e
   have hsinks := fullSinkCount_eq_actual_add_fake (routingI M.base e) (routingA M.base e)
     (routingB M.base e) (routingC M.base e) (routingHB M.base e) (routingHC M.base e)
-  have hbranches := L5A2C4J.ResidueData.branchCount_raw_decomposition D
-  have hmerges := L5A2C4J.ResidueData.mergeCount_raw_decomposition D
-  have hbalance := CombinatorialCore.ResidueData.edge_count_balance
-    D.outgoing_edge_count D.incoming_edge_count
-  have hfresh := P3R51.unused_count_identity D
+  have hfinal := P3CommonFinal.euler_fresh D
   change D.sourceCount = L2B.sourceCount M.base at hsource
   change D.sinkCount = _ + _ at hsinks
-  change D.mergeCount = _ + Nat.card (ResidueData.ExactUnusedMergeBases D) at hmerges
   rw [htype] at hsinks
   change Gamma.asRelativeIdeal.idealType + _ + Nat.card (ResidueData.CFreshUnusedMergeBases D) =
     L2B.sourceCount M.base + ResidueData.cExceptionalCount D
+  omega
+
+/-- The direct total-UM/ST estimate proves the original type bound without
+choosing fresh witnesses. The stronger fresh interface remains separate. -/
+theorem type_le_source_add_one_of_total_compensation (M : MultiplicityBase Gamma)
+    (e : Fin 3 ≃ Fin 3) :
+    letI : NeZero (routingA M.base e) := ⟨Nat.ne_of_gt (routingA_pos M.base e)⟩
+    let D := routingData M.base e
+    ResidueData.sourceTargetBranchCount D ≤
+      Nat.card (ResidueData.ExactUnusedMergeBases D) + 1 →
+      Gamma.asRelativeIdeal.idealType ≤ L2B.sourceCount M.base + 1 := by
+  letI : NeZero (routingA M.base e) := ⟨Nat.ne_of_gt (routingA_pos M.base e)⟩
+  dsimp only
+  intro h
+  have hi := type_fake_total_identity M e
   omega
 
 theorem type_le_source_add_one_of_fresh_compensation (M : MultiplicityBase Gamma)
@@ -105,8 +137,8 @@ theorem type_le_source_add_one_of_fresh_compensation (M : MultiplicityBase Gamma
   letI : NeZero (routingA M.base e) := ⟨Nat.ne_of_gt (routingA_pos M.base e)⟩
   dsimp only
   intro h
-  have hid := type_fake_fresh_identity M e
-  omega
+  have htotal := (P3CommonFinal.compensation_iff (routingData M.base e)).mpr h
+  exact type_le_source_add_one_of_total_compensation M e htotal
 
 /-- Keeping fake sinks gives an equivalence, before the final inequality drops them. -/
 theorem fresh_compensation_iff_type_fake_bound (M : MultiplicityBase Gamma)

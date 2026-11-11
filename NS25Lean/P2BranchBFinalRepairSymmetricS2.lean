@@ -433,9 +433,9 @@ private theorem minimal_eq_divisor (A : SectorBCriticalRoleBranchA P)
 
 /-- A genuine prefix branch-target source is an actual height-zero F-return.
 The two other generators are excluded on their own inverse diamonds. -/
-theorem symmetric_prefix_C_targets_F
+theorem symmetric_prefix_C_targets_F_uniform
     (A : SectorBCriticalRoleBranchA P) (hB : SectorB P.M)
-    (hQ : 2 < actualPrincipalIndex P.M.base) :
+    (hQ : 1 < actualPrincipalIndex P.M.base) :
     letI : NeZero (routingA P.M.base A.reindex) := ⟨(routingA_pos _ _).ne'⟩
     let I := symmetricPrefixIdeal A (by omega : 1 < actualPrincipalIndex P.M.base)
     let D := symmetricPrefixRouting A (by omega : 1 < actualPrincipalIndex P.M.base)
@@ -494,6 +494,19 @@ theorem symmetric_prefix_C_targets_F
         gridResidue P.M.base A.reindex (((symmetricReturnTuple A hB ell).1+ciV A)%ciH A) 0 := by
       rw [← hmod]; exact_mod_cast hgmod
     exact False.elim (symmetric_prefix_inverseY_not_branch A hB hQ1 ell ht hr)
+
+theorem symmetric_prefix_C_targets_F
+    (A : SectorBCriticalRoleBranchA P) (hB : SectorB P.M)
+    (hQ : 2 < actualPrincipalIndex P.M.base) :
+    letI : NeZero (routingA P.M.base A.reindex) := ⟨(routingA_pos _ _).ne'⟩
+    let I := symmetricPrefixIdeal A (by omega : 1 < actualPrincipalIndex P.M.base)
+    let D := symmetricPrefixRouting A (by omega : 1 < actualPrincipalIndex P.M.base)
+    ∀ r, D.IsBranch r → D.IsSource (D.branchTarget r) →
+      ∃ ell : SymmetricReturnIndex A,
+        I.aperyRepresentative (routingA P.M.base A.reindex) (D.branchTarget r)=
+        (symmetricF A (symmetricReturnTuple A hB ell).1
+          (symmetricReturnTuple A hB ell).2.1 : ℤ) := by
+  exact symmetric_prefix_C_targets_F_uniform A hB (by omega)
 
 /-- The actual zero-height prefix region is precisely the union of the
 northeast F-quadrants, independent of any choice of minimal return list. -/

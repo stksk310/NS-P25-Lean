@@ -1,0 +1,10 @@
+NS25Lean/AppendixBPresentation.lean:17:24: warning: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [N.perm.injective.eq_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/AppendixBPresentation.lean:47:4: warning: Unused tactic linter: `change (factorizationMap B.family x).val = (factorizationMap B.family y).val` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

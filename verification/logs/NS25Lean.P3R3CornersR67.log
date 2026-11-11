@@ -1,0 +1,98 @@
+NS25Lean/P3R3CornersR67.lean:35:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3CornersR67.lean:107:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3CornersR67.lean:107:47: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3CornersR67.lean:120:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'NS25Lean.P3R67.protected_top_principal_absent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.short_strip_Z_no_F_divisor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.short_strip_Z_no_X_divisor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.short_strip_Z_no_Y_divisor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.protected_rb_top_predecessor_absent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.final_predecessor_absent_of_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.protected_rb_top_endpoints_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+NS25Lean/P3R3CornersR67.lean:176:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P3R3CornersR67.lean:213:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+NS25Lean/P3R3CornersR67.lean:284:75: warning: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NS25Lean/P3R3CornersR67.lean:254:92: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3CornersR67.lean:258:92: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3CornersR67.lean:266:97: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3CornersR67.lean:288:78: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3CornersR67.lean:289:78: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'NS25Lean.P3R67.unused_merge_of_wrapped_final_representatives' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.P3R67.protected_rb_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+NS25Lean/P3R3CornersR67.lean:365:76: warning: This simp argument is unused:
+  Nat.cast_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [normalizedGrid, Nat.cast_add, Nat.cast_mul, Nat.cast_sub hDU.le, zero_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P3R3CornersR67.lean:368:73: warning: This simp argument is unused:
+  Nat.cast_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [normalizedGrid, Nat.cast_add, Nat.cast_mul, Nat.cast_sub hDA, zero_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P3R3CornersR67.lean:370:75: warning: This simp argument is unused:
+  Nat.cast_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [s, normalizedGrid, Nat.cast_add, Nat.cast_mul, Nat.cast_sub hDA, zero_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P3R3CornersR67.lean:359:92: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3CornersR67.lean:362:92: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'NS25Lean.P3R67.final_height_eq_of_predecessor_absent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.protected_rb_corner_heights' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,4 +1,4 @@
-import NS25Lean.P2BranchBK5Rank
+import NS25Lean.PrincipalTensorColon
 
 set_option linter.style.header false
 noncomputable section
@@ -348,23 +348,33 @@ theorem nonsymmetric_principal_algebraic_socle_gain_le_two (R : SectorBCriticalR
     (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) :
     Module.finrank k (nonsymmetricFinalH0 (k:=k) R) ≤
       Module.finrank k (nonsymmetricPrefixH0 (k:=k) R hQ)+2 := by
-  letI := carrierMonomialQuotient_finite (k:=k) (nonsymmetricFinalIdeal R)
-  letI := carrierMonomialQuotient_finite (k:=k) (nonsymmetricPrefixIdeal R hQ)
-  letI := nonsymmetric_colon_H1_finite (k:=k) R hQ
-  letI := nonsymmetric_colon_finite (k:=k) R hQ
-  have hker : Module.finrank k (LinearMap.ker (nonsymmetricPrincipalH0Projection (k:=k) R hQ))=
-      Module.finrank k (nonsymmetricPrincipalColonH0 (k:=k) R hQ) := by
-    rw [← nonsymmetricPrincipalH0Projection_exact,
-      LinearMap.finrank_range_of_inj (nonsymmetricPrincipalH0Injection_injective R hQ)]
-  have hp := LinearMap.finrank_range_add_finrank_ker (nonsymmetricPrincipalH0Projection (k:=k) R hQ)
-  have hd := LinearMap.finrank_range_add_finrank_ker (nonsymmetricPrincipalConnecting (k:=k) R hQ)
-  have hc := LinearMap.finrank_range_add_finrank_ker (nonsymmetricPrincipalComparisonH1 (k:=k) R hQ)
-  have hr := Submodule.finrank_mono (nonsymmetric_principal_low_koszul_exact_segment (k:=k) R hQ).2.2.2
-  have hH1 := nonsymmetric_principal_colon_koszulH1_finrank (k:=k) R hB hQ
-  have hK5 := nonsymmetric_principal_comparison_rank_lower_bound (k:=k) R hB hQ
-  rw [hker] at hp
-  rw [← nonsymmetricPrincipalConnecting_exact] at hd
-  omega
+  let T := nonsymmetricSharedGradedPresentation (k:=k) R hB hQ
+  have hz : (0:L3A.Exponent)∈L3A.standardExponents T.K := by
+    intro hm
+    have he := nonsymmetric_polynomial_colon_le_augmentation_kernel (k:=k) R hB hQ hm
+    change aeval (0:Fin 3→k) (monomial 0 (1:k))=0 at he
+    simpa using he
+  have hf : ((nonsymmetricPrincipalDegree R).val:ℤ)∉nonsymmetricPrefixIdeal R hQ := by
+    have hs := PrincipalTensorColon.standard_survives T ⟨0,hz⟩
+    simpa [PrincipalTensorColon.degree] using hs
+  have hh := PrincipalTensorColon.principal_tensor_cut_socle_gain_le_two T hf
+  let e := nonsymmetricPrincipalSurgeryEquiv (k:=k) R hQ
+  let e3 := LinearEquiv.piCongrRight (fun _ : Fin 3 => e.toLinearEquiv)
+  have hc : ∀ t, threeKoszulD0 (k:=k) (nonsymmetricFinalGenerators (k:=k) R) (e t)=
+      e3 (threeKoszulD0 (k:=k) (PrincipalTensorColon.cutGenerator T) t) := by
+    intro t
+    ext i
+    change nonsymmetricFinalGenerators (k:=k) R i*e t=
+      e (PrincipalTensorColon.cutGenerator T i*t)
+    rw [map_mul]
+    congr 1
+  have heq := (MixedLayers.kernelEquiv
+    (threeKoszulD0 (k:=k) (PrincipalTensorColon.cutGenerator T))
+    (threeKoszulD0 (k:=k) (nonsymmetricFinalGenerators (k:=k) R))
+    e.toLinearEquiv e3 hc).finrank_eq
+  change Module.finrank k (LinearMap.ker (threeKoszulD0 (k:=k) (nonsymmetricFinalGenerators (k:=k) R)))≤_
+  rw [← heq]
+  exact hh
 
 theorem nonsymmetricTailMonomialDegree_generated (R : SectorBCriticalRoleBranchB P) :
     (nsH R).IsGeneratedByThree (nonsymmetricTailMonomialDegree R 0).val

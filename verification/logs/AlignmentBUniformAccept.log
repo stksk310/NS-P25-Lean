@@ -1,0 +1,95 @@
+NS25Lean.L5A2BFinalRepair.symmetric_prefix_C_targets_F {Gamma : NumericalSemigroup} {P : P2Data Gamma}
+  (A : SectorBCriticalRoleBranchA P) (hB : SectorB P.M) (hQ : 2 < actualPrincipalIndex P.M.base) :
+  have I := symmetricPrefixIdeal A ⋯;
+  have D := symmetricPrefixRouting A ⋯;
+  ∀ (r : ZMod (routingA P.M.base A.reindex)),
+    D.IsBranch r →
+      D.IsSource (D.branchTarget r) →
+        ∃ ell,
+          I.aperyRepresentative (routingA P.M.base A.reindex) (D.branchTarget r) =
+            ↑(symmetricF A (symmetricReturnTuple A hB ell).1 (symmetricReturnTuple A hB ell).2.1)
+NS25Lean.L5A2BFinalRepair.symmetric_prefix_resource_bounds {Gamma : NumericalSemigroup} {P : P2Data Gamma}
+  (A : SectorBCriticalRoleBranchA P) (hB : SectorB P.M) (hQ : 2 < actualPrincipalIndex P.M.base) :
+  have hQ1 := ⋯;
+  have D := symmetricPrefixRouting A hQ1;
+  have r := Nat.card (SymmetricMinimalFPoints A hB);
+  L5A2C4I.ResidueData.sourceTargetBranchCount D ≤ r ∧
+    r ≤ Nat.card (L5A2C4I.ResidueData.ExactUnusedMergeBases D) ∧
+      fakeSinkCount (symmetricPrefixIdeal A hQ1) (routingA P.M.base A.reindex) (routingB P.M.base A.reindex)
+          (routingC P.M.base A.reindex) ⋯ ⋯ =
+        1
+NS25Lean.L5A2BFinalRepair.symmetric_prefix_socle_plus_two_le_actual_sourceCount {Gamma : NumericalSemigroup}
+  {P : P2Data Gamma} (A : SectorBCriticalRoleBranchA P) (hB : SectorB P.M) (hQ : 2 < actualPrincipalIndex P.M.base) :
+  have hQ1 := ⋯;
+  actualSinkCount (symmetricPrefixIdeal A hQ1) (routingA P.M.base A.reindex) (routingB P.M.base A.reindex)
+        (routingC P.M.base A.reindex) ⋯ ⋯ +
+      2 ≤
+    P.sourceCount
+NS25Lean.L5A2BFinalRepair.symmetric_Q_two_actual_type_le_sourceCount {Gamma : NumericalSemigroup} {P : P2Data Gamma}
+  (A : SectorBCriticalRoleBranchA P) (hQ : actualPrincipalIndex P.M.base = 2) :
+  Gamma.asRelativeIdeal.idealType ≤ P.sourceCount
+NS25Lean.L5A2BFinalRepair.symmetric_Q_ge_three_actual_type_le_sourceCount {Gamma : NumericalSemigroup}
+  {P : P2Data Gamma} (A : SectorBCriticalRoleBranchA P) (hB : SectorB P.M) (hQ : 2 < actualPrincipalIndex P.M.base) :
+  Gamma.asRelativeIdeal.idealType ≤ P.sourceCount
+NS25Lean.L5A2BFinalRepair.symmetric_actual_type_le_sourceCount {Gamma : NumericalSemigroup} {P : P2Data Gamma}
+  (A : SectorBCriticalRoleBranchA P) (hB : SectorB P.M) : Gamma.asRelativeIdeal.idealType ≤ P.sourceCount
+NS25Lean.L5A2BFinalRepair.nonsymmetric_prefix_diagram_add_b {Gamma : NumericalSemigroup} {P : P2Data Gamma}
+  (R : SectorBCriticalRoleBranchB P) (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) {s : ℕ}
+  (hs : NonsymmetricPrefixDiagramMember R hB hQ s) : NonsymmetricPrefixDiagramMember R hB hQ (s + nsB R)
+NS25Lean.L5A2BFinalRepair.nonsymmetric_prefix_diagram_add_c {Gamma : NumericalSemigroup} {P : P2Data Gamma}
+  (R : SectorBCriticalRoleBranchB P) (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) {s : ℕ}
+  (hs : NonsymmetricPrefixDiagramMember R hB hQ s) : NonsymmetricPrefixDiagramMember R hB hQ (s + nsC R)
+NS25Lean.L5A2BFinalRepair.nonsymmetric_prefix_height_formula {Gamma : NumericalSemigroup} {P : P2Data Gamma}
+  (R : SectorBCriticalRoleBranchB P) (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) {x y : ℕ}
+  (hdom : NonsymmetricLDomain R x y) :
+  nonsymmetricPrefixLambda R hQ (gridResidue P.M.base (nsReindex R) x y) =
+    ↑(nonsymmetricPrefixDiagramHeight R hB hQ x y) * ↑(nsA R) + ↑x * ↑(nsB R) + ↑y * ↑(nsC R)
+'NS25Lean.BranchBUniformMinPlus.generator_closure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.BranchBUniformMinPlus.height_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.L5A2BFinalRepair.nonsymmetric_prefix_height_eq_uniform' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.L5A2BFinalRepair.nonsymmetric_prefix_height_formula' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.L5A2BFinalRepair.symmetric_Q_gt_one_actual_type_le_sourceCount_uniform' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.L5A2BFinalRepair.symmetric_actual_type_le_sourceCount' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+theorem NS25Lean.L5A2BFinalRepair.nonsymmetric_prefix_diagram_outer_b : ∀ {Gamma : NumericalSemigroup}
+  {P : P2Data Gamma} (R : SectorBCriticalRoleBranchB P) (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base)
+  {y : ℕ},
+  y < nsQ R →
+    nonsymmetricPrefixDiagramHeight R hB hQ 0 (y + nsV R) ≤
+      nonsymmetricPrefixDiagramHeight R hB hQ (nsC2 R - 1) y + nsU R :=
+fun {Gamma} {P} R hB hQ {y} hy =>
+  Eq.mpr
+    (id
+      (congr (congrArg LE.le (nonsymmetric_prefix_height_eq_uniform R hB hQ 0 (y + nsV R)))
+        (congrFun' (congrArg HAdd.hAdd (nonsymmetric_prefix_height_eq_uniform R hB hQ (nsC2 R - 1) y)) (nsU R))))
+    (BranchBUniformMinPlus.outer_b (nonsymmetricUniformMinPlusData R hB hQ) hy)
+theorem NS25Lean.L5A2BFinalRepair.nonsymmetric_prefix_diagram_height_lt_c1 : ∀ {Gamma : NumericalSemigroup}
+  {P : P2Data Gamma} (R : SectorBCriticalRoleBranchB P) (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base)
+  (x y : ℕ), nonsymmetricPrefixDiagramHeight R hB hQ x y < nsC1 R :=
+fun {Gamma} {P} R hB hQ x y =>
+  BranchBUniformMinPlus.candidate_lt_c1 (nonsymmetricUniformMinPlusData R hB hQ)
+    (nonsymmetric_prefix_diagram_height_attained R hB hQ x y)
+theorem NS25Lean.L5A2BFinalRepair.symmetric_actual_type_le_sourceCount : ∀ {Gamma : NumericalSemigroup}
+  {P : P2Data Gamma} (A : SectorBCriticalRoleBranchA P),
+  SectorB P.M → Gamma.asRelativeIdeal.idealType ≤ P.sourceCount :=
+fun {Gamma} {P} A hB =>
+  have hp := (actualPrincipalIndex_spec P.M.base).left;
+  if hQ : actualPrincipalIndex P.M.base = 1 then
+    And.casesOn (symmetric_Q_one_actual_type_and_sourceCount A hQ) fun ht hs =>
+      Decidable.byContradiction fun a => symmetric_actual_type_le_sourceCount._proof_1_1 ht hs a
+  else
+    symmetric_Q_gt_one_actual_type_le_sourceCount_uniform A hB
+      (Decidable.byContradiction fun a => symmetric_actual_type_le_sourceCount._proof_1_2 hp hQ a)
+theorem NS25Lean.L5A2BFinalRepair.symmetric_Q_gt_one_actual_type_le_sourceCount_uniform : ∀ {Gamma : NumericalSemigroup}
+  {P : P2Data Gamma} (A : SectorBCriticalRoleBranchA P),
+  SectorB P.M → 1 < actualPrincipalIndex P.M.base → Gamma.asRelativeIdeal.idealType ≤ P.sourceCount :=
+fun {Gamma} {P} A hB hQ =>
+  LE.le.trans (symmetric_principal_socle_gain_le_two_uniform A hB hQ)
+    (symmetric_prefix_socle_plus_two_le_actual_sourceCount_uniform A hB hQ)

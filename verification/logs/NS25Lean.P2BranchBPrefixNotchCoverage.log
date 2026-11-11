@@ -1,0 +1,46 @@
+NS25Lean/P2BranchBPrefixNotchCoverage.lean:275:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBPrefixNotchCoverage.lean:278:49: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/P2BranchBPrefixNotchCoverage.lean:279:51: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2BranchBPrefixNotchCoverage.lean:286:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBPrefixNotchCoverage.lean:287:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBPrefixNotchCoverage.lean:373:51: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/P2BranchBPrefixNotchCoverage.lean:373:51: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/P2BranchBPrefixNotchCoverage.lean:375:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBPrefixNotchCoverage.lean:377:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBPrefixNotchCoverage.lean:379:51: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2BranchBPrefixNotchCoverage.lean:379:51: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead

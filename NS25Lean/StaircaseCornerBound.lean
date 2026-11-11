@@ -219,15 +219,19 @@ theorem socle_eq_of_horizontal (I : Ideal (Polynomial k)) (p q : socleExponents 
     intro j
     fin_cases j <;> simp_all
 
-theorem tag_injective (I : Ideal (Polynomial k)) : Function.Injective (tag I) := by
+theorem tag_injective_of_spec (I : Ideal (Polynomial k))
+    (f : socleExponents I → Tags I)
+    (hf : ∀ p, tagExponent I (f p) 2 = birth I p ∧
+      tagExponent I (f p) (tagCoordinate I (f p)) =
+        p.val (tagCoordinate I (f p)) + 1) : Function.Injective f := by
   intro p q he
-  have hsp := tag_spec I p
-  have hsq := tag_spec I q
+  have hsp := hf p
+  have hsq := hf q
   rw [← he] at hsq
   have hz : birth I p = birth I q := hsp.1.symm.trans hsq.1
-  have hc : p.val (tagCoordinate I (tag I p)) = q.val (tagCoordinate I (tag I p)) := by omega
+  have hc : p.val (tagCoordinate I (f p)) = q.val (tagCoordinate I (f p)) := by omega
   have hl : level p.val (birth I p) = level q.val (birth I q) := by
-    rcases tagCoordinate_cases I (tag I p) with hi | hi
+    rcases tagCoordinate_cases I (f p) with hi | hi
     · apply corner_eq_of_x I (birth_corner I p) (birth_corner I q)
       · simpa [hi] using hc
       · simpa using hz
@@ -237,6 +241,10 @@ theorem tag_injective (I : Ideal (Polynomial k)) : Function.Injective (tag I) :=
   apply socle_eq_of_horizontal I p q
   · simpa using congrArg (fun a : Exponent => a 0) hl
   · simpa using congrArg (fun a : Exponent => a 1) hl
+
+/-- The literal classical-choice map is one permitted birth-height tagging. -/
+theorem tag_injective (I : Ideal (Polynomial k)) : Function.Injective (tag I) :=
+  tag_injective_of_spec I (tag I) (tag_spec I)
 
 theorem socle_count_le_tags (I : Ideal (Polynomial k)) :
     (socleExponents I).ncard ≤ (mainGenerators I).ncard + (fullSupportGenerators I).ncard := by

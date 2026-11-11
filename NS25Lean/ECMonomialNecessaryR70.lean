@@ -28,9 +28,14 @@ theorem monomialTopSlack_nonneg (B : Data Gamma) (hJ : IsMonomialIdeal k (B.J k)
 theorem monomial_slack_identity (B : Data Gamma) :
     (Presentation.rho Gamma : ℤ) - 1 - (Gamma.asRelativeIdeal.idealType : ℤ) =
       monomialTopSlack (k := k) B + (1 - (q_fs (B.J k) : ℤ)) := by
-  unfold monomialTopSlack
-  rw [chosen_mu_eq, chosen_type_eq]
-  omega
+  have hi := EqualityLossAlgebra.two_loss_identity
+    (Presentation.rho Gamma : ℤ) (Gamma.asRelativeIdeal.idealType : ℤ)
+    (mu (B.J k) : ℤ) (quotientType (B.J k) : ℤ) (q_fs (B.J k) : ℤ)
+  unfold monomialTopSlack EqualityLossAlgebra.bpsLoss
+    EqualityLossAlgebra.compensationLoss EqualityLossAlgebra.typeLoss
+    EqualityLossAlgebra.generatorLoss at *
+  rw [chosen_mu_eq, chosen_type_eq] at *
+  simpa only [sub_self, sub_zero, zero_sub, neg_add_eq_sub] using hi
 
 /-- Genuine q_fs=1 necessity for a monomial equality pivot, not a sufficiency claim. -/
 theorem equality_monomial_qfs_one (B : Data Gamma) (hJ : IsMonomialIdeal k (B.J k))

@@ -1,0 +1,2 @@
+NS25Lean/P2DAMonomializationR49.lean:70:49: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+NS25Lean/P2DAMonomializationR49.lean:71:49: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead

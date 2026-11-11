@@ -1,0 +1,102 @@
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:316:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:478:5: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:478:22: warning: Variable name `hy` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hy
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:580:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:714:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:716:29: warning: Variable name `A` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _A
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:760:0: warning: Definition `NS25Lean.L5A2BFinalRepair.symmetricReturnNonempty` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:760:0: warning: Definition `symmetricReturnNonempty` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:865:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:896:54: warning: This simp argument is unused:
+  Nat.cast_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [symmetricX, Nat.cast_add, Nat.cast_mul, zero_mul, zero_add, add_zero] at hm ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:896:77: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [symmetricX, Nat.cast_add, Nat.cast_mul, Nat.cast_zero, zero_mul, add_zero] at hm ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:916:54: warning: This simp argument is unused:
+  Nat.cast_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [symmetricY, Nat.cast_add, Nat.cast_mul, zero_mul, add_zero] at hm ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:897:25: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:899:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:917:25: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:919:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:979:17: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:982:17: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:993:19: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:999:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBFinalRepairSymmetric.lean:1016:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

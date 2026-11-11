@@ -1,0 +1,38 @@
+NS25Lean/P3R1ComplementR65.lean:34:5: warning: Variable name `hP` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hP
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3R1ComplementR65.lean:34:60: warning: Variable name `hZ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hZ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3R1ComplementR65.lean:37:27: warning: Variable name `heI` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _heI
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3R1ComplementR65.lean:58:17: warning: Variable name `hD` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hD
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'NS25Lean.P3R65.signed_integer_kernel_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R65.rb_complement_impossible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R65.lt_complement_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R65.complement_relation_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R65.all_nonprincipal_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+NS25Lean/P3R1ComplementR65.lean:169:5: warning: Variable name `hj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'NS25Lean.P3R65.complementary_lt_identities' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R65.nonprincipal_complement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R65.deep_lt_level' depends on axioms: [propext, Classical.choice, Quot.sound]

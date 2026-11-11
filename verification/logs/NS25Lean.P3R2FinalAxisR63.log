@@ -1,0 +1,12 @@
+NS25Lean/P3R2FinalAxisR63.lean:32:5: warning: Variable name `hlevels` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlevels
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3R2FinalAxisR63.lean:91:5: warning: Variable name `hlevels` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlevels
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

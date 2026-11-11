@@ -1,0 +1,3 @@
+NS25Lean/P2SectorCM6InitialSocleR34.lean:62:18: warning: Try `simp at hf` instead of `simpa using hf`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

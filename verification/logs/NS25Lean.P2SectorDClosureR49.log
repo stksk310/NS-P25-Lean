@@ -1,0 +1,72 @@
+NS25Lean/P2SectorDClosureR49.lean:66:25: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P2SectorDClosureR49.lean:159:6: warning: Try `simp at hwj` instead of `simpa using hwj`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2SectorDClosureR49.lean:354:45: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2SectorDClosureR49.lean:408:45: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2SectorDClosureR49.lean:334:18: warning: This simp argument is unused:
+  Ne.symm hxy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Ne.symm hzy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorDClosureR49.lean:335:18: warning: This simp argument is unused:
+  hzx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hzy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorDClosureR49.lean:370:47: warning: This simp argument is unused:
+  hzy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [w, ux, hwix, hwiy, hwiz, hxy, hzx] at heix heiy heiz
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorDClosureR49.lean:389:18: warning: This simp argument is unused:
+  hxy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hzx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorDClosureR49.lean:391:23: warning: This simp argument is unused:
+  hzy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hzx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorDClosureR49.lean:424:42: warning: This simp argument is unused:
+  hzx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [w, uy, hwix, hwiy, hwiz, hxy, hzy] at heix heiy heiz
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorDClosureR49.lean:480:18: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2SectorDClosureR49.lean:480:31: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2SectorDClosureR49.lean:483:28: warning: Variable name `hmu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hmu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

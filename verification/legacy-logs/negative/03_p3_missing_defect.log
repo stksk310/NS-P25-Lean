@@ -1,0 +1,6 @@
+legacy-checks\negative\03_p3_missing_defect.lean:8:2: error: Type mismatch
+  P3R68.p3_strong_of_chosenDefect_three M
+has type
+  L2B.chosenDefect M.base = 3 → Gamma.asRelativeIdeal.idealType ≤ Presentation.rho Gamma - 2
+but is expected to have type
+  Gamma.asRelativeIdeal.idealType ≤ Presentation.rho Gamma - 2

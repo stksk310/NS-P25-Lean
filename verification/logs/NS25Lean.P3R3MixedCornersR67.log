@@ -1,0 +1,102 @@
+NS25Lean/P3R3MixedCornersR67.lean:103:92: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3MixedCornersR67.lean:104:56: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3MixedCornersR67.lean:128:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+NS25Lean/P3R3MixedCornersR67.lean:199:75: warning: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NS25Lean/P3R3MixedCornersR67.lean:169:92: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3MixedCornersR67.lean:173:92: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3MixedCornersR67.lean:181:97: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3MixedCornersR67.lean:203:78: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3MixedCornersR67.lean:204:78: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3MixedCornersR67.lean:259:76: warning: This simp argument is unused:
+  Nat.cast_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [normalizedGrid, Nat.cast_add, Nat.cast_mul, Nat.cast_sub hDU.le, zero_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P3R3MixedCornersR67.lean:262:73: warning: This simp argument is unused:
+  Nat.cast_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [normalizedGrid, Nat.cast_add, Nat.cast_mul, Nat.cast_sub hDA, zero_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P3R3MixedCornersR67.lean:264:75: warning: This simp argument is unused:
+  Nat.cast_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [s, normalizedGrid, Nat.cast_add, Nat.cast_mul, Nat.cast_sub hDA, zero_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P3R3MixedCornersR67.lean:253:92: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3R3MixedCornersR67.lean:256:92: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'NS25Lean.P3R67.fullsupport_rb_protection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.rb_strip_no_LT_F_divisor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.rb_strip_no_LT_X_divisor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.rb_strip_no_LT_Y_divisor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.mixed_rb_top_predecessor_absent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.mixed_rb_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+NS25Lean/P3R3MixedCornersR67.lean:319:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P3R3MixedCornersR67.lean:320:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'NS25Lean.P3R67.actual_unused_merge_swap_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.rb_swap_iff_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.fullsupport_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.mixed_lt_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.concrete_unused_merge_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.rb_maximum_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.lt_maximum_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.mixed_rb_corner_of_occupied' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.mixed_lt_corner_of_occupied' depends on axioms: [propext, Classical.choice, Quot.sound]

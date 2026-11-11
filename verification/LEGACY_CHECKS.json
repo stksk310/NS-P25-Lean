@@ -1,0 +1,150 @@
+{
+  "scope": "13 original public controls elaborated against the current 494-source task-fresh compiled objects and warm pinned dependencies; no project rebuild in this packaging step",
+  "all_passed": true,
+  "checks": [
+    {
+      "source": "legacy-checks/axioms/01.lean",
+      "source_sha256": "479cf0b9b69501f5c042a623eb32c57489e90a73b1c1b0ee0929ecb665980039",
+      "expected_failure": false,
+      "exit_code": 0,
+      "pass": true,
+      "log": "verification/legacy-logs/axioms/01.log",
+      "log_sha256": "7ee873b32af806e3846ebba90a73a12ac726b0cf3c4dffbd54040d40711b55ef",
+      "seconds": 136.86,
+      "original_execution_log_sha256": "7ee873b32af806e3846ebba90a73a12ac726b0cf3c4dffbd54040d40711b55ef"
+    },
+    {
+      "source": "legacy-checks/axioms/02.lean",
+      "source_sha256": "1bb1fa75655b8d67e7fe315a66d1639eb44c02392b2745db6f410a6805e143d6",
+      "expected_failure": false,
+      "exit_code": 0,
+      "pass": true,
+      "log": "verification/legacy-logs/axioms/02.log",
+      "log_sha256": "cdd7eb91f45e1daf0096dc65a45d43ae9c15b3313f24c850bdf358dc84fa107a",
+      "seconds": 20.94,
+      "original_execution_log_sha256": "cdd7eb91f45e1daf0096dc65a45d43ae9c15b3313f24c850bdf358dc84fa107a"
+    },
+    {
+      "source": "legacy-checks/axioms/03.lean",
+      "source_sha256": "f2e949cde5b09a2268b8b0bd4406348977ffcd898939918da415f918c2ba9769",
+      "expected_failure": false,
+      "exit_code": 0,
+      "pass": true,
+      "log": "verification/legacy-logs/axioms/03.log",
+      "log_sha256": "7d9b8ff25533971d7e12fc22532e42c699e1ba8515d0e0dbe16f34284081dc21",
+      "seconds": 15.02,
+      "original_execution_log_sha256": "7d9b8ff25533971d7e12fc22532e42c699e1ba8515d0e0dbe16f34284081dc21"
+    },
+    {
+      "source": "legacy-checks/axioms/04.lean",
+      "source_sha256": "7fb03988d8b45b167d4a26a06305a1b0312174a427b5f3a67ad53a4dab77396a",
+      "expected_failure": false,
+      "exit_code": 0,
+      "pass": true,
+      "log": "verification/legacy-logs/axioms/04.log",
+      "log_sha256": "0f55a58503f812e5005ccfad6631b750ce10db946306d8edde55431d113a6d51",
+      "seconds": 17.39,
+      "original_execution_log_sha256": "0f55a58503f812e5005ccfad6631b750ce10db946306d8edde55431d113a6d51"
+    },
+    {
+      "source": "legacy-checks/axioms/05.lean",
+      "source_sha256": "4c51117bf9ebb5701b07c5b165632eaa23c2421402cbab40b2535982bedac12c",
+      "expected_failure": false,
+      "exit_code": 0,
+      "pass": true,
+      "log": "verification/legacy-logs/axioms/05.log",
+      "log_sha256": "f9aeec4d785c8165ef3fe293d18a5da50bb0d82910e5fbadf5002b33b2d87c07",
+      "seconds": 16.92,
+      "original_execution_log_sha256": "f9aeec4d785c8165ef3fe293d18a5da50bb0d82910e5fbadf5002b33b2d87c07"
+    },
+    {
+      "source": "legacy-checks/negative/01_sharp_missing_four_generated.lean",
+      "source_sha256": "c8959430c601cd3d4d0f8347849b8c92bb2cd5838438a3140608b95eba7acb44",
+      "expected_failure": true,
+      "exit_code": 1,
+      "pass": true,
+      "log": "verification/legacy-logs/negative/01_sharp_missing_four_generated.log",
+      "log_sha256": "8c22e57afd44457e6212980e8c0436b8edc7cc9f21310a51ba5d1465be01b0d0",
+      "seconds": 18.97,
+      "original_execution_log_sha256": "a86042c9bba92a19d380c4c4c045aeab3465890198ffc1e386fd5ed1e7cc448b"
+    },
+    {
+      "source": "legacy-checks/negative/02_p2_missing_defect.lean",
+      "source_sha256": "86ae33ed163bfe214a4402be09529ad68423c76e20c34a94e1331b13e6eb4769",
+      "expected_failure": true,
+      "exit_code": 1,
+      "pass": true,
+      "log": "verification/legacy-logs/negative/02_p2_missing_defect.log",
+      "log_sha256": "3a488fd329a4be1807bbba6b56e8a312531ad753504479347cbe617b392f28a4",
+      "seconds": 20.16,
+      "original_execution_log_sha256": "98356f8d092e044c5a28df711c60a4868afd37c164321b32fef9f862311da31c"
+    },
+    {
+      "source": "legacy-checks/negative/03_p3_missing_defect.lean",
+      "source_sha256": "af024f8cdc07bbf74a6cc03a494eb20942e932b5bcece0fbb94cf61513781f9e",
+      "expected_failure": true,
+      "exit_code": 1,
+      "pass": true,
+      "log": "verification/legacy-logs/negative/03_p3_missing_defect.log",
+      "log_sha256": "af82aa7732cdf0e8b008d0181dff4566837ecd629d99310c58aa3c3c005d1064",
+      "seconds": 19.98,
+      "original_execution_log_sha256": "88c384d1380342c1d423b39c9dc6388d7b377f85ad23a4be828e66a3fde79bd2"
+    },
+    {
+      "source": "legacy-checks/negative/04_finite_certificate_replaced.lean",
+      "source_sha256": "8fac1345cefcbb72212e5a4e0ae84e19d1c7975f0e225c811a59a6851f4753c5",
+      "expected_failure": true,
+      "exit_code": 1,
+      "pass": true,
+      "log": "verification/legacy-logs/negative/04_finite_certificate_replaced.log",
+      "log_sha256": "2fd9c55b4cc1021f01177b8c38aab803ab9f4078bf6d7b463db28267e438fd79",
+      "seconds": 20.03,
+      "original_execution_log_sha256": "938074ca04cf67a4a76a068cab2f689987f0afa2d81f4a4561cdef4714d7e7a6"
+    },
+    {
+      "source": "legacy-checks/negative/05_all_pivots_changed_to_exists.lean",
+      "source_sha256": "21bef6b80163427d6e3a6370ec62247e42bc6f27611b62b144627d23c350bb3d",
+      "expected_failure": true,
+      "exit_code": 1,
+      "pass": true,
+      "log": "verification/legacy-logs/negative/05_all_pivots_changed_to_exists.log",
+      "log_sha256": "e619c494f8645e26af754bf44c30a4f0d1a350bb1e21fec818b3ef6db2ef1e91",
+      "seconds": 19.89,
+      "original_execution_log_sha256": "5f1b2725ef569c81ddfca3abb4817cf7648418f14d5b1af685cb83bae9d05260"
+    },
+    {
+      "source": "legacy-checks/negative/06_original_semigroup_changed.lean",
+      "source_sha256": "9dc06e8e6cc31a3d419b77320ac517834815f8103c9a31c62cf61da1047ba3c7",
+      "expected_failure": true,
+      "exit_code": 1,
+      "pass": true,
+      "log": "verification/legacy-logs/negative/06_original_semigroup_changed.log",
+      "log_sha256": "9eadff6a644e24443e02a0fe8c17366a3249c206a30f22bf068d99c6e1a32dd9",
+      "seconds": 19.84,
+      "original_execution_log_sha256": "8887f630da675e90d1b1e0ec1562321d692e5785dd7662307e4bf97a6527c873"
+    },
+    {
+      "source": "legacy-checks/negative/07_qfs_le_misused_as_eq.lean",
+      "source_sha256": "69483cf9b7914d3ac6ca05e82ea2ef1ccb19dc2ac7f090f61cafd369c485b28b",
+      "expected_failure": true,
+      "exit_code": 1,
+      "pass": true,
+      "log": "verification/legacy-logs/negative/07_qfs_le_misused_as_eq.log",
+      "log_sha256": "27bd6e721e3c2dc0cc9ddfc5689de32e42ccf640b6fd8617868e1be3df50b63a",
+      "seconds": 19.84,
+      "original_execution_log_sha256": "05bf3534570e1d17cfdd49e28e8b69314168390fa5a620620c63f67cd833b78a"
+    },
+    {
+      "source": "legacy-checks/negative/08_frontend_existence_is_not_certificate.lean",
+      "source_sha256": "655b932394357d748252bf273adb14071da35987c599f8c44f701c1ca6bf6772",
+      "expected_failure": true,
+      "exit_code": 1,
+      "pass": true,
+      "log": "verification/legacy-logs/negative/08_frontend_existence_is_not_certificate.log",
+      "log_sha256": "b009df58784547f901f648564105054996f983028068243d07e5663459780c05",
+      "seconds": 16.11,
+      "original_execution_log_sha256": "1b2c86cc9eb5a3a392f093c527a652c10fe7182d5974677c0e5c3f8edea96faa"
+    }
+  ],
+  "log_path_normalization": "Absolute release workspace prefix removed from diagnostic filenames; original execution log SHA-256 retained. Compiler messages otherwise unchanged."
+}

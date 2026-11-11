@@ -1,0 +1,7 @@
+'NS25Lean.L3C.source_factorization_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.L3C.source_binomial_mem_principal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.L3C.source_factorization_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.L3C.source_normalized_factorization_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.L3C.inactive_presentation_paths' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.L3C.inactive_unique_normal_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.L3C.inactive_factorization_chain' depends on axioms: [propext, Classical.choice, Quot.sound]

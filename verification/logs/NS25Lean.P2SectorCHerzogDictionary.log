@@ -1,0 +1,22 @@
+NS25Lean/P2SectorCHerzogDictionary.lean:24:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCHerzogDictionary.lean:158:15: warning: This simp argument is unused:
+  hcx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hxy, hcy, Ne.symm hcx, Ne.symm hcy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCHerzogDictionary.lean:158:38: warning: This simp argument is unused:
+  Ne.symm hcy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hxy, hcx, hcy, Ne.symm hcx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

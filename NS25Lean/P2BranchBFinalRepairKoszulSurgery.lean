@@ -1,4 +1,5 @@
 import NS25Lean.P2BranchBFinalRepairColonKernel
+import NS25Lean.PrincipalTensorColonLinear
 
 set_option linter.style.header false
 set_option maxHeartbeats 300000
@@ -1009,17 +1010,17 @@ theorem symmetric_principal_algebraic_socle_gain_le_two
   letI := carrierMonomialQuotient_finite (k:=k) (symmetricFinalIdeal A)
   letI := carrierMonomialQuotient_finite (k:=k) (symmetricPrefixIdeal A hQ)
   letI := symmetric_colon_H1_finite (k:=k) A hB hQ
-  have hker : Module.finrank k (LinearMap.ker (symmetricPrincipalH0Projection (k:=k) A hQ))=1 := by
-    rw [← symmetricPrincipalH0Projection_exact,
-      LinearMap.finrank_range_of_inj (symmetricPrincipalH0Injection_injective A hQ)]
-    exact symmetric_principal_colon_socle_finrank (k:=k) A hB hQ
-  have h1 := LinearMap.finrank_range_add_finrank_ker (symmetricPrincipalH0Projection (k:=k) A hQ)
-  have h2 := LinearMap.finrank_range_add_finrank_ker (symmetricPrincipalConnecting (k:=k) A hQ)
-  have hr : Module.finrank k (LinearMap.range (symmetricPrincipalConnecting (k:=k) A hQ)) ≤ 3 := by
-    have hh := Submodule.finrank_le (LinearMap.range (symmetricPrincipalConnecting (k:=k) A hQ))
-    rwa [symmetric_principal_colon_koszulH1_finrank (k:=k) A hB hQ] at hh
-  rw [hker] at h1
-  rw [← symmetricPrincipalConnecting_exact] at h2
+  letI := Module.Finite.of_basis (symmetricPrincipalColonBoxBasis (k:=k) A hB hQ)
+  have hb := principal_finrank_balance_le
+    (symmetricPrincipalH0Injection (k:=k) A hQ)
+    (symmetricPrincipalH0Projection (k:=k) A hQ)
+    (symmetricPrincipalConnecting (k:=k) A hQ)
+    (0 : symmetricPrincipalColonH1 (k:=k) A hQ →ₗ[k] k)
+    (symmetricPrincipalH0Injection_injective A hQ)
+    (symmetricPrincipalH0Projection_exact A hQ)
+    (symmetricPrincipalConnecting_exact A hQ) (by simp)
+  rw [symmetric_principal_colon_socle_finrank (k:=k) A hB hQ,
+    symmetric_principal_colon_koszulH1_finrank (k:=k) A hB hQ] at hb
   omega
 
 section CarrierSocle

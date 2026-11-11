@@ -29,7 +29,7 @@ theorem r3_residual_fresh (M : MultiplicityBase Gamma)
     intro q hq hqQ
     exact rb_level_exists M hp f q (hreturns q hq hqQ)
   obtain ⟨D,hatt,hmax⟩ := exists_max_rb_depth M hp f ⟨1,i,j,d,by omega,hQf,hl⟩
-  refine ⟨f,rb_fresh_of_protected M hp f hQf hlevels htau D hatt hmax ?_⟩
+  refine ⟨f,rb_fresh_of_shared_protected M hp f hR3 hQf hlevels htau D hatt hmax ?_⟩
   exact hprotect D (hmax 1 i j d (by omega) hQf hl)
 
 /-- Original residual type, using the same original R52 bridge. -/

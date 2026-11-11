@@ -1,0 +1,84 @@
+NS25Lean/P3ReturnGeneratorsR61.lean:99:95: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3ReturnGeneratorsR61.lean:110:122: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3ReturnGeneratorsR61.lean:119:129: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3ReturnGeneratorsR61.lean:121:127: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3ReturnGeneratorsR61.lean:125:25: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3ReturnGeneratorsR61.lean:127:25: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3ReturnGeneratorsR61.lean:129:25: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3ReturnGeneratorsR61.lean:140:41: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P3ReturnGeneratorsR61.lean:143:27: warning: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3ReturnGeneratorsR61.lean:147:25: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3ReturnGeneratorsR61.lean:151:33: warning: Variable name `hj0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hj0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3ReturnGeneratorsR61.lean:151:47: warning: Variable name `hd0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3ReturnGeneratorsR61.lean:154:5: warning: Variable name `hib` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hib
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3ReturnGeneratorsR61.lean:211:27: warning: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3ReturnGeneratorsR61.lean:215:25: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3ReturnGeneratorsR61.lean:219:19: warning: Variable name `hi0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hi0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3ReturnGeneratorsR61.lean:219:47: warning: Variable name `hd0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3ReturnGeneratorsR61.lean:222:47: warning: Variable name `hjb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hjb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

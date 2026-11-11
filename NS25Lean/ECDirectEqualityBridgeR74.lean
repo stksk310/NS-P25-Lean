@@ -90,4 +90,51 @@ theorem unique_tie_qfs_one_survivor_count {M : MultiplicityBase Gamma} {d : ℕ}
   rw [hq]
   omega
 
+theorem pcr_count_qfs_zero_iff {M : MultiplicityBase Gamma} {d : ℕ}
+    (F : L3B.InternalFrontend ℚ M d) (G : L3C.NormalizedSources F)
+    (hq : q_fs F.initial.ideal = 0) :
+    PCRCountCertificate F G ↔
+      0 < (L3C.survivingWraps F G).ncard ∧
+        (L3C.planarMaxD F G ∩ L3C.planarE F G).ncard + 1 =
+          (L3C.survivingWraps F G).ncard := by
+  unfold PCRCountCertificate
+  rw [hq]
+  exact EqualityLossAlgebra.count_qfs_zero_iff _ _
+
+theorem pcr_count_qfs_one_iff {M : MultiplicityBase Gamma} {d : ℕ}
+    (F : L3B.InternalFrontend ℚ M d) (G : L3C.NormalizedSources F)
+    (hq : q_fs F.initial.ideal = 1) :
+    PCRCountCertificate F G ↔
+      (L3C.planarMaxD F G ∩ L3C.planarE F G).ncard =
+        (L3C.survivingWraps F G).ncard := by
+  unfold PCRCountCertificate
+  rw [hq]
+  exact EqualityLossAlgebra.count_qfs_one_iff _ _
+
+theorem pcr_count_qfs_zero_wrap_zero_impossible {M : MultiplicityBase Gamma} {d : ℕ}
+    (F : L3B.InternalFrontend ℚ M d) (G : L3C.NormalizedSources F)
+    (hq : q_fs F.initial.ideal = 0) (hw : (L3C.survivingWraps F G).ncard = 0) :
+    ¬ PCRCountCertificate F G := by
+  rw [pcr_count_qfs_zero_iff F G hq,hw]
+  omega
+
+/-- With Q=W=0 the second nonnegative loss is strictly positive. -/
+theorem qfs_zero_wrap_zero_pcr_loss_pos {M : MultiplicityBase Gamma} {d : ℕ}
+    (F : L3B.InternalFrontend ℚ M d) (G : L3C.NormalizedSources F)
+    (hq : q_fs F.initial.ideal = 0) (hw : (L3C.survivingWraps F G).ncard = 0) :
+    0 < L3C.delta_PCR F := by
+  have hs := L3C.artificial_socle_formula F G
+  have hw' := L3C.survivingWraps_card_eq_delta1 F G
+  unfold L3C.delta_PCR
+  rw [hq,hw] at *
+  omega
+
+theorem qfs_zero_wrap_zero_not_equality {M : MultiplicityBase Gamma} {d : ℕ}
+    (F : L3B.InternalFrontend ℚ M d) (G : L3C.NormalizedSources F)
+    (hq : q_fs F.initial.ideal = 0) (hw : (L3C.survivingWraps F G).ncard = 0) :
+    Gamma.asRelativeIdeal.idealType ≠ Presentation.rho Gamma - 1 := by
+  intro he
+  exact pcr_count_qfs_zero_wrap_zero_impossible F G hq hw
+    ((unique_tie_ns_sharp_iff_finite_counts F G).mp he).2
+
 end NS25Lean.EC.R74

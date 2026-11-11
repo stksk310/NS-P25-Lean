@@ -1,0 +1,36 @@
+NS25Lean/P2ReindexFibers.lean:17:25: warning: This simp argument is unused:
+  weights
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Data.tailDegrees]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2ReindexFibers.lean:17:34: warning: This simp argument is unused:
+  Data.tailDegrees
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [weights]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2ReindexFibers.lean:19:30: warning: This simp argument is unused:
+  weights
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Data.tailDegrees]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2ReindexFibers.lean:19:39: warning: This simp argument is unused:
+  Data.tailDegrees
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [weights]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2ReindexFibers.lean:108:4: warning: Unused tactic linter: `change
+  FourGeneratedBridge.IsMinimalTailGenerator (reindexMultiplicityBase M e).base.H (reindexMultiplicityBase M e).base.K
+    s.val` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NS25Lean/P2ReindexFibers.lean:113:4: warning: Unused tactic linter: `change FourGeneratedBridge.IsMinimalTailGenerator M.base.H M.base.K s.val` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

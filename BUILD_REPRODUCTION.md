@@ -1,25 +1,29 @@
-# Build reproduction — public source v1.0.0
+# Build reproduction
 
-Proof modules, frozen Lean verification drivers, and pinned Lean configuration bytes are unchanged from the R80 independently reproduced release candidate. The first public GitHub release is tagged v1.0.0; frozen Lake package metadata remains version 0.1.0. No dependency update is authorized.
+Install the exact `lean-toolchain`. Preserve `lakefile.toml` and `lake-manifest.json`; do not run `lake update`. `lake exe cache get` may obtain external pinned dependency caches. For a source-clean project replay, begin without project `.lake/build` outputs.
 
-## Accepted independent execution
+```sh
+lake exe cache get
+lake build NS25Lean
+lake env lean PublicExactTargets.lean
+lake env lean PublicAxioms.lean
+lake env lean PublicCertificateAudit.lean
+```
 
-R80 used a newly created Ubuntu cloud VM distinct from the prior Windows worker. The unchanged 391 proof modules and four-import NS25Lean root were built with Lean 4.34.0-rc1 (commit 3447a668783dbce1a8fdb97101dd067687b2b418) and Lake 5.0.0-src+3447a66. All nine Git revisions matched lake-manifest.json. The external worker cloned pinned dependencies and obtained the official Mathlib dependency object cache. The project build directory was absent before compilation and no old NS25Lean objects were imported. The build completed 2517 Lake jobs and passed the three positive drivers, five individual standard-only axiom audits and eight type-mismatch negative controls.
+The production root exports the common manuscript modules. Remaining standalone verification files can be elaborated with `lake env lean PATH.lean`; the complete 494-file list is in `verification/SOURCE_SHA256.json`. Files under `Checks/` and the standalone `Alignment*Accept.lean` files are successful positive/boundary controls, not expected failures. Likewise, the check modules within `NS25Lean/` are included in the 494-file receipt. To check all listed sources after the production build, for example:
 
-Commander accepted the source-bound external run with exact scope on 2026-10-19 after independently checking source integrity and provider execution evidence. This was an audit of the worker's actual Linux Lean execution; Commander did not locally perform another kernel build. R81's optional local staging checks are separately recorded in the private audit and do not constitute another independent-host acceptance.
+```python
+import json, subprocess
+from pathlib import Path
+sources = json.loads(Path('verification/SOURCE_SHA256.json').read_text())
+for source in sources:
+    subprocess.run(['lake', 'env', 'lean', source], check=True)
+```
 
-## Fresh kernel replay
+The 13 original individual controls are in `legacy-checks/`: five `axioms/` files must succeed with only standard axioms, and eight `negative/` files must fail with an actual type mismatch, not a missing import. Their updated-source executions are in `verification/LEGACY_CHECKS.json`.
 
-1. Copy only the source candidate into a new working directory. Do not copy .lake, OLEAN/ILEAN, compiled caches or old project outputs.
-2. Install the exact lean-toolchain. Preserve lakefile.toml and lake-manifest.json byte-for-byte; do not run lake update.
-3. Obtain the nine pinned dependencies. lake exe cache get may obtain the Mathlib dependency cache. Record the cache source and confirm the project .lake/build is absent before lake build.
-4. Run lake build NS25Lean. Then run lake env lean PublicExactTargets.lean, PublicAxioms.lean and PublicCertificateAudit.lean separately. Preserve full output and exit codes.
-5. Run each of the five checks/axioms/*.lean files using lake env lean. Require exit 0 and only propext, Classical.choice and Quot.sound for the exact intended theorem.
-6. Run each of the eight checks/negative/*.lean files separately. Require a nonzero exit caused by Type mismatch; unknown modules, unknown identifiers or failed loads do not count as a successful negative control.
-7. Confirm the 391 module files plus root are generated, inspect the certificate definitions and final theorem prints, and compare all protected source and dependency-file hashes before and after.
+## Evidence supplied with v1.1.0
 
-## Historical regression boundary
+The alignment task compiled the full baseline of 395 files from source, then built an intermediate checkpoint and the final 494-file source set. The final pass compiled 42 and reused 452 exact task-fresh outputs, checking source, dependency-object, compiler and output hashes. Its LEAN_PATH excluded inherited project objects. External dependencies were warm and pinned. All final exit codes were zero. `verification/BUILD_RECEIPT.json` publishes the source/log bindings; its logs are copied verbatim from that completed run. Public metadata edits do not change the 494 checked sources.
 
-R78 ran the original 182 research regression drivers against the full frozen research project. That frozen receipt is inherited in R81; the 182 regressions are not rerun here. The curated public source tree does not contain the entire historical research root or suite. Do not run those tests against a different root and label that as the original regression replay. R81's 13 individual checks are five axiom drivers plus eight expected-negative drivers, not the 182-regression suite.
-
-Source validators and saved-receipt validators do not invoke Lean. Their PASS results do not substitute for a kernel execution. The R80 accepted external build remains the independent-host authority. The author selected Apache-2.0, confirmed attribution to Keisuke Sato, and authorized publication through GitHub and Zenodo on 2026-10-23. These are documentation-only changes; R80 remains the accepted distinct-host kernel reproduction for the frozen Lean source. The actual GitHub release and Zenodo DOI must be verified from live services, not inferred from this file.
+No new independent-host or dependency-cold replay of v1.1.0 is claimed. The old v1.0.0 Ubuntu replay is historical evidence for that release only. Reproduction commands above are instructions, not claims that those commands were executed for this publication packaging step.

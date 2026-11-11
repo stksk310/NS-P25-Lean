@@ -1,0 +1,45 @@
+NS25Lean/GenericLShapeCompleteness.lean:63:24: warning: This simp argument is unused:
+  Int.toNat_of_nonneg hisub0
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pair, ss, jj, Int.toNat_of_nonneg hj0]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/GenericLShapeCompleteness.lean:107:18: warning: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/GenericLShapeCompleteness.lean:107:31: warning: Variable name `hz` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hz
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/GenericLShapeCompleteness.lean:107:44: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/GenericLShapeCompleteness.lean:276:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/GenericLShapeCompleteness.lean:330:5: warning: Variable name `hs2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hs2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/GenericLShapeCompleteness.lean:330:24: warning: Variable name `hs3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hs3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

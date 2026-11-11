@@ -1,4 +1,5 @@
 import NS25Lean.P2BranchBBalancedPrefixSlack
+import NS25Lean.P2ErasureActualAdapters
 
 set_option linter.style.header false
 noncomputable section
@@ -17,6 +18,132 @@ def NonsymmetricErasedSources (R : SectorBCriticalRoleBranchB P)
     (hQ : 1 < actualPrincipalIndex P.M.base) :=
   {s : NonsymmetricPrefixSources R hQ //
     s.val-(actualPrincipalIndex P.M.base*normalizedM P.M.base : ℕ) ∈ (nsH R).asRelativeIdeal}
+
+theorem nonsymmetric_first_principal_eq (R : SectorBCriticalRoleBranchB P) :
+    L5A2C4OR19.firstPrincipal (nsH R) (normalizedM P.M.base) P.M.base.q_positive=
+      actualPrincipalIndex P.M.base := by
+  rw [ErasureActualAdapters.firstPrincipal_eq_principalIndex,nonsymmetric_H_eq_normalizedH R]
+
+def nonsymmetricErasedToCommon (R : SectorBCriticalRoleBranchB P)
+    (hQ : 1<actualPrincipalIndex P.M.base) (s : NonsymmetricErasedSources R hQ) :
+    {s : ReturnExchange.Sources (nsH R) (normalizedM P.M.base)
+      (ErasureActualAdapters.gapIndices (actualPrincipalIndex P.M.base)) //
+      ErasedSourceScreen.Erased (normalizedM P.M.base)
+        (L5A2C4OR19.firstPrincipal (nsH R) (normalizedM P.M.base) P.M.base.q_positive) s} :=
+  ⟨ErasureActualAdapters.prefixSourceToNat (nsH R) _ _ ⟨s.val.val,s.val.property⟩,by
+    rw [nonsymmetric_first_principal_eq R]
+    exact ErasureActualAdapters.prefix_erasure_to_nat (nsH R) _ _
+      ⟨s.val.val,s.val.property⟩ s.property⟩
+
+/-- The original inactive chart supplies exactly the four common-screen guards. -/
+theorem nonsymmetric_common_screen_guards (R : SectorBCriticalRoleBranchB P)
+    (hB : SectorB P.M) :
+    let T := ErasureActualAdapters.actualTriple P.M.base (nsReindex R)
+    let C := ErasureActualAdapters.actualCritical P.M.base (nsReindex R)
+    let D := ErasureActualAdapters.actualPositivePresentation P.M.base (nsReindex R)
+      (branchB_inactive_coherentHerzogData R)
+    (C.exponent 1-1)*T.g 1∉L5A2C4OR19.cyclicCut (nsH R) (normalizedM P.M.base) ∧
+    T.grid (D.U-1) 0 D.V∉L5A2C4OR19.cyclicCut (nsH R) (normalizedM P.M.base) ∧
+    (C.exponent 2-1)*T.g 2∉L5A2C4OR19.cyclicCut (nsH R) (normalizedM P.M.base) ∧
+    T.grid (D.W-1) D.Z 0∉L5A2C4OR19.cyclicCut (nsH R) (normalizedM P.M.base) := by
+  dsimp only
+  have hp := nonsymmetric_live_pure_predecessors R hB
+  have hg := branchB_inactive_active_gate_liveness R hB
+  have hcoef := nonsymmetric_coefficients R
+  have ha : (ErasureActualAdapters.actualCritical P.M.base (nsReindex R)).exponent 1=nsC2 R := by
+    exact branchB_inactive_coherent_c2 R
+  have hc : (ErasureActualAdapters.actualCritical P.M.base (nsReindex R)).exponent 2=nsC3 R := by
+    exact branchB_inactive_coherent_c3 R
+  have hu : L5A2C4D.cr21 (branchB_inactive_coherentHerzogData R)=nsU R :=
+    branchB_inactive_coherent_cr21 R
+  have hv : L5A2C4D.cr23 (branchB_inactive_coherentHerzogData R)=nsV R :=
+    branchB_inactive_coherent_cr23 R
+  have hw : L5A2C4D.cr31 (branchB_inactive_coherentHerzogData R)=nsW R :=
+    branchB_inactive_coherent_cr31 R
+  have hz : L5A2C4D.cr32 (branchB_inactive_coherentHerzogData R)=nsZ R :=
+    branchB_inactive_coherent_cr32 R
+  simp only [ErasureActualAdapters.actual_g_one,ErasureActualAdapters.actual_g_two,
+    ErasureActualAdapters.actual_g_zero,ha,hc,ErasedSourceScreen.Triple.grid,
+    ErasureActualAdapters.actualPositivePresentation,hu,hv,hw,hz,zero_mul,zero_add,add_zero]
+  refine ⟨?_,?_,?_,?_⟩
+  · intro h
+    exact hp.1 ((L5A2C4OR19.actual_cyclicCut_iff_routingI P.M.base (nsReindex R) _).mp h)
+  · intro h
+    have hi := (L5A2C4OR19.actual_cyclicCut_iff_routingI P.M.base (nsReindex R) _).mp h
+    have hb := (normalizedGrid_mem_iff_eta_le P.M.base (nsReindex R) (nsU R-1) 0 (nsV R)).mp
+      (by simpa only [normalizedGrid,zero_mul,zero_add,add_zero] using hi)
+    have hl : nsU R≤eta P.M.base (nsReindex R) 0 (nsV R) := hg.2.1
+    have hupos : 0<nsU R := hcoef.2.2.1
+    omega
+  · intro h
+    exact hp.2 ((L5A2C4OR19.actual_cyclicCut_iff_routingI P.M.base (nsReindex R) _).mp h)
+  · intro h
+    have hi := (L5A2C4OR19.actual_cyclicCut_iff_routingI P.M.base (nsReindex R) _).mp h
+    have hb := (normalizedGrid_mem_iff_eta_le P.M.base (nsReindex R) (nsW R-1) (nsZ R) 0).mp
+      (by simpa only [normalizedGrid,zero_mul,zero_add,add_zero] using hi)
+    have hl : nsW R≤eta P.M.base (nsReindex R) (nsZ R) 0 := hg.2.2
+    have hwpos : 0<nsW R := hcoef.2.2.2.2.1
+    omega
+
+theorem nonsymmetric_erased_sources_common_screen (R : SectorBCriticalRoleBranchB P)
+    (hB : SectorB P.M) (hQ : 1<actualPrincipalIndex P.M.base) :
+    Subsingleton (NonsymmetricErasedSources R hQ) := by
+  let m := normalizedM P.M.base
+  let Q := actualPrincipalIndex P.M.base
+  let T := ErasureActualAdapters.actualTriple P.M.base (nsReindex R)
+  let C := ErasureActualAdapters.actualCritical P.M.base (nsReindex R)
+  let D := ErasureActualAdapters.actualPositivePresentation P.M.base (nsReindex R)
+    (branchB_inactive_coherentHerzogData R)
+  have hfirst : L5A2C4OR19.firstPrincipal (nsH R) m P.M.base.q_positive=Q := by
+    rw [ErasureActualAdapters.firstPrincipal_eq_principalIndex]
+    change principalIndex (nsH R) (normalizedM P.M.base) P.M.base.q_positive=Q
+    rw [nonsymmetric_H_eq_normalizedH R]
+  obtain ⟨hb,hu,hc,hw⟩ := nonsymmetric_common_screen_guards R hB
+  letI := ErasedSourceScreen.erased_sources_subsingleton D m P.M.base.q_positive
+    (ErasureActualAdapters.gapIndices Q) (by intro n hn; rw [hfirst]; exact hn.2)
+    hb hu hc hw
+  let f (s : NonsymmetricErasedSources R hQ) :
+      {s : ReturnExchange.Sources (nsH R) m (ErasureActualAdapters.gapIndices Q) //
+        ErasedSourceScreen.Erased m (L5A2C4OR19.firstPrincipal (nsH R) m P.M.base.q_positive) s} :=
+    ⟨ErasureActualAdapters.prefixSourceToNat (nsH R) m Q ⟨s.val.val,s.val.property⟩,
+      by
+        rw [hfirst]
+        exact ErasureActualAdapters.prefix_erasure_to_nat (nsH R) m Q
+          ⟨s.val.val,s.val.property⟩ s.property⟩
+  refine ⟨?_⟩
+  intro s t
+  have he := congrArg (fun u => (u.val.val:ℤ)) (Subsingleton.elim (f s) (f t))
+  have hs := ErasureActualAdapters.prefixSourceToNat_cast (nsH R) m Q ⟨s.val.val,s.val.property⟩
+  have ht := ErasureActualAdapters.prefixSourceToNat_cast (nsH R) m Q ⟨t.val.val,t.val.property⟩
+  change (s.val.val.toNat:ℤ)=(t.val.val.toNat:ℤ) at he
+  change (s.val.val.toNat:ℤ)=s.val.val at hs
+  change (t.val.val.toNat:ℤ)=t.val.val at ht
+  exact Subtype.ext (Subtype.ext (by omega))
+
+/-- All integral boundary coefficients, including zero endpoint coordinates. -/
+theorem nonsymmetric_common_integral_boundaries (R : SectorBCriticalRoleBranchB P)
+    (hB : SectorB P.M)
+    (hpure : ∃ k : ℕ, actualPrincipalIndex P.M.base*normalizedM P.M.base=k*nsA R)
+    (q : ℕ) (hq : 0<q) (hqQ : q<actualPrincipalIndex P.M.base) (d : ℤ) :
+    (∀ j : ℕ, j<nsQ R →
+      (q:ℤ)*normalizedM P.M.base+d*nsA R≠nsP R*nsB R+(j:ℤ)*nsC R) ∧
+    (∀ j : ℕ, j<nsP R →
+      (q:ℤ)*normalizedM P.M.base+d*nsA R≠(j:ℤ)*nsB R+nsQ R*nsC R) := by
+  obtain ⟨k,hk⟩ := hpure
+  let D := ErasureActualAdapters.actualPositivePresentation P.M.base (nsReindex R)
+    (branchB_inactive_coherentHerzogData R)
+  obtain ⟨hb,_,hc,_⟩ := nonsymmetric_common_screen_guards R hB
+  have hk' : L5A2C4OR19.firstPrincipal (nsH R) (normalizedM P.M.base)
+      P.M.base.q_positive*normalizedM P.M.base=
+      k*(ErasureActualAdapters.actualTriple P.M.base (nsReindex R)).g 0 := by
+    simpa only [nonsymmetric_first_principal_eq,ErasureActualAdapters.actual_g_zero] using hk
+  have h := ErasedSourceScreen.pure_principal_forbids_integral_boundaries D
+    (normalizedM P.M.base) P.M.base.q_positive hb hc k hk' q hq
+    (by simpa only [nonsymmetric_first_principal_eq] using hqQ) d
+  simpa only [D,ErasureActualAdapters.actualPositivePresentation,
+    ErasureActualAdapters.actual_g_zero,ErasureActualAdapters.actual_g_one,
+    ErasureActualAdapters.actual_g_two,nsReindex,branchB_inactive_coherent_cr12,
+    branchB_inactive_coherent_cr13] using h
 
 private theorem nat_mem {H : NumericalSemigroup} {n : ℕ}
     (h : (n : ℤ) ∈ H.asRelativeIdeal) : n ∈ H := by
@@ -154,28 +281,7 @@ theorem nonsymmetric_erased_source_is_CENTER_O (R : SectorBCriticalRoleBranchB P
 theorem nonsymmetric_erased_sources_subsingleton (R : SectorBCriticalRoleBranchB P)
     (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) :
     Subsingleton (NonsymmetricErasedSources R hQ) := by
-  refine ⟨fun s t => ?_⟩
-  obtain ⟨ls,_,_,hs⟩ := nonsymmetric_erased_source_is_CENTER_O R hB hQ s
-  obtain ⟨lt,_,_,ht⟩ := nonsymmetric_erased_source_is_CENTER_O R hB hQ t
-  let a := nsC1 R-(nonsymmetricReturnTuple R hB ls).2.2
-  let b := nsC1 R-(nonsymmetricReturnTuple R hB lt).2.2
-  have eqst : s.val.val=t.val.val := by
-    rcases le_total a b with h | h
-    · apply (minimal_eq _ t.val.property s.val.property.1 ?_).symm
-      rw [hs,ht]
-      have hm := nonsymmetric_grid_mem R (b-a) 0 0
-      convert hm using 1
-      simp only [nonsymmetricO,Nat.cast_mul,Nat.cast_sub h,zero_mul,add_zero]
-      change (b : ℤ)*nsA R-a*nsA R=((b : ℤ)-a)*nsA R
-      ring
-    · apply minimal_eq _ s.val.property t.val.property.1
-      rw [hs,ht]
-      have hm := nonsymmetric_grid_mem R (a-b) 0 0
-      convert hm using 1
-      simp only [nonsymmetricO,Nat.cast_mul,Nat.cast_sub h,zero_mul,add_zero]
-      change (a : ℤ)*nsA R-b*nsA R=((a : ℤ)-b)*nsA R
-      ring
-  exact Subtype.ext (Subtype.ext eqst)
+  exact nonsymmetric_erased_sources_common_screen R hB hQ
 
 def nonsymmetricSourceLoss (R : SectorBCriticalRoleBranchB P)
     (hQ : 1 < actualPrincipalIndex P.M.base) : ℕ := Nat.card (NonsymmetricErasedSources R hQ)
@@ -311,34 +417,17 @@ theorem nonsymmetric_erasure_principal_pure_a (R : SectorBCriticalRoleBranchB P)
     (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base)
     (s : NonsymmetricErasedSources R hQ) :
     ∃ k : ℕ, actualPrincipalIndex P.M.base*normalizedM P.M.base=k*nsA R := by
-  obtain ⟨ell,_,_,hs⟩ := nonsymmetric_erased_source_is_CENTER_O R hB hQ s
-  have S := nonsymmetricReturnTuple_spec R hB ell
-  have hd := nonsymmetric_return_depth_lt_c1 R hB ell.property.1 S.1 S.2.2.2.2.2.2
-  have hn : nsC1 R-(nonsymmetricReturnTuple R hB ell).2.2 < nsC1 R := by omega
-  obtain ⟨z,hz,he⟩ := s.property
-  obtain ⟨a,b,c,hfac⟩ := L5A2C4OR6.routingH_factorization P.M.base (nsReindex R)
-    (show actualPrincipalIndex P.M.base*normalizedM P.M.base ∈ nsH R from by
-      rw [nonsymmetric_H_eq_normalizedH R]; exact (actualPrincipalIndex_spec P.M.base).2)
-  obtain ⟨a',b',c',hzfac⟩ := L5A2C4OR6.routingH_factorization P.M.base (nsReindex R) hz
-  change actualPrincipalIndex P.M.base*normalizedM P.M.base=a*nsA R+b*nsB R+c*nsC R at hfac
-  change z=a'*nsA R+b'*nsB R+c'*nsC R at hzfac
-  have eq : (nsC1 R-(nonsymmetricReturnTuple R hB ell).2.2)*nsA R=
-      (a+a')*nsA R+(b+b')*nsB R+(c+c')*nsC R := by
-    rw [hs] at he
-    have heN : (nsC1 R-(nonsymmetricReturnTuple R hB ell).2.2)*nsA R=
-        actualPrincipalIndex P.M.base*normalizedM P.M.base+z := by
-      have hzEq : ((nsC1 R-(nonsymmetricReturnTuple R hB ell).2.2)*nsA R : ℕ)=
-          (actualPrincipalIndex P.M.base*normalizedM P.M.base : ℕ)+(z : ℤ) := by
-        simpa only [nonsymmetricO] using (show (nonsymmetricO R
-          (nonsymmetricReturnTuple R hB ell).2.2 : ℕ)=
-          (actualPrincipalIndex P.M.base*normalizedM P.M.base : ℕ)+(z : ℤ) by omega)
-      exact_mod_cast hzEq
-    rw [heN,hfac,hzfac]
-    ring
-  have hc := nonsymmetric_subcritical_a_factorization R hn eq
-  have hb0 : b=0 := by omega
-  have hc0 : c=0 := by omega
-  exact ⟨a,by simpa only [hb0,hc0,zero_mul,add_zero] using hfac⟩
+  let D := ErasureActualAdapters.actualPositivePresentation P.M.base (nsReindex R)
+    (branchB_inactive_coherentHerzogData R)
+  obtain ⟨hb,hu,hc,hw⟩ := nonsymmetric_common_screen_guards R hB
+  let t := nonsymmetricErasedToCommon R hQ s
+  obtain ⟨k,_,_,he⟩ := ErasedSourceScreen.erased_principal_pure_a D
+    (normalizedM P.M.base) P.M.base.q_positive
+    (ErasureActualAdapters.gapIndices (actualPrincipalIndex P.M.base))
+    (by intro n hn; rw [nonsymmetric_first_principal_eq R]; exact hn.2)
+    hb hu hc hw t.val t.property
+  exact ⟨k,by simpa only [nonsymmetric_first_principal_eq,
+    ErasureActualAdapters.actual_g_zero] using he⟩
 
 private theorem return_residue (R : SectorBCriticalRoleBranchB P) (hB : SectorB P.M)
     (ell : NonsymmetricReturnIndex R) :
@@ -355,74 +444,29 @@ theorem nonsymmetric_pure_principal_forbids_boundary_returns (R : SectorBCritica
     ∀ ell : NonsymmetricReturnIndex R,
       (nonsymmetricReturnTuple R hB ell).1 ≠ nsP R ∧
       (nonsymmetricReturnTuple R hB ell).2.1 ≠ nsQ R := by
-  obtain ⟨k,hk⟩ := hpure
   intro ell
-  let comp : NonsymmetricReturnIndex R :=
-    ⟨actualPrincipalIndex P.M.base-ell.val,by omega,by omega⟩
   have S := nonsymmetricReturnTuple_spec R hB ell
-  have C := nonsymmetricReturnTuple_spec R hB comp
-  have coeff := nonsymmetric_coefficients R
-  have hre := return_residue R hB ell
-  have hrc := return_residue R hB comp
-  have hsum : gridResidue P.M.base (nsReindex R) (nonsymmetricReturnTuple R hB comp).1
-      (nonsymmetricReturnTuple R hB comp).2.1+
-      gridResidue P.M.base (nsReindex R) (nonsymmetricReturnTuple R hB ell).1
-      (nonsymmetricReturnTuple R hB ell).2.1=0 := by
-    rw [hre,hrc]
-    have he : (actualPrincipalIndex P.M.base-ell.val)*normalizedM P.M.base+
-        ell.val*normalizedM P.M.base=k*nsA R := by
-      rw [← add_mul,Nat.sub_add_cancel (by omega),hk]
-    have h := congrArg (fun n : ℕ => (n : ZMod (nsA R))) he
-    simpa only [comp,Nat.cast_add,Nat.cast_mul,ZMod.natCast_self,mul_zero] using h
-  have hrel := congrArg (fun n : ℕ => (n : ZMod (nsA R))) (nonsymmetric_normalized_relations R).1
-  simp only [Nat.cast_add,Nat.cast_mul,ZMod.natCast_self,mul_zero] at hrel
+  have h := nonsymmetric_common_integral_boundaries R hB hpure ell.val
+    ell.property.1 ell.property.2 ((nonsymmetricReturnTuple R hB ell).2.2:ℤ)
   constructor
   · intro hi
-    have hj : (nonsymmetricReturnTuple R hB ell).2.1 < nsQ R := by
-      rcases S.1.2.2 with h | h
+    have hj : (nonsymmetricReturnTuple R hB ell).2.1<nsQ R := by
+      rcases S.1.2.2 with hh | hh
       · omega
-      · exact h
-    have dom : NonsymmetricLDomain R 0 (nsQ R-(nonsymmetricReturnTuple R hB ell).2.1) := by
-      unfold NonsymmetricLDomain
-      omega
-    have hinv : gridResidue P.M.base (nsReindex R) (nonsymmetricReturnTuple R hB ell).1
-        (nonsymmetricReturnTuple R hB ell).2.1+
-        gridResidue P.M.base (nsReindex R) 0 (nsQ R-(nonsymmetricReturnTuple R hB ell).2.1)=0 := by
-      have sub : (((nsQ R-(nonsymmetricReturnTuple R hB ell).2.1 : ℕ) : ZMod (nsA R)))+
-          ((nonsymmetricReturnTuple R hB ell).2.1 : ZMod (nsA R))=nsQ R := by
-        have hs := congrArg (fun n : ℕ => (n : ZMod (nsA R))) (Nat.sub_add_cancel (le_of_lt hj))
-        simpa only [Nat.cast_add] using hs
-      simp only [gridResidue,hi,Nat.cast_zero,zero_mul,zero_add]
-      linear_combination -hrel + sub * (nsC R : ZMod (nsA R))
-    have he : gridResidue P.M.base (nsReindex R) (nonsymmetricReturnTuple R hB comp).1
-        (nonsymmetricReturnTuple R hB comp).2.1=
-        gridResidue P.M.base (nsReindex R) 0 (nsQ R-(nonsymmetricReturnTuple R hB ell).2.1) := by
-      linear_combination hsum-hinv
-    have hc := nonsymmetric_lShape_grid_injective R C.1 dom he
-    omega
+      · exact hh
+    apply h.1 _ hj
+    have he := S.2.2.2.2.2.2
+    rw [hi] at he
+    exact_mod_cast he.symm
   · intro hj
-    have hi : (nonsymmetricReturnTuple R hB ell).1 < nsP R := by
-      rcases S.1.2.2 with h | h
-      · exact h
+    have hi : (nonsymmetricReturnTuple R hB ell).1<nsP R := by
+      rcases S.1.2.2 with hh | hh
+      · exact hh
       · omega
-    have dom : NonsymmetricLDomain R (nsP R-(nonsymmetricReturnTuple R hB ell).1) 0 := by
-      unfold NonsymmetricLDomain
-      omega
-    have hinv : gridResidue P.M.base (nsReindex R) (nonsymmetricReturnTuple R hB ell).1
-        (nonsymmetricReturnTuple R hB ell).2.1+
-        gridResidue P.M.base (nsReindex R) (nsP R-(nonsymmetricReturnTuple R hB ell).1) 0=0 := by
-      have sub : (((nsP R-(nonsymmetricReturnTuple R hB ell).1 : ℕ) : ZMod (nsA R)))+
-          ((nonsymmetricReturnTuple R hB ell).1 : ZMod (nsA R))=nsP R := by
-        have hs := congrArg (fun n : ℕ => (n : ZMod (nsA R))) (Nat.sub_add_cancel (le_of_lt hi))
-        simpa only [Nat.cast_add] using hs
-      simp only [gridResidue,hj,Nat.cast_zero,zero_mul,add_zero]
-      linear_combination -hrel + sub * (nsB R : ZMod (nsA R))
-    have he : gridResidue P.M.base (nsReindex R) (nonsymmetricReturnTuple R hB comp).1
-        (nonsymmetricReturnTuple R hB comp).2.1=
-        gridResidue P.M.base (nsReindex R) (nsP R-(nonsymmetricReturnTuple R hB ell).1) 0 := by
-      linear_combination hsum-hinv
-    have hc := nonsymmetric_lShape_grid_injective R C.1 dom he
-    omega
+    apply h.2 _ hi
+    have he := S.2.2.2.2.2.2
+    rw [hj] at he
+    exact_mod_cast he.symm
 
 theorem nonsymmetric_loss_eq_one_implies_FU_two (R : SectorBCriticalRoleBranchB P)
     (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base)

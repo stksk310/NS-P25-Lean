@@ -1,0 +1,21 @@
+NS25Lean/P2SectorCCoherentHerzog.lean:108:33: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2SectorCCoherentHerzog.lean:120:33: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2SectorCCoherentHerzog.lean:136:2: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2SectorCCoherentHerzog.lean:142:5: warning: Variable name `hjk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hjk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2SectorCCoherentHerzog.lean:532:5: warning: Variable name `D` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _D
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

@@ -1,0 +1,1867 @@
+def NS25Lean.EC.R75.FiniteEqualityCertificate : {Gamma : NS25Lean.NumericalSemigroup} →
+  NS25Lean.L2B.MultiplicityBase Gamma → Prop :=
+fun {Gamma} M =>
+  Or
+    (And
+      (@Eq.{1} Nat (@NS25Lean.L2B.chosenDefect Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M))
+        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+      (@NS25Lean.EC.R75.MonomialFiniteCertificate Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)))
+    (And
+      (@Eq.{1} Nat (@NS25Lean.L2B.chosenDefect Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      (Or (@NS25Lean.EC.R75.MonomialFiniteCertificate Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M))
+        (@NS25Lean.EC.R75.OneTieFiniteCertificate Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M))))
+def NS25Lean.EC.R75.MonomialFiniteCertificate : {Gamma : NS25Lean.NumericalSemigroup} →
+  NS25Lean.ChosenBase.Data Gamma → Prop :=
+fun {Gamma} B =>
+  And (@NS25Lean.L2B.IsMonomialIdeal.{0} Rat Rat.instField (@NS25Lean.ChosenBase.Data.J.{0} Rat Rat.instField Gamma B))
+    (And
+      (@Eq.{1} Nat
+        (@NS25Lean.L3A.q_fs.{0} Rat Rat.instField (@NS25Lean.ChosenBase.Data.J.{0} Rat Rat.instField Gamma B))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      (@Function.Surjective.{1, 1}
+        (@Set.Elem.{0} NS25Lean.L3A.Exponent
+          (@NS25Lean.L3A.socleExponents.{0} Rat Rat.instField
+            (@NS25Lean.ChosenBase.Data.J.{0} Rat Rat.instField Gamma B)))
+        (@NS25Lean.L3A.Staircase.Tags.{0} Rat Rat.instField (@NS25Lean.ChosenBase.Data.J.{0} Rat Rat.instField Gamma B))
+        (@NS25Lean.L3A.Staircase.tag.{0} Rat Rat.instField
+          (@NS25Lean.ChosenBase.Data.J.{0} Rat Rat.instField Gamma B))))
+def NS25Lean.EC.R75.OneTieFiniteCertificate : {Gamma : NS25Lean.NumericalSemigroup} →
+  NS25Lean.ChosenBase.Data Gamma → Prop :=
+fun {Gamma} B =>
+  ∃ d F G,
+    And
+      (@Function.Surjective.{1, 1}
+        (@Set.Elem.{0} NS25Lean.L3A.Exponent
+          (@NS25Lean.L3A.socleExponents.{0} Rat Rat.instField
+            (@NS25Lean.L3A.ArtinianMonomial.ideal.{0} Rat Rat.instField
+              (@NS25Lean.L3B.InternalFrontend.initial.{0} (@NS25Lean.L3B.transferSemigroup Gamma B) Rat Rat.instField
+                (@NS25Lean.L3B.transferBase Gamma B) d F))))
+        (@NS25Lean.L3A.Staircase.Tags.{0} Rat Rat.instField
+          (@NS25Lean.L3A.ArtinianMonomial.ideal.{0} Rat Rat.instField
+            (@NS25Lean.L3B.InternalFrontend.initial.{0} (@NS25Lean.L3B.transferSemigroup Gamma B) Rat Rat.instField
+              (@NS25Lean.L3B.transferBase Gamma B) d F)))
+        (@NS25Lean.L3A.Staircase.tag.{0} Rat Rat.instField
+          (@NS25Lean.L3A.ArtinianMonomial.ideal.{0} Rat Rat.instField
+            (@NS25Lean.L3B.InternalFrontend.initial.{0} (@NS25Lean.L3B.transferSemigroup Gamma B) Rat Rat.instField
+              (@NS25Lean.L3B.transferBase Gamma B) d F))))
+      (@NS25Lean.EC.R74.PCRCountCertificate (@NS25Lean.L3B.transferSemigroup Gamma B)
+        (@NS25Lean.L3B.transferBase Gamma B) d F G)
+def NS25Lean.EC.R75.PivotFiniteCertificate : {Gamma : NS25Lean.NumericalSemigroup} →
+  NS25Lean.ChosenBase.Data Gamma → Prop :=
+fun {Gamma} B =>
+  Or
+    (And
+      (@Eq.{1} Nat (@NS25Lean.L2B.chosenDefect Gamma B) (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+      (@NS25Lean.EC.R75.MonomialFiniteCertificate Gamma B))
+    (And
+      (@Eq.{1} Nat (@NS25Lean.L2B.chosenDefect Gamma B) (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      (Or (@NS25Lean.EC.R75.MonomialFiniteCertificate Gamma B) (@NS25Lean.EC.R75.OneTieFiniteCertificate Gamma B)))
+def NS25Lean.EC.R74.PCRCountCertificate : {Gamma : NS25Lean.NumericalSemigroup} →
+  {M : NS25Lean.L2B.MultiplicityBase Gamma} →
+    {d : Nat} →
+      (F : @NS25Lean.L3B.InternalFrontend.{0} Gamma Rat Rat.instField M d) →
+        @NS25Lean.L3C.NormalizedSources.{0} Gamma Rat Rat.instField M d F → Prop :=
+fun {Gamma} {M} {d} F G =>
+  @Eq.{1} Int
+    (@Nat.cast.{0} Int instNatCastInt
+      (@Set.ncard.{0} NS25Lean.L3C.PlanarExponent
+        (@Inter.inter.{0} (Set.{0} NS25Lean.L3C.PlanarExponent) (@Set.instInter.{0} NS25Lean.L3C.PlanarExponent)
+          (@NS25Lean.L3C.planarMaxD.{0} Gamma Rat Rat.instField M d F G)
+          (@NS25Lean.L3C.planarE.{0} Gamma Rat Rat.instField M d F G))))
+    (@HSub.hSub.{0, 0, 0} Int Int Int (@instHSub.{0} Int Int.instSub)
+      (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+        (@Nat.cast.{0} Int instNatCastInt
+          (@Set.ncard.{0}
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@NS25Lean.L3C.survivingWraps.{0} Gamma Rat Rat.instField M d F G)))
+        (@Nat.cast.{0} Int instNatCastInt
+          (@NS25Lean.L3A.q_fs.{0} Rat Rat.instField
+            (@NS25Lean.L3A.ArtinianMonomial.ideal.{0} Rat Rat.instField
+              (@NS25Lean.L3B.InternalFrontend.initial.{0} Gamma Rat Rat.instField M d F)))))
+      (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))
+structure NS25Lean.L3B.InternalFrontend.{u_1} {Gamma : NS25Lean.NumericalSemigroup} (k : Type u_1) [Field.{u_1} k]
+  (M : NS25Lean.L2B.MultiplicityBase Gamma) (h : Nat) : Type
+number of parameters: 5
+fields:
+  NS25Lean.L3B.InternalFrontend.normal.{u_1} : @NS25Lean.L3B.TieNormalForm Gamma
+      (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+  NS25Lean.L3B.InternalFrontend.one_defect.{u_1} : @Eq.{1} Nat
+      (@NS25Lean.L2B.chosenDefect Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M))
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+  NS25Lean.L3B.InternalFrontend.unique_degree.{u_1} : And
+      (@Eq.{1} Nat (@NS25Lean.L2B.fiberContribution Gamma M h)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      (∀ (d : Nat),
+        @Ne.{1} Nat d h →
+          @Eq.{1} Nat (@NS25Lean.L2B.fiberContribution Gamma M d)
+            (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+  NS25Lean.L3B.InternalFrontend.unique_betti.{u_1} : ∀ (d : Nat),
+      Iff
+        (And
+          (@Membership.mem.{0, 0} Nat (Set.{0} Nat) (@Set.instMembership.{0} Nat)
+            (@NS25Lean.ChosenBase.Data.apery Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) d)
+          (@NS25Lean.L2C.Betti Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) d))
+        (@Eq.{1} Nat d h)
+  NS25Lean.L3B.InternalFrontend.singleton_components.{u_1} : ∀
+      (u v : @NS25Lean.L2B.FactorizationFiber Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h),
+      @Eq.{1}
+          (@SimpleGraph.ConnectedComponent.{0}
+            (@NS25Lean.L2B.FactorizationFiber Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h)
+            (@NS25Lean.L2B.fiberGraph Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h))
+          (@SimpleGraph.connectedComponentMk.{0}
+            (@NS25Lean.L2B.FactorizationFiber Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h)
+            (@NS25Lean.L2B.fiberGraph Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h) u)
+          (@SimpleGraph.connectedComponentMk.{0}
+            (@NS25Lean.L2B.FactorizationFiber Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h)
+            (@NS25Lean.L2B.fiberGraph Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h) v) →
+        @Eq.{1} (@NS25Lean.L2B.FactorizationFiber Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h) u v
+  NS25Lean.L3B.InternalFrontend.coprime.{u_1} : @IsRelPrime.{u_1}
+      (@MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+        (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+      (@Semiring.toMonoid.{u_1}
+        (@MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+          (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+        (@AddMonoidAlgebra.semiring.{u_1, 0} k
+          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+          (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@Finsupp.instAddMonoid.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+            Nat.instAddMonoid)))
+      (@DFunLike.coe.{u_1 + 1, u_1 + 1, u_1 + 1}
+        (@LinearMap.{u_1, u_1, u_1, u_1} k k
+          (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@RingHom.id.{u_1} k
+            (@Semiring.toNonAssocSemiring.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k
+                (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))))
+          k
+          (@MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+            (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@Semiring.toAddCommMonoid.{u_1} k
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+          (@AddMonoidAlgebra.instAddCommMonoid.{u_1, 0} k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+          (@Semiring.toModule.{u_1} k
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+          (@AddMonoidAlgebra.instModule.{u_1, u_1, 0} k k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Semiring.toModule.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k
+                (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))))
+        k
+        (fun x =>
+          @MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+            (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+        (@LinearMap.instFunLike.{u_1, u_1, u_1, u_1} k k k
+          (@MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+            (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@Semiring.toAddCommMonoid.{u_1} k
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+          (@AddMonoidAlgebra.instAddCommMonoid.{u_1, 0} k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+          (@Semiring.toModule.{u_1} k
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+          (@AddMonoidAlgebra.instModule.{u_1, u_1, 0} k k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Semiring.toModule.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k
+                (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))))
+          (@RingHom.id.{u_1} k
+            (@Semiring.toNonAssocSemiring.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k
+                (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))))
+        (@MvPolynomial.monomial.{u_1, 0} k (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+          (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))
+          (@Subtype.val.{1}
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (fun u =>
+              @Eq.{1} Nat
+                (@DFunLike.coe.{1, 1, 1}
+                  (@AddMonoidHom.{0, 0}
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    Nat
+                    (@AddZeroClass.toAddZero.{0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (@Finsupp.instAddZeroClass.{0, 0}
+                        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                  (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                    (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                  (fun x => Nat)
+                  (@AddMonoidHom.instFunLike.{0, 0}
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    Nat
+                    (@AddZeroClass.toAddZero.{0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (@Finsupp.instAddZeroClass.{0, 0}
+                        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                  (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                h)
+            (@NS25Lean.L3B.TieNormalForm.alpha Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+              (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h self))))
+        (@OfNat.ofNat.{u_1} k (nat_lit 1)
+          (@One.toOfNat1.{u_1} k
+            (@AddMonoidWithOne.toOne.{u_1} k
+              (@AddGroupWithOne.toAddMonoidWithOne.{u_1} k
+                (@Ring.toAddGroupWithOne.{u_1} k
+                  (@DivisionRing.toRing.{u_1} k (@Field.toDivisionRing.{u_1} k inst✝))))))))
+      (@DFunLike.coe.{u_1 + 1, u_1 + 1, u_1 + 1}
+        (@LinearMap.{u_1, u_1, u_1, u_1} k k
+          (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@RingHom.id.{u_1} k
+            (@Semiring.toNonAssocSemiring.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k
+                (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))))
+          k
+          (@MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+            (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@Semiring.toAddCommMonoid.{u_1} k
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+          (@AddMonoidAlgebra.instAddCommMonoid.{u_1, 0} k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+          (@Semiring.toModule.{u_1} k
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+          (@AddMonoidAlgebra.instModule.{u_1, u_1, 0} k k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Semiring.toModule.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k
+                (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))))
+        k
+        (fun x =>
+          @MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+            (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+        (@LinearMap.instFunLike.{u_1, u_1, u_1, u_1} k k k
+          (@MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+            (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@Semiring.toAddCommMonoid.{u_1} k
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+          (@AddMonoidAlgebra.instAddCommMonoid.{u_1, 0} k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+          (@Semiring.toModule.{u_1} k
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+          (@AddMonoidAlgebra.instModule.{u_1, u_1, 0} k k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Semiring.toModule.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k
+                (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))))
+          (@RingHom.id.{u_1} k
+            (@Semiring.toNonAssocSemiring.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k
+                (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))))
+        (@MvPolynomial.monomial.{u_1, 0} k (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+          (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))
+          (@Subtype.val.{1}
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (fun u =>
+              @Eq.{1} Nat
+                (@DFunLike.coe.{1, 1, 1}
+                  (@AddMonoidHom.{0, 0}
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    Nat
+                    (@AddZeroClass.toAddZero.{0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (@Finsupp.instAddZeroClass.{0, 0}
+                        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                  (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                    (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                  (fun x => Nat)
+                  (@AddMonoidHom.instFunLike.{0, 0}
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    Nat
+                    (@AddZeroClass.toAddZero.{0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (@Finsupp.instAddZeroClass.{0, 0}
+                        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                  (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                h)
+            (@NS25Lean.L3B.TieNormalForm.beta Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+              (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h self))))
+        (@OfNat.ofNat.{u_1} k (nat_lit 1)
+          (@One.toOfNat1.{u_1} k
+            (@AddMonoidWithOne.toOne.{u_1} k
+              (@AddGroupWithOne.toAddMonoidWithOne.{u_1} k
+                (@Ring.toAddGroupWithOne.{u_1} k
+                  (@DivisionRing.toRing.{u_1} k (@Field.toDivisionRing.{u_1} k inst✝))))))))
+  NS25Lean.L3B.InternalFrontend.generator_span.{u_1} : @Eq.{u_1 + 1}
+      (@Ideal.{u_1}
+        (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝ (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+        (@AddMonoidAlgebra.semiring.{u_1, 0} k
+          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+          (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@Finsupp.instAddMonoid.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+            Nat.instAddMonoid)))
+      (@Ideal.span.{u_1}
+        (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝ (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+        (@AddMonoidAlgebra.semiring.{u_1, 0} k
+          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+          (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@Finsupp.instAddMonoid.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+            Nat.instAddMonoid))
+        (@Set.range.{u_1, 1}
+          (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝ (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+          (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit)
+          (@NS25Lean.L3B.tieGenerators.{u_1} Gamma k inst✝ (@NS25Lean.L2B.MultiplicityBase.base Gamma M)
+            (@Subtype.val.{1}
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (fun u =>
+                @Eq.{1} Nat
+                  (@DFunLike.coe.{1, 1, 1}
+                    (@AddMonoidHom.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    (fun x => Nat)
+                    (@AddMonoidHom.instFunLike.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                  h)
+              (@NS25Lean.L3B.TieNormalForm.alpha Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h self)))
+            (@Subtype.val.{1}
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (fun u =>
+                @Eq.{1} Nat
+                  (@DFunLike.coe.{1, 1, 1}
+                    (@AddMonoidHom.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    (fun x => Nat)
+                    (@AddMonoidHom.instFunLike.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                  h)
+              (@NS25Lean.L3B.TieNormalForm.beta Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h self))))))
+      (@NS25Lean.ChosenBase.Data.J.{u_1} k inst✝ Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M))
+  NS25Lean.L3B.InternalFrontend.generator_minimal.{u_1} : ∀
+      (i : Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit),
+      @NS25Lean.L3B.tieGenerators.{u_1} Gamma k inst✝ (@NS25Lean.L2B.MultiplicityBase.base Gamma M)
+          (@Subtype.val.{1}
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (fun u =>
+              @Eq.{1} Nat
+                (@DFunLike.coe.{1, 1, 1}
+                  (@AddMonoidHom.{0, 0}
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    Nat
+                    (@AddZeroClass.toAddZero.{0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (@Finsupp.instAddZeroClass.{0, 0}
+                        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                  (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                    (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                  (fun x => Nat)
+                  (@AddMonoidHom.instFunLike.{0, 0}
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    Nat
+                    (@AddZeroClass.toAddZero.{0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (@Finsupp.instAddZeroClass.{0, 0}
+                        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                  (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                h)
+            (@NS25Lean.L3B.TieNormalForm.alpha Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+              (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h self)))
+          (@Subtype.val.{1}
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (fun u =>
+              @Eq.{1} Nat
+                (@DFunLike.coe.{1, 1, 1}
+                  (@AddMonoidHom.{0, 0}
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    Nat
+                    (@AddZeroClass.toAddZero.{0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (@Finsupp.instAddZeroClass.{0, 0}
+                        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                  (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                    (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                  (fun x => Nat)
+                  (@AddMonoidHom.instFunLike.{0, 0}
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    Nat
+                    (@AddZeroClass.toAddZero.{0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (@Finsupp.instAddZeroClass.{0, 0}
+                        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                  (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                h)
+            (@NS25Lean.L3B.TieNormalForm.beta Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+              (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h self)))
+          i ∉
+        @Ideal.span.{u_1}
+          (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝ (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+          (@AddMonoidAlgebra.semiring.{u_1, 0} k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Finsupp.instAddMonoid.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              Nat.instAddMonoid))
+          (@Set.image.{0, u_1}
+            (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit)
+            (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝
+              (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (@NS25Lean.L3B.tieGenerators.{u_1} Gamma k inst✝ (@NS25Lean.L2B.MultiplicityBase.base Gamma M)
+              (@Subtype.val.{1}
+                (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                  (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                (fun u =>
+                  @Eq.{1} Nat
+                    (@DFunLike.coe.{1, 1, 1}
+                      (@AddMonoidHom.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (fun x => Nat)
+                      (@AddMonoidHom.instFunLike.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                    h)
+                (@NS25Lean.L3B.TieNormalForm.alpha Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                  (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h self)))
+              (@Subtype.val.{1}
+                (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                  (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                (fun u =>
+                  @Eq.{1} Nat
+                    (@DFunLike.coe.{1, 1, 1}
+                      (@AddMonoidHom.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (fun x => Nat)
+                      (@AddMonoidHom.instFunLike.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                    h)
+                (@NS25Lean.L3B.TieNormalForm.beta Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                  (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h self))))
+            (@Set.ofPred.{0}
+              (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit) fun j =>
+              @Ne.{1} (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit) j
+                i))
+constructor:
+  NS25Lean.L3B.InternalFrontend.mk.{u_1} {Gamma : NS25Lean.NumericalSemigroup} {k : Type u_1} [Field.{u_1} k]
+    {M : NS25Lean.L2B.MultiplicityBase Gamma} {h : Nat}
+    (normal : @NS25Lean.L3B.TieNormalForm Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h)
+    (one_defect :
+      @Eq.{1} Nat (@NS25Lean.L2B.chosenDefect Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+    (unique_degree :
+      And
+        (@Eq.{1} Nat (@NS25Lean.L2B.fiberContribution Gamma M h)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (∀ (d : Nat),
+          @Ne.{1} Nat d h →
+            @Eq.{1} Nat (@NS25Lean.L2B.fiberContribution Gamma M d)
+              (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+    (unique_betti :
+      ∀ (d : Nat),
+        Iff
+          (And
+            (@Membership.mem.{0, 0} Nat (Set.{0} Nat) (@Set.instMembership.{0} Nat)
+              (@NS25Lean.ChosenBase.Data.apery Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) d)
+            (@NS25Lean.L2C.Betti Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) d))
+          (@Eq.{1} Nat d h))
+    (singleton_components :
+      ∀ (u v : @NS25Lean.L2B.FactorizationFiber Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h),
+        @Eq.{1}
+            (@SimpleGraph.ConnectedComponent.{0}
+              (@NS25Lean.L2B.FactorizationFiber Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h)
+              (@NS25Lean.L2B.fiberGraph Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h))
+            (@SimpleGraph.connectedComponentMk.{0}
+              (@NS25Lean.L2B.FactorizationFiber Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h)
+              (@NS25Lean.L2B.fiberGraph Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h) u)
+            (@SimpleGraph.connectedComponentMk.{0}
+              (@NS25Lean.L2B.FactorizationFiber Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h)
+              (@NS25Lean.L2B.fiberGraph Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h) v) →
+          @Eq.{1} (@NS25Lean.L2B.FactorizationFiber Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h) u v)
+    (coprime :
+      @IsRelPrime.{u_1}
+        (@MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+          (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+        (@Semiring.toMonoid.{u_1}
+          (@MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+            (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@AddMonoidAlgebra.semiring.{u_1, 0} k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Finsupp.instAddMonoid.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              Nat.instAddMonoid)))
+        (@DFunLike.coe.{u_1 + 1, u_1 + 1, u_1 + 1}
+          (@LinearMap.{u_1, u_1, u_1, u_1} k k
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@RingHom.id.{u_1} k
+              (@Semiring.toNonAssocSemiring.{u_1} k
+                (@CommSemiring.toSemiring.{u_1} k
+                  (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))))
+            k
+            (@MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+              (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Semiring.toAddCommMonoid.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+            (@AddMonoidAlgebra.instAddCommMonoid.{u_1, 0} k
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+            (@Semiring.toModule.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+            (@AddMonoidAlgebra.instModule.{u_1, u_1, 0} k k
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+              (@Semiring.toModule.{u_1} k
+                (@CommSemiring.toSemiring.{u_1} k
+                  (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))))
+          k
+          (fun x =>
+            @MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+              (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@LinearMap.instFunLike.{u_1, u_1, u_1, u_1} k k k
+            (@MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+              (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Semiring.toAddCommMonoid.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+            (@AddMonoidAlgebra.instAddCommMonoid.{u_1, 0} k
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+            (@Semiring.toModule.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+            (@AddMonoidAlgebra.instModule.{u_1, u_1, 0} k k
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+              (@Semiring.toModule.{u_1} k
+                (@CommSemiring.toSemiring.{u_1} k
+                  (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))))
+            (@RingHom.id.{u_1} k
+              (@Semiring.toNonAssocSemiring.{u_1} k
+                (@CommSemiring.toSemiring.{u_1} k
+                  (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))))
+          (@MvPolynomial.monomial.{u_1, 0} k (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))
+            (@Subtype.val.{1}
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (fun u =>
+                @Eq.{1} Nat
+                  (@DFunLike.coe.{1, 1, 1}
+                    (@AddMonoidHom.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    (fun x => Nat)
+                    (@AddMonoidHom.instFunLike.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                  h)
+              (@NS25Lean.L3B.TieNormalForm.alpha Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h normal)))
+          (@OfNat.ofNat.{u_1} k (nat_lit 1)
+            (@One.toOfNat1.{u_1} k
+              (@AddMonoidWithOne.toOne.{u_1} k
+                (@AddGroupWithOne.toAddMonoidWithOne.{u_1} k
+                  (@Ring.toAddGroupWithOne.{u_1} k
+                    (@DivisionRing.toRing.{u_1} k (@Field.toDivisionRing.{u_1} k inst✝))))))))
+        (@DFunLike.coe.{u_1 + 1, u_1 + 1, u_1 + 1}
+          (@LinearMap.{u_1, u_1, u_1, u_1} k k
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@RingHom.id.{u_1} k
+              (@Semiring.toNonAssocSemiring.{u_1} k
+                (@CommSemiring.toSemiring.{u_1} k
+                  (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))))
+            k
+            (@MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+              (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Semiring.toAddCommMonoid.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+            (@AddMonoidAlgebra.instAddCommMonoid.{u_1, 0} k
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+            (@Semiring.toModule.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+            (@AddMonoidAlgebra.instModule.{u_1, u_1, 0} k k
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+              (@Semiring.toModule.{u_1} k
+                (@CommSemiring.toSemiring.{u_1} k
+                  (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))))
+          k
+          (fun x =>
+            @MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+              (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@LinearMap.instFunLike.{u_1, u_1, u_1, u_1} k k k
+            (@MvPolynomial.{0, u_1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) k
+              (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Semiring.toAddCommMonoid.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+            (@AddMonoidAlgebra.instAddCommMonoid.{u_1, 0} k
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+            (@Semiring.toModule.{u_1} k
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))
+            (@AddMonoidAlgebra.instModule.{u_1, u_1, 0} k k
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+              (@Semiring.toModule.{u_1} k
+                (@CommSemiring.toSemiring.{u_1} k
+                  (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))))
+            (@RingHom.id.{u_1} k
+              (@Semiring.toNonAssocSemiring.{u_1} k
+                (@CommSemiring.toSemiring.{u_1} k
+                  (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))))))
+          (@MvPolynomial.monomial.{u_1, 0} k (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝))
+            (@Subtype.val.{1}
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (fun u =>
+                @Eq.{1} Nat
+                  (@DFunLike.coe.{1, 1, 1}
+                    (@AddMonoidHom.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    (fun x => Nat)
+                    (@AddMonoidHom.instFunLike.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                  h)
+              (@NS25Lean.L3B.TieNormalForm.beta Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h normal)))
+          (@OfNat.ofNat.{u_1} k (nat_lit 1)
+            (@One.toOfNat1.{u_1} k
+              (@AddMonoidWithOne.toOne.{u_1} k
+                (@AddGroupWithOne.toAddMonoidWithOne.{u_1} k
+                  (@Ring.toAddGroupWithOne.{u_1} k
+                    (@DivisionRing.toRing.{u_1} k (@Field.toDivisionRing.{u_1} k inst✝)))))))))
+    (generator_span :
+      @Eq.{u_1 + 1}
+        (@Ideal.{u_1}
+          (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝ (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+          (@AddMonoidAlgebra.semiring.{u_1, 0} k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Finsupp.instAddMonoid.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              Nat.instAddMonoid)))
+        (@Ideal.span.{u_1}
+          (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝ (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+          (@AddMonoidAlgebra.semiring.{u_1, 0} k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Finsupp.instAddMonoid.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              Nat.instAddMonoid))
+          (@Set.range.{u_1, 1}
+            (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝
+              (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit)
+            (@NS25Lean.L3B.tieGenerators.{u_1} Gamma k inst✝ (@NS25Lean.L2B.MultiplicityBase.base Gamma M)
+              (@Subtype.val.{1}
+                (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                  (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                (fun u =>
+                  @Eq.{1} Nat
+                    (@DFunLike.coe.{1, 1, 1}
+                      (@AddMonoidHom.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (fun x => Nat)
+                      (@AddMonoidHom.instFunLike.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                    h)
+                (@NS25Lean.L3B.TieNormalForm.alpha Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h normal))
+              (@Subtype.val.{1}
+                (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                  (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                (fun u =>
+                  @Eq.{1} Nat
+                    (@DFunLike.coe.{1, 1, 1}
+                      (@AddMonoidHom.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (fun x => Nat)
+                      (@AddMonoidHom.instFunLike.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                    h)
+                (@NS25Lean.L3B.TieNormalForm.beta Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h normal)))))
+        (@NS25Lean.ChosenBase.Data.J.{u_1} k inst✝ Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)))
+    (generator_minimal :
+      ∀ (i : Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit),
+        @NS25Lean.L3B.tieGenerators.{u_1} Gamma k inst✝ (@NS25Lean.L2B.MultiplicityBase.base Gamma M)
+            (@Subtype.val.{1}
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (fun u =>
+                @Eq.{1} Nat
+                  (@DFunLike.coe.{1, 1, 1}
+                    (@AddMonoidHom.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    (fun x => Nat)
+                    (@AddMonoidHom.instFunLike.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                  h)
+              (@NS25Lean.L3B.TieNormalForm.alpha Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h normal))
+            (@Subtype.val.{1}
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (fun u =>
+                @Eq.{1} Nat
+                  (@DFunLike.coe.{1, 1, 1}
+                    (@AddMonoidHom.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    (fun x => Nat)
+                    (@AddMonoidHom.instFunLike.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                  h)
+              (@NS25Lean.L3B.TieNormalForm.beta Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h normal))
+            i ∉
+          @Ideal.span.{u_1}
+            (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝
+              (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (@AddMonoidAlgebra.semiring.{u_1, 0} k
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+              (@Finsupp.instAddMonoid.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                Nat.instAddMonoid))
+            (@Set.image.{0, u_1}
+              (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit)
+              (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝
+                (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (@NS25Lean.L3B.tieGenerators.{u_1} Gamma k inst✝ (@NS25Lean.L2B.MultiplicityBase.base Gamma M)
+                (@Subtype.val.{1}
+                  (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                    (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                  (fun u =>
+                    @Eq.{1} Nat
+                      (@DFunLike.coe.{1, 1, 1}
+                        (@AddMonoidHom.{0, 0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          Nat
+                          (@AddZeroClass.toAddZero.{0}
+                            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                            (@Finsupp.instAddZeroClass.{0, 0}
+                              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                          (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (fun x => Nat)
+                        (@AddMonoidHom.instFunLike.{0, 0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          Nat
+                          (@AddZeroClass.toAddZero.{0}
+                            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                            (@Finsupp.instAddZeroClass.{0, 0}
+                              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                          (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                      h)
+                  (@NS25Lean.L3B.TieNormalForm.alpha Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h normal))
+                (@Subtype.val.{1}
+                  (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                    (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                  (fun u =>
+                    @Eq.{1} Nat
+                      (@DFunLike.coe.{1, 1, 1}
+                        (@AddMonoidHom.{0, 0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          Nat
+                          (@AddZeroClass.toAddZero.{0}
+                            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                            (@Finsupp.instAddZeroClass.{0, 0}
+                              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                          (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (fun x => Nat)
+                        (@AddMonoidHom.instFunLike.{0, 0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          Nat
+                          (@AddZeroClass.toAddZero.{0}
+                            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                            (@Finsupp.instAddZeroClass.{0, 0}
+                              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                          (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                      h)
+                  (@NS25Lean.L3B.TieNormalForm.beta Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h normal)))
+              (@Set.ofPred.{0}
+                (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit) fun j =>
+                @Ne.{1} (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit)
+                  j i))) :
+    @NS25Lean.L3B.InternalFrontend.{u_1} Gamma k inst✝ M h
+structure NS25Lean.L3C.NormalizedSources.{u_1} {Gamma : NS25Lean.NumericalSemigroup} {k : Type u_1} [Field.{u_1} k]
+  {M : NS25Lean.L2B.MultiplicityBase Gamma} {h : Nat} (F : @NS25Lean.L3B.InternalFrontend.{u_1} Gamma k inst✝ M h) :
+  Type
+number of parameters: 6
+fields:
+  NS25Lean.L3C.NormalizedSources.exponents.{u_1} : @NS25Lean.L2B2A2.Source Gamma
+        (@NS25Lean.L2B.MultiplicityBase.base Gamma M) →
+      @Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass)
+  NS25Lean.L3C.NormalizedSources.slab.{u_1} : ∀
+      (s : @NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)),
+      @LT.lt.{0} Nat instLTNat
+        (@DFunLike.coe.{1, 1, 1}
+          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (fun x => Nat)
+          (@Finsupp.instFunLike.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+          (@NS25Lean.L3C.NormalizedSources.exponents.{u_1} Gamma k inst✝ M h F self s)
+          (@DFunLike.coe.{1, 1, 1}
+            (Equiv.{1, 1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (fun x => Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (@EquivLike.toFunLike.{1, 1, 1}
+              (Equiv.{1, 1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (@Equiv.instEquivLike.{1, 1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))))
+            (@NS25Lean.L3B.TieNormalForm.perm Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+              (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F))
+            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 0)
+              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) ⋯ (nat_lit 0)))))
+        (@NS25Lean.L3B.TieNormalForm.a Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+          (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F))
+  NS25Lean.L3C.NormalizedSources.degree.{u_1} : ∀
+      (s : @NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)),
+      @Eq.{1} Nat
+        (@DFunLike.coe.{1, 1, 1}
+          (@AddMonoidHom.{0, 0}
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            Nat
+            (@AddZeroClass.toAddZero.{0}
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (@Finsupp.instAddZeroClass.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+            (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+          (fun x => Nat)
+          (@AddMonoidHom.instFunLike.{0, 0}
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            Nat
+            (@AddZeroClass.toAddZero.{0}
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (@Finsupp.instAddZeroClass.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+            (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+          (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M))
+          (@NS25Lean.L3C.NormalizedSources.exponents.{u_1} Gamma k inst✝ M h F self s))
+        (@Subtype.val.{1} Nat
+          (fun h =>
+            NS25Lean.FourGeneratedBridge.IsMinimalTailGenerator
+              (@NS25Lean.ChosenBase.Data.H Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M))
+              (@NS25Lean.ChosenBase.Data.K Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) h)
+          s)
+  NS25Lean.L3C.NormalizedSources.span.{u_1} : @Eq.{u_1 + 1}
+      (@Ideal.{u_1}
+        (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝ (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+        (@AddMonoidAlgebra.semiring.{u_1, 0} k
+          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+          (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@Finsupp.instAddMonoid.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+            Nat.instAddMonoid)))
+      (@Ideal.span.{u_1}
+        (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝ (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+        (@AddMonoidAlgebra.semiring.{u_1, 0} k
+          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+          (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+          (@Finsupp.instAddMonoid.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+            Nat.instAddMonoid))
+        (@Set.range.{u_1, 1}
+          (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝ (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+          (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit)
+          (@NS25Lean.L3B.normalizedFamily.{u_1} Gamma k inst✝ (@NS25Lean.L2B.MultiplicityBase.base Gamma M)
+            (@Subtype.val.{1}
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (fun u =>
+                @Eq.{1} Nat
+                  (@DFunLike.coe.{1, 1, 1}
+                    (@AddMonoidHom.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    (fun x => Nat)
+                    (@AddMonoidHom.instFunLike.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                  h)
+              (@NS25Lean.L3B.TieNormalForm.alpha Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F)))
+            (@Subtype.val.{1}
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (fun u =>
+                @Eq.{1} Nat
+                  (@DFunLike.coe.{1, 1, 1}
+                    (@AddMonoidHom.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    (fun x => Nat)
+                    (@AddMonoidHom.instFunLike.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                  h)
+              (@NS25Lean.L3B.TieNormalForm.beta Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F)))
+            (@NS25Lean.L3C.NormalizedSources.exponents.{u_1} Gamma k inst✝ M h F self))))
+      (@NS25Lean.ChosenBase.Data.J.{u_1} k inst✝ Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M))
+  NS25Lean.L3C.NormalizedSources.minimal.{u_1} : ∀
+      (i : Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit),
+      @NS25Lean.L3B.normalizedFamily.{u_1} Gamma k inst✝ (@NS25Lean.L2B.MultiplicityBase.base Gamma M)
+          (@Subtype.val.{1}
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (fun u =>
+              @Eq.{1} Nat
+                (@DFunLike.coe.{1, 1, 1}
+                  (@AddMonoidHom.{0, 0}
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    Nat
+                    (@AddZeroClass.toAddZero.{0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (@Finsupp.instAddZeroClass.{0, 0}
+                        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                  (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                    (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                  (fun x => Nat)
+                  (@AddMonoidHom.instFunLike.{0, 0}
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    Nat
+                    (@AddZeroClass.toAddZero.{0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (@Finsupp.instAddZeroClass.{0, 0}
+                        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                  (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                h)
+            (@NS25Lean.L3B.TieNormalForm.alpha Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+              (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F)))
+          (@Subtype.val.{1}
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (fun u =>
+              @Eq.{1} Nat
+                (@DFunLike.coe.{1, 1, 1}
+                  (@AddMonoidHom.{0, 0}
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    Nat
+                    (@AddZeroClass.toAddZero.{0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (@Finsupp.instAddZeroClass.{0, 0}
+                        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                  (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                    (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                  (fun x => Nat)
+                  (@AddMonoidHom.instFunLike.{0, 0}
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    Nat
+                    (@AddZeroClass.toAddZero.{0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (@Finsupp.instAddZeroClass.{0, 0}
+                        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                  (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                h)
+            (@NS25Lean.L3B.TieNormalForm.beta Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+              (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F)))
+          (@NS25Lean.L3C.NormalizedSources.exponents.{u_1} Gamma k inst✝ M h F self) i ∉
+        @Ideal.span.{u_1}
+          (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝ (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+          (@AddMonoidAlgebra.semiring.{u_1, 0} k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Finsupp.instAddMonoid.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              Nat.instAddMonoid))
+          (@Set.image.{0, u_1}
+            (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit)
+            (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝
+              (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (@NS25Lean.L3B.normalizedFamily.{u_1} Gamma k inst✝ (@NS25Lean.L2B.MultiplicityBase.base Gamma M)
+              (@Subtype.val.{1}
+                (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                  (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                (fun u =>
+                  @Eq.{1} Nat
+                    (@DFunLike.coe.{1, 1, 1}
+                      (@AddMonoidHom.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (fun x => Nat)
+                      (@AddMonoidHom.instFunLike.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                    h)
+                (@NS25Lean.L3B.TieNormalForm.alpha Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                  (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F)))
+              (@Subtype.val.{1}
+                (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                  (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                (fun u =>
+                  @Eq.{1} Nat
+                    (@DFunLike.coe.{1, 1, 1}
+                      (@AddMonoidHom.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (fun x => Nat)
+                      (@AddMonoidHom.instFunLike.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                    h)
+                (@NS25Lean.L3B.TieNormalForm.beta Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                  (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F)))
+              (@NS25Lean.L3C.NormalizedSources.exponents.{u_1} Gamma k inst✝ M h F self))
+            (@Set.ofPred.{0}
+              (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit) fun j =>
+              @Ne.{1} (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit) j
+                i))
+constructor:
+  NS25Lean.L3C.NormalizedSources.mk.{u_1} {Gamma : NS25Lean.NumericalSemigroup} {k : Type u_1} [Field.{u_1} k]
+    {M : NS25Lean.L2B.MultiplicityBase Gamma} {h : Nat} {F : @NS25Lean.L3B.InternalFrontend.{u_1} Gamma k inst✝ M h}
+    (exponents :
+      @NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) →
+        @Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+    (slab :
+      ∀ (s : @NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)),
+        @LT.lt.{0} Nat instLTNat
+          (@DFunLike.coe.{1, 1, 1}
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (fun x => Nat)
+            (@Finsupp.instFunLike.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (exponents s)
+            (@DFunLike.coe.{1, 1, 1}
+              (Equiv.{1, 1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (fun x => Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (@EquivLike.toFunLike.{1, 1, 1}
+                (Equiv.{1, 1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (@Equiv.instEquivLike.{1, 1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))))
+              (@NS25Lean.L3B.TieNormalForm.perm Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F))
+              (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 0)
+                (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) ⋯ (nat_lit 0)))))
+          (@NS25Lean.L3B.TieNormalForm.a Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+            (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F)))
+    (degree :
+      ∀ (s : @NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)),
+        @Eq.{1} Nat
+          (@DFunLike.coe.{1, 1, 1}
+            (@AddMonoidHom.{0, 0}
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              Nat
+              (@AddZeroClass.toAddZero.{0}
+                (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                  (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                (@Finsupp.instAddZeroClass.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+              (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (fun x => Nat)
+            (@AddMonoidHom.instFunLike.{0, 0}
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              Nat
+              (@AddZeroClass.toAddZero.{0}
+                (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                  (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                (@Finsupp.instAddZeroClass.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+              (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+            (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) (exponents s))
+          (@Subtype.val.{1} Nat
+            (fun h =>
+              NS25Lean.FourGeneratedBridge.IsMinimalTailGenerator
+                (@NS25Lean.ChosenBase.Data.H Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M))
+                (@NS25Lean.ChosenBase.Data.K Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) h)
+            s))
+    (span :
+      @Eq.{u_1 + 1}
+        (@Ideal.{u_1}
+          (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝ (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+          (@AddMonoidAlgebra.semiring.{u_1, 0} k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Finsupp.instAddMonoid.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              Nat.instAddMonoid)))
+        (@Ideal.span.{u_1}
+          (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝ (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+          (@AddMonoidAlgebra.semiring.{u_1, 0} k
+            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+            (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+            (@Finsupp.instAddMonoid.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+              Nat.instAddMonoid))
+          (@Set.range.{u_1, 1}
+            (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝
+              (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit)
+            (@NS25Lean.L3B.normalizedFamily.{u_1} Gamma k inst✝ (@NS25Lean.L2B.MultiplicityBase.base Gamma M)
+              (@Subtype.val.{1}
+                (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                  (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                (fun u =>
+                  @Eq.{1} Nat
+                    (@DFunLike.coe.{1, 1, 1}
+                      (@AddMonoidHom.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (fun x => Nat)
+                      (@AddMonoidHom.instFunLike.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                    h)
+                (@NS25Lean.L3B.TieNormalForm.alpha Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                  (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F)))
+              (@Subtype.val.{1}
+                (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                  (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                (fun u =>
+                  @Eq.{1} Nat
+                    (@DFunLike.coe.{1, 1, 1}
+                      (@AddMonoidHom.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      (fun x => Nat)
+                      (@AddMonoidHom.instFunLike.{0, 0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        Nat
+                        (@AddZeroClass.toAddZero.{0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          (@Finsupp.instAddZeroClass.{0, 0}
+                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                    h)
+                (@NS25Lean.L3B.TieNormalForm.beta Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                  (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F)))
+              exponents)))
+        (@NS25Lean.ChosenBase.Data.J.{u_1} k inst✝ Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)))
+    (minimal :
+      ∀ (i : Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit),
+        @NS25Lean.L3B.normalizedFamily.{u_1} Gamma k inst✝ (@NS25Lean.L2B.MultiplicityBase.base Gamma M)
+            (@Subtype.val.{1}
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (fun u =>
+                @Eq.{1} Nat
+                  (@DFunLike.coe.{1, 1, 1}
+                    (@AddMonoidHom.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    (fun x => Nat)
+                    (@AddMonoidHom.instFunLike.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                  h)
+              (@NS25Lean.L3B.TieNormalForm.alpha Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F)))
+            (@Subtype.val.{1}
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (fun u =>
+                @Eq.{1} Nat
+                  (@DFunLike.coe.{1, 1, 1}
+                    (@AddMonoidHom.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                      (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                    (fun x => Nat)
+                    (@AddMonoidHom.instFunLike.{0, 0}
+                      (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                        (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                      Nat
+                      (@AddZeroClass.toAddZero.{0}
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (@Finsupp.instAddZeroClass.{0, 0}
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                      (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                    (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                  h)
+              (@NS25Lean.L3B.TieNormalForm.beta Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F)))
+            exponents i ∉
+          @Ideal.span.{u_1}
+            (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝
+              (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (@AddMonoidAlgebra.semiring.{u_1, 0} k
+              (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+              (@CommSemiring.toSemiring.{u_1} k (@Semifield.toCommSemiring.{u_1} k (@Field.toSemifield.{u_1} k inst✝)))
+              (@Finsupp.instAddMonoid.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                Nat.instAddMonoid))
+            (@Set.image.{0, u_1}
+              (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit)
+              (@NS25Lean.ToricPresentation.Poly.{u_1} k inst✝
+                (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (@NS25Lean.L3B.normalizedFamily.{u_1} Gamma k inst✝ (@NS25Lean.L2B.MultiplicityBase.base Gamma M)
+                (@Subtype.val.{1}
+                  (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                    (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                  (fun u =>
+                    @Eq.{1} Nat
+                      (@DFunLike.coe.{1, 1, 1}
+                        (@AddMonoidHom.{0, 0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          Nat
+                          (@AddZeroClass.toAddZero.{0}
+                            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                            (@Finsupp.instAddZeroClass.{0, 0}
+                              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                          (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (fun x => Nat)
+                        (@AddMonoidHom.instFunLike.{0, 0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          Nat
+                          (@AddZeroClass.toAddZero.{0}
+                            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                            (@Finsupp.instAddZeroClass.{0, 0}
+                              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                          (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                      h)
+                  (@NS25Lean.L3B.TieNormalForm.alpha Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                    (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F)))
+                (@Subtype.val.{1}
+                  (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                    (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                  (fun u =>
+                    @Eq.{1} Nat
+                      (@DFunLike.coe.{1, 1, 1}
+                        (@AddMonoidHom.{0, 0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          Nat
+                          (@AddZeroClass.toAddZero.{0}
+                            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                            (@Finsupp.instAddZeroClass.{0, 0}
+                              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                          (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                          (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                        (fun x => Nat)
+                        (@AddMonoidHom.instFunLike.{0, 0}
+                          (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                            (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                          Nat
+                          (@AddZeroClass.toAddZero.{0}
+                            (@Finsupp.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass))
+                            (@Finsupp.instAddZeroClass.{0, 0}
+                              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+                              (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                          (@AddZeroClass.toAddZero.{0} Nat (@AddMonoid.toAddZeroClass.{0} Nat Nat.instAddMonoid)))
+                        (@NS25Lean.L2B.weight Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) u)
+                      h)
+                  (@NS25Lean.L3B.TieNormalForm.beta Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M) h
+                    (@NS25Lean.L3B.InternalFrontend.normal.{u_1} Gamma k inst✝ M h F)))
+                exponents)
+              (@Set.ofPred.{0}
+                (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit) fun j =>
+                @Ne.{1} (Sum.{0, 0} (@NS25Lean.L2B2A2.Source Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)) Unit)
+                  j i))) :
+    @NS25Lean.L3C.NormalizedSources.{u_1} Gamma k inst✝ M h F
+theorem NS25Lean.L4B.ns_sharp : ∀ (Gamma : NS25Lean.NumericalSemigroup),
+  NS25Lean.CoarseP25.HasEmbeddingDimensionFour Gamma →
+    @LE.le.{0} Nat instLENat (@NS25Lean.RelativeIdeal.idealType Gamma Gamma.asRelativeIdeal)
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (NS25Lean.Presentation.rho Gamma)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) :=
+fun Gamma he =>
+  @Exists.casesOn.{1} Nat
+    (fun m => ∃ n₁ n₂ n₃, NS25Lean.FourGeneratedBridge.IsMinimallyGeneratedByFour Gamma m n₁ n₂ n₃)
+    (fun x =>
+      @LE.le.{0} Nat instLENat (@NS25Lean.RelativeIdeal.idealType Gamma Gamma.asRelativeIdeal)
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (NS25Lean.Presentation.rho Gamma)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+    he fun m h =>
+    @Exists.casesOn.{1} Nat
+      (fun n₁ => ∃ n₂ n₃, NS25Lean.FourGeneratedBridge.IsMinimallyGeneratedByFour Gamma m n₁ n₂ n₃)
+      (fun x =>
+        @LE.le.{0} Nat instLENat (@NS25Lean.RelativeIdeal.idealType Gamma Gamma.asRelativeIdeal)
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (NS25Lean.Presentation.rho Gamma)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      h fun a h =>
+      @Exists.casesOn.{1} Nat (fun n₂ => ∃ n₃, NS25Lean.FourGeneratedBridge.IsMinimallyGeneratedByFour Gamma m a n₂ n₃)
+        (fun x =>
+          @LE.le.{0} Nat instLENat (@NS25Lean.RelativeIdeal.idealType Gamma Gamma.asRelativeIdeal)
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (NS25Lean.Presentation.rho Gamma)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        h fun b h =>
+        @Exists.casesOn.{1} Nat (fun n₃ => NS25Lean.FourGeneratedBridge.IsMinimallyGeneratedByFour Gamma m a b n₃)
+          (fun x =>
+            @LE.le.{0} Nat instLENat (@NS25Lean.RelativeIdeal.idealType Gamma Gamma.asRelativeIdeal)
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (NS25Lean.Presentation.rho Gamma)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          h fun c h =>
+          @NS25Lean.L4B.ns_sharp_data Gamma
+            (NS25Lean.ChosenBase.Data.ofFourTuple Gamma m a b c h
+              (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)
+                (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+                  (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 0))))
+theorem NS25Lean.P2Strong.p2_strong : ∀ {Gamma : NS25Lean.NumericalSemigroup} (M : NS25Lean.L2B.MultiplicityBase Gamma),
+  @Eq.{1} Nat (@NS25Lean.L2B.chosenDefect Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M))
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+    @LE.le.{0} Nat instLENat (@NS25Lean.RelativeIdeal.idealType Gamma Gamma.asRelativeIdeal)
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (NS25Lean.Presentation.rho Gamma)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) :=
+fun {Gamma} M hp => @NS25Lean.L5A2R49.p2_type_le_rho_sub_two Gamma (@NS25Lean.L5A1.P2Data.mk Gamma M hp)
+theorem NS25Lean.P3R68.p3_strong_of_chosenDefect_three : ∀ {Gamma : NS25Lean.NumericalSemigroup}
+  (M : NS25Lean.L2B.MultiplicityBase Gamma),
+  @Eq.{1} Nat (@NS25Lean.L2B.chosenDefect Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M))
+      (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) →
+    @LE.le.{0} Nat instLENat (@NS25Lean.RelativeIdeal.idealType Gamma Gamma.asRelativeIdeal)
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (NS25Lean.Presentation.rho Gamma)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) :=
+fun {Gamma} M hp =>
+  @Or.casesOn
+    (@Eq.{1} Nat (@Finset.card.{0} Nat (@NS25Lean.P3R51.internalDegrees Gamma M))
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+    (Or
+      (@Eq.{1} Nat (@Finset.card.{0} Nat (@NS25Lean.P3R51.internalDegrees Gamma M))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      (Or
+        (@Eq.{1} Nat (@Finset.card.{0} Nat (@NS25Lean.P3R51.internalDegrees Gamma M))
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@Eq.{1} Nat (@Finset.card.{0} Nat (@NS25Lean.P3R51.internalDegrees Gamma M))
+          (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))))
+    (fun x =>
+      @LE.le.{0} Nat instLENat (@NS25Lean.RelativeIdeal.idealType Gamma Gamma.asRelativeIdeal)
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (NS25Lean.Presentation.rho Gamma)
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+    (@NS25Lean.P3R51.internal_count_cases Gamma M hp) (fun h0 => @NS25Lean.P3R56.r0_type_bound Gamma M hp h0) fun h =>
+    @Or.casesOn
+      (@Eq.{1} Nat (@Finset.card.{0} Nat (@NS25Lean.P3R51.internalDegrees Gamma M))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      (Or
+        (@Eq.{1} Nat (@Finset.card.{0} Nat (@NS25Lean.P3R51.internalDegrees Gamma M))
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@Eq.{1} Nat (@Finset.card.{0} Nat (@NS25Lean.P3R51.internalDegrees Gamma M))
+          (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+      (fun x =>
+        @LE.le.{0} Nat instLENat (@NS25Lean.RelativeIdeal.idealType Gamma Gamma.asRelativeIdeal)
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (NS25Lean.Presentation.rho Gamma)
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      h (fun h1 => @NS25Lean.P3R65.r1_original_type_via_final_sentinel Gamma M hp h1) fun h =>
+      @Or.casesOn
+        (@Eq.{1} Nat (@Finset.card.{0} Nat (@NS25Lean.P3R51.internalDegrees Gamma M))
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@Eq.{1} Nat (@Finset.card.{0} Nat (@NS25Lean.P3R51.internalDegrees Gamma M))
+          (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+        (fun x =>
+          @LE.le.{0} Nat instLENat (@NS25Lean.RelativeIdeal.idealType Gamma Gamma.asRelativeIdeal)
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (NS25Lean.Presentation.rho Gamma)
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        h (fun h2 => @NS25Lean.P3R63.r2_original_type_via_final_staircase Gamma M hp h2) fun h3 =>
+        @NS25Lean.P3R67.r3_original_type_le_rho_sub_two Gamma M hp h3
+theorem NS25Lean.EC.R75.finite_intrinsic_equality_iff : ∀ (Gamma : NS25Lean.NumericalSemigroup)
+  (M : NS25Lean.L2B.MultiplicityBase Gamma),
+  Iff
+    (@Eq.{1} Nat (@NS25Lean.RelativeIdeal.idealType Gamma Gamma.asRelativeIdeal)
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (NS25Lean.Presentation.rho Gamma)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+    (@NS25Lean.EC.R75.FiniteEqualityCertificate Gamma M) :=
+fun Gamma M => @NS25Lean.EC.R75.chosen_pivot_finite_equality_iff Gamma (@NS25Lean.L2B.MultiplicityBase.base Gamma M)
+theorem NS25Lean.EC.R75.equality_iff_all_original_pivots : ∀ {Gamma : NS25Lean.NumericalSemigroup}
+  (B : NS25Lean.ChosenBase.Data Gamma),
+  Iff
+    (@Eq.{1} Nat (@NS25Lean.RelativeIdeal.idealType Gamma Gamma.asRelativeIdeal)
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (NS25Lean.Presentation.rho Gamma)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+    (∀ (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))),
+      @NS25Lean.EC.R75.PivotFiniteCertificate Gamma (@NS25Lean.L2C.atPivot Gamma B i)) :=
+fun {Gamma} B =>
+  @Iff.intro
+    (@Eq.{1} Nat (@NS25Lean.RelativeIdeal.idealType Gamma Gamma.asRelativeIdeal)
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (NS25Lean.Presentation.rho Gamma)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+    (∀ (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))),
+      @NS25Lean.EC.R75.PivotFiniteCertificate Gamma (@NS25Lean.L2C.atPivot Gamma B i))
+    (@NS25Lean.EC.R75.equality_all_original_pivots Gamma B) fun h =>
+    @Iff.mpr
+      (@Eq.{1} Nat (@NS25Lean.RelativeIdeal.idealType Gamma Gamma.asRelativeIdeal)
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (NS25Lean.Presentation.rho Gamma)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@NS25Lean.EC.R75.PivotFiniteCertificate Gamma
+        (@NS25Lean.L2C.atPivot Gamma B
+          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)
+            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 0)))))
+      (@NS25Lean.EC.R75.pivot_finite_equality_iff Gamma
+        (@NS25Lean.L2C.atPivot Gamma B
+          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)
+            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 0)))))
+      (h
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 0))))

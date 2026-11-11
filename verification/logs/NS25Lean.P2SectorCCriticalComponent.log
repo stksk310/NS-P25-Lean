@@ -1,0 +1,26 @@
+NS25Lean/P2SectorCCriticalComponent.lean:77:4: warning: Try `simp at hpi` instead of `simpa using hpi`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2SectorCCriticalComponent.lean:100:6: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2SectorCCriticalComponent.lean:146:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCCriticalComponent.lean:195:6: warning: Try `simp at hcard` instead of `simpa using hcard`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2SectorCCriticalComponent.lean:206:6: warning: Try `simp at hcard` instead of `simpa using hcard`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2SectorCCriticalComponent.lean:239:50: warning: Variable name `G` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _G
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

@@ -1,4 +1,4 @@
-import NS25Lean.P2BranchBFinalRepairKoszulSurgery
+import NS25Lean.P2BranchBUniformSymmetric
 
 set_option linter.style.header false
 set_option maxHeartbeats 300000
@@ -273,8 +273,10 @@ theorem symmetric_Q_le_two_actual_type_le_sourceCount
 theorem symmetric_actual_type_le_sourceCount
     (A : SectorBCriticalRoleBranchA P) (hB : SectorB P.M) :
     Gamma.asRelativeIdeal.idealType ≤ P.sourceCount := by
-  by_cases hQ : actualPrincipalIndex P.M.base ≤ 2
-  · exact symmetric_Q_le_two_actual_type_le_sourceCount A hB hQ
-  · exact symmetric_Q_ge_three_actual_type_le_sourceCount A hB (by omega)
+  have hp := (actualPrincipalIndex_spec P.M.base).1
+  by_cases hQ : actualPrincipalIndex P.M.base=1
+  · obtain ⟨ht,hs⟩ := symmetric_Q_one_actual_type_and_sourceCount A hQ
+    omega
+  · exact symmetric_Q_gt_one_actual_type_le_sourceCount_uniform A hB (by omega)
 
 end NS25Lean.L5A2BFinalRepair

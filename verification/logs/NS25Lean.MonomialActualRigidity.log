@@ -1,0 +1,7 @@
+NS25Lean/MonomialActualRigidity.lean:24:35: warning: This simp argument is unused:
+  hne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_sub, coeff_monomial, Ne.symm hne] at hz
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

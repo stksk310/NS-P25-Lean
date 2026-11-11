@@ -1,0 +1,7 @@
+NS25Lean/P2CriticalModeBounds.lean:29:27: warning: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Nat.add_mul] at hR1 hu1 hv1
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

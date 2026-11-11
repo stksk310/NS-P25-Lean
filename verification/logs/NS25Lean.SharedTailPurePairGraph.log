@@ -1,0 +1,6 @@
+NS25Lean/SharedTailPurePairGraph.lean:52:8: warning: Try `simp at hm` instead of `simpa using hm`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/SharedTailPurePairGraph.lean:91:4: warning: Try `simp at hm` instead of `simpa using hm`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

@@ -1,0 +1,6 @@
+'NS25Lean.GenericFloorStaircase.c_exceptional_has_least_first' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.GenericFloorStaircase.b_exceptional_has_greatest_first' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

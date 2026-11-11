@@ -1,4 +1,5 @@
 import NS25Lean.P2SectorCDirectPFModelAdapterR29
+import NS25Lean.P2ReturnExchange
 
 set_option linter.style.header false
 set_option linter.style.whitespace false
@@ -49,9 +50,10 @@ theorem model_source_return_no_common_summand
     {n y z h : ℕ} (hn : 0 < n) (hy : y ∈ routingH B e)
     (hz : z ∈ routingH B e) (hh : h ∈ routingH B e)
     (hs : s.val = z+h) (hreturn : s.val = n*routingM B e+(y+h)) : h = 0 := by
-  have hcut : z ∈ cyclicCut (routingH B e) (routingM B e) :=
-    ⟨hz, n, hn, y, hy, by omega⟩
-  exact ((minimalTail_iff_literal _ _ _).mp s.property).2 z h hcut hh hs
+  let t : ReturnExchange.Sources (routingH B e) (routingM B e) Set.univ :=
+    ⟨s.val,by simpa only [ReturnExchange.returnCut_univ] using s.property⟩
+  exact ReturnExchange.source_return_separation (routingH B e) (routingM B e)
+    Set.univ t (Set.mem_univ n) hn hy hz hh hs hreturn
 
 /-- M1 small-return firewall: existence of a small return for each nonfirst
 source, without asserting anything false about arbitrary large returns. -/
@@ -62,23 +64,8 @@ theorem model_nonfirst_source_small_return
     ∃ n y : ℕ, 0 < n ∧ n < firstPrincipal (routingH B e) (routingM B e)
       (routingM_pos B e) ∧ y ∈ routingH B e ∧ 0 < y ∧
       s.val = n*routingM B e+y := by
-  obtain ⟨_, n, hn, hnle, y, hy, heq⟩ :=
-    (cyclicCut_finite_principal_reduction _ _ (routingM_pos B e) s.val).mp s.property.1
-  have hnlt : n < firstPrincipal (routingH B e) (routingM B e) (routingM_pos B e) := by
-    by_contra hnot
-    have hnq : n = firstPrincipal (routingH B e) (routingM B e) (routingM_pos B e) := by omega
-    have hy0 := ((minimalTail_iff_literal _ _ _).mp s.property).2 _ y
-      (firstPrincipal_minimal_cut_source _ _ (routingM_pos B e)).1 hy
-      (by simpa [hnq] using heq)
-    exact hfirst (by simpa [hnq, hy0] using heq)
-  have hypos : 0 < y := by
-    by_contra hnot
-    have hy0 : y = 0 := by omega
-    have hnH : n*routingM B e ∈ routingH B e := by
-      simpa [heq, hy0] using s.property.1.1
-    have hmin := firstPrincipal_le _ _ (routingM_pos B e) hn hnH
-    omega
-  exact ⟨n, y, hn, hnlt, hy, hypos, heq⟩
+  exact ReturnExchange.nonfirst_source_small_return (routingH B e) (routingM B e)
+    (routingM_pos B e) s hfirst
 
 /-- Full union support expressed as literal H-predecessors at all three
 generators. It does not require one fully supported factorization. -/

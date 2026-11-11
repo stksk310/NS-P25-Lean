@@ -1,0 +1,6 @@
+legacy-checks\negative\02_p2_missing_defect.lean:8:2: error: Type mismatch
+  P2Strong.p2_strong M
+has type
+  L2B.chosenDefect M.base = 2 → Gamma.asRelativeIdeal.idealType ≤ Presentation.rho Gamma - 2
+but is expected to have type
+  Gamma.asRelativeIdeal.idealType ≤ Presentation.rho Gamma - 2

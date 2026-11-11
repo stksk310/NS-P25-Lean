@@ -417,4 +417,137 @@ theorem symmetric_prefix_socle_plus_two_le_actual_sourceCount (A : SectorBCritic
   dsimp only at hp ⊢
   omega
 
+
+
+/-- The Chart-A prefix route is uniform for every Q>1. -/
+theorem symmetric_prefix_C_target_minimal_F_uniform (A : SectorBCriticalRoleBranchA P)
+    (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) :
+    letI : NeZero (routingA P.M.base A.reindex) := ⟨(routingA_pos _ _).ne'⟩
+    let hQ1 : 1 < actualPrincipalIndex P.M.base := by omega
+    ∀ r, (symmetricPrefixRouting A hQ1).IsBranch r →
+      (symmetricPrefixRouting A hQ1).IsSource ((symmetricPrefixRouting A hQ1).branchTarget r) →
+      ∃ p : SymmetricMinimalFPoints A hB,
+        symmetricPrefixLambda A hQ1 ((symmetricPrefixRouting A hQ1).branchTarget r)=
+          (p.val.1*n1 A+p.val.2*n2 A : ℕ) := by
+  letI : NeZero (routingA P.M.base A.reindex) := ⟨(routingA_pos _ _).ne'⟩
+  dsimp only
+  let hQ1 : 1 < actualPrincipalIndex P.M.base := by omega
+  intro r hr hs
+  obtain ⟨ell,he⟩ := symmetric_prefix_C_targets_F_uniform A hB hQ r hr hs
+  change symmetricPrefixLambda A hQ1 ((symmetricPrefixRouting A hQ1).branchTarget r)=
+    (symmetricF A (symmetricReturnTuple A hB ell).1 (symmetricReturnTuple A hB ell).2.1 : ℤ) at he
+  obtain ⟨p,hpi,hpj⟩ := symmetric_return_dominated_by_minimal_F A hB ell
+  obtain ⟨lp,hli,hlj⟩ := p.property.1
+  have S := symmetricReturnTuple_spec A hB lp
+  have hg : ((p.val.1*n1 A+p.val.2*n2 A : ℕ) : ℤ) ∈ symmetricPrefixIdeal A hQ1 := by
+    refine ⟨lp.val,lp.property.1,lp.property.2,?_⟩
+    simpa only [symmetricF,hli,hlj] using
+      (symmetric_single_return_sources_mem A hB lp.property.1 S.2.1 S.2.2.2.1 S.2.2.2.2.2.2.2).1
+  have hgen := (normalizedSemigroup_minimal (chosenBase_minimalFour P.M.base A.reindex)).1
+  have hm := ((symmetricPrefixIdeal A hQ1).concrete_isSource_iff_isMinimalGenerator
+    (routingA P.M.base A.reindex) (routingB P.M.base A.reindex) (routingC P.M.base A.reindex)
+    hgen (routingHB _ _) (routingHC _ _)
+    (by rw [routingB_eq_n1 A]; exact (branchA_symmetricTailData A).n1_pos.ne')
+    (by rw [routingC_eq_n2 A]; exact (branchA_symmetricTailData A).n2_pos.ne') _).mp hs
+  have hd : symmetricPrefixLambda A hQ1 ((symmetricPrefixRouting A hQ1).branchTarget r)-
+      (p.val.1*n1 A+p.val.2*n2 A : ℕ) ∈ (routingH P.M.base A.reindex).asRelativeIdeal := by
+    rw [he]
+    have hdi : (((symmetricReturnTuple A hB ell).1-p.val.1 : ℕ) : ℤ)+p.val.1=
+        (symmetricReturnTuple A hB ell).1 := by exact_mod_cast Nat.sub_add_cancel hpi
+    have hdj : (((symmetricReturnTuple A hB ell).2.1-p.val.2 : ℕ) : ℤ)+p.val.2=
+        (symmetricReturnTuple A hB ell).2.1 := by exact_mod_cast Nat.sub_add_cancel hpj
+    have hmem := gridH A 0 ((symmetricReturnTuple A hB ell).1-p.val.1)
+      ((symmetricReturnTuple A hB ell).2.1-p.val.2)
+    convert hmem using 1
+    simp only [symmetricF,Nat.cast_add,Nat.cast_mul,zero_mul,zero_add]
+    nlinarith only [hdi,hdj]
+  exact ⟨p,minimal_eq_divisor A hQ1 hm hg hd⟩
+
+def symmetricCBranchFPoint_uniform (A : SectorBCriticalRoleBranchA P) (hB : SectorB P.M)
+    (hQ : 1 < actualPrincipalIndex P.M.base)
+    (s : L5A2C4I.ResidueData.CSourceTargetBranches
+      (symmetricPrefixRouting A (by omega : 1 < actualPrincipalIndex P.M.base))) :
+    SymmetricMinimalFPoints A hB :=
+  Classical.choose (symmetric_prefix_C_target_minimal_F_uniform A hB hQ s.val s.property.1 s.property.2)
+
+theorem symmetricCBranchFPoint_injective_uniform (A : SectorBCriticalRoleBranchA P) (hB : SectorB P.M)
+    (hQ : 1 < actualPrincipalIndex P.M.base) : Function.Injective (symmetricCBranchFPoint_uniform A hB hQ) := by
+  letI : NeZero (routingA P.M.base A.reindex) := ⟨(routingA_pos _ _).ne'⟩
+  let hQ1 : 1 < actualPrincipalIndex P.M.base := by omega
+  intro s t he
+  have hs := Classical.choose_spec (symmetric_prefix_C_target_minimal_F_uniform A hB hQ s.val s.property.1 s.property.2)
+  have ht := Classical.choose_spec (symmetric_prefix_C_target_minimal_F_uniform A hB hQ t.val t.property.1 t.property.2)
+  change symmetricPrefixLambda A hQ1 ((symmetricPrefixRouting A hQ1).branchTarget s.val)=
+    ((symmetricCBranchFPoint_uniform A hB hQ s).val.1*n1 A+(symmetricCBranchFPoint_uniform A hB hQ s).val.2*n2 A : ℕ) at hs
+  change symmetricPrefixLambda A hQ1 ((symmetricPrefixRouting A hQ1).branchTarget t.val)=
+    ((symmetricCBranchFPoint_uniform A hB hQ t).val.1*n1 A+(symmetricCBranchFPoint_uniform A hB hQ t).val.2*n2 A : ℕ) at ht
+  rw [he] at hs
+  have hv := hs.trans ht.symm
+  have hmod := congrArg (fun v : ℤ => (v : ZMod (routingA P.M.base A.reindex))) hv
+  simp only [symmetricPrefixLambda,RelativeIdeal.aperyRepresentative_mod] at hmod
+  exact Subtype.ext ((symmetricPrefixRouting A hQ1).branchTarget_injective hmod)
+
+theorem symmetric_prefix_C_count_le_minimal_F_uniform (A : SectorBCriticalRoleBranchA P)
+    (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) :
+    L5A2C4I.ResidueData.sourceTargetBranchCount
+      (symmetricPrefixRouting A (by omega : 1 < actualPrincipalIndex P.M.base)) ≤
+      Nat.card (SymmetricMinimalFPoints A hB) :=
+  Nat.card_le_card_of_injective _ (symmetricCBranchFPoint_injective_uniform A hB hQ)
+
+theorem symmetric_prefix_resource_bounds_uniform (A : SectorBCriticalRoleBranchA P)
+    (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) :
+    letI : NeZero (routingA P.M.base A.reindex) := ⟨(routingA_pos _ _).ne'⟩
+    let hQ1 : 1 < actualPrincipalIndex P.M.base := by omega
+    let D := symmetricPrefixRouting A hQ1
+    let r := Nat.card (SymmetricMinimalFPoints A hB)
+    L5A2C4I.ResidueData.sourceTargetBranchCount D ≤ r ∧
+      r ≤ Nat.card (L5A2C4I.ResidueData.ExactUnusedMergeBases D) ∧
+      fakeSinkCount (symmetricPrefixIdeal A hQ1) (routingA P.M.base A.reindex)
+        (routingB P.M.base A.reindex) (routingC P.M.base A.reindex) (routingHB _ _) (routingHC _ _)=1 := by
+  letI : NeZero (routingA P.M.base A.reindex) := ⟨(routingA_pos _ _).ne'⟩
+  dsimp only
+  exact ⟨symmetric_prefix_C_count_le_minimal_F_uniform A hB hQ,
+    symmetric_prefix_unused_count_ge_minimal_F A hB (by omega),
+    symmetric_prefix_fakeSinkCount_eq_one A hB (by omega)⟩
+
+theorem symmetric_prefix_slack_le_neg_one_uniform (A : SectorBCriticalRoleBranchA P)
+    (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) :
+    letI : NeZero (routingA P.M.base A.reindex) := ⟨(routingA_pos _ _).ne'⟩
+    let hQ1 : 1 < actualPrincipalIndex P.M.base := by omega
+    (actualSinkCount (symmetricPrefixIdeal A hQ1) (routingA P.M.base A.reindex)
+      (routingB P.M.base A.reindex) (routingC P.M.base A.reindex) (routingHB _ _) (routingHC _ _) : ℤ)-
+      (symmetricPrefixRouting A hQ1).sourceCount ≤ -1 := by
+  letI : NeZero (routingA P.M.base A.reindex) := ⟨(routingA_pos _ _).ne'⟩
+  have hs := symmetric_prefix_raw_slack_identity A (by omega : 1 < actualPrincipalIndex P.M.base)
+  have hr := symmetric_prefix_resource_bounds_uniform A hB hQ
+  dsimp only at hr hs ⊢
+  omega
+
+theorem symmetric_prefix_actual_socle_count_bound_uniform (A : SectorBCriticalRoleBranchA P)
+    (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) :
+    letI : NeZero (routingA P.M.base A.reindex) := ⟨(routingA_pos _ _).ne'⟩
+    let hQ1 : 1 < actualPrincipalIndex P.M.base := by omega
+    actualSinkCount (symmetricPrefixIdeal A hQ1) (routingA P.M.base A.reindex)
+      (routingB P.M.base A.reindex) (routingC P.M.base A.reindex) (routingHB _ _) (routingHC _ _)+1 ≤
+      Nat.card (symmetricPrefixSources A) := by
+  letI : NeZero (routingA P.M.base A.reindex) := ⟨(routingA_pos _ _).ne'⟩
+  have hs := symmetric_prefix_slack_le_neg_one_uniform A hB hQ
+  have he := symmetric_prefix_sourceCount_eq_prefix_sources A (by omega : 1 < actualPrincipalIndex P.M.base)
+  dsimp only at hs ⊢
+  rw [he] at hs
+  omega
+
+theorem symmetric_prefix_socle_plus_two_le_actual_sourceCount_uniform (A : SectorBCriticalRoleBranchA P)
+    (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) :
+    letI : NeZero (routingA P.M.base A.reindex) := ⟨(routingA_pos _ _).ne'⟩
+    let hQ1 : 1 < actualPrincipalIndex P.M.base := by omega
+    actualSinkCount (symmetricPrefixIdeal A hQ1) (routingA P.M.base A.reindex)
+      (routingB P.M.base A.reindex) (routingC P.M.base A.reindex) (routingHB _ _) (routingHC _ _)+2 ≤
+      P.sourceCount := by
+  letI : NeZero (routingA P.M.base A.reindex) := ⟨(routingA_pos _ _).ne'⟩
+  have hp := symmetric_prefix_actual_socle_count_bound_uniform A hB hQ
+  have hs := symmetric_actual_source_count_insertion A hB (by omega : 1 < actualPrincipalIndex P.M.base)
+  dsimp only at hp ⊢
+  omega
+
 end NS25Lean.L5A2BFinalRepair

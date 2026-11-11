@@ -1,4 +1,5 @@
 import NS25Lean.P2DAFirstReturnR49
+import NS25Lean.MonomialPivotStrictness
 
 set_option linter.style.header false
 noncomputable section
@@ -730,9 +731,10 @@ theorem sectorD_q_fs_one_impossible (k : Type*) [Field k]
 theorem sectorD_target (k : Type*) [Field k]
     (P : P2Data Gamma) (hD : SectorD P.M) :
     Gamma.asRelativeIdeal.idealType ≤ P.sourceCount := by
-  rcases sectorD_q_fs_dichotomy k P hD with hq | hq
-  · exact sectorD_target_of_q_fs_zero k P hD hq
-  · exact (sectorD_q_fs_one_impossible k P hD hq).elim
+  have hb := MonomialPivotStrictness.original_pivot_monomial_strict_type k P.M.base
+    (sectorD_monomial k P hD) (by rw [P.hp])
+  have := p2_rho_eq_sourceCount_add_two P
+  omega
 
 /-- Exact original Sector D binder, with the coefficient field chosen internally. -/
 theorem sectorD_type_le_sourceCount (P : P2Data Gamma) (hD : SectorD P.M) :

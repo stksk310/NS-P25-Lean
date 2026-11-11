@@ -1,0 +1,8 @@
+NS25Lean/P2ErasureActualAdapters.lean:72:4: warning: Unused tactic linter: `change
+  routingD B e * (actualTriple B e).weight u =
+    routingD B e * (criticalExponent B (e i) * (actualTriple B e).g i)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NS25Lean/P2ErasureActualAdapters.lean:129:24: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

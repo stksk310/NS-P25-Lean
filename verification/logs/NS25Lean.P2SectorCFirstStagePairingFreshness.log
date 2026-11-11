@@ -1,0 +1,92 @@
+NS25Lean/P2SectorCFirstStagePairingFreshness.lean:21:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4I.ResidueData.exactUnusedMergeReverseBase_iff`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCFirstStagePairingFreshness.lean:37:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4I.ResidueData.exactUnusedMergeReverseBase_target_unused`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCFirstStagePairingFreshness.lean:50:8: warning: automatically included section variable(s) unused in theorem `_private.NS25Lean.P2SectorCFirstStagePairingFreshness.0.NS25Lean.L5A2C4I.ResidueData.b_symm_branchTarget`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCFirstStagePairingFreshness.lean:55:8: warning: automatically included section variable(s) unused in theorem `_private.NS25Lean.P2SectorCFirstStagePairingFreshness.0.NS25Lean.L5A2C4I.ResidueData.c_symm_branchTarget`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCFirstStagePairingFreshness.lean:109:8: warning: automatically included section variable(s) unused in theorem `_private.NS25Lean.P2SectorCFirstStagePairingFreshness.0.NS25Lean.L5A2C4I.ResidueData.apply_pow_pred`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCFirstStagePairingFreshness.lean:114:8: warning: automatically included section variable(s) unused in theorem `_private.NS25Lean.P2SectorCFirstStagePairingFreshness.0.NS25Lean.L5A2C4I.ResidueData.start_eq_iterate_of_endpoint_eq`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCFirstStagePairingFreshness.lean:449:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCFirstStagePairingFreshness.lean:450:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCFirstStagePairingFreshness.lean:451:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCFirstStagePairingFreshness.lean:463:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCFirstStagePairingFreshness.lean:464:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCFirstStagePairingFreshness.lean:465:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCFirstStagePairingFreshness.lean:500:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

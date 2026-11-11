@@ -1,0 +1,51 @@
+NS25Lean.GenericFloorStaircase.floor_staircase_family {H : NumericalSemigroup} (I : RelativeIdeal H) (a b c : ℕ)
+  [NeZero a] (hb : b ∈ H) (hc : c ∈ H) (hsub : ∀ z ∈ I, z ∈ H.asRelativeIdeal) (Imax Jmax : ℕ) (S : Finset (ℕ × ℕ))
+  (hS : S.Nonempty)
+  (hcan :
+    ∀ (i j : ℕ), i < Imax → j < Jmax → H.asRelativeIdeal.aperyRepresentative a ↑(↑i * ↑b + ↑j * ↑c) = ↑i * ↑b + ↑j * ↑c)
+  (hinjective :
+    ∀ (i j i' j' : ℕ),
+      i < Imax → j < Jmax → i' < Imax → j' < Jmax → ↑(↑i * ↑b + ↑j * ↑c) = ↑(↑i' * ↑b + ↑j' * ↑c) → i = i' ∧ j = j')
+  (hbounds : ∀ p ∈ S, p.1 < Imax ∧ p.2 < Jmax)
+  (hfloor : ∀ (i j : ℕ), i < Imax → j < Jmax → (↑i * ↑b + ↑j * ↑c ∈ I ↔ ∃ p ∈ S, p.1 ≤ i ∧ p.2 ≤ j)) :
+  ∃ base,
+    Function.Injective base ∧
+      (∀ (k : Fin ((P3R67.coordinateMinima S).card - 1)),
+          L5A2C4I.ResidueData.ExactUnusedMergeReverseBase (P3R60.idealData I a b c hb hc) (base k)) ∧
+        ∀ (k : Fin ((P3R67.coordinateMinima S).card - 1)),
+          ∃ p ∈ S, ∃ q ∈ S, p.1 < q.1 ∧ q.2 < p.2 ∧ base k = ↑(↑(q.1 - 1) * ↑b + ↑(p.2 - 1) * ↑c)
+NS25Lean.GenericFloorStaircase.sentinel_bound {H : NumericalSemigroup} (I : RelativeIdeal H) (a b c : ℕ) [NeZero a]
+  (hb : b ∈ H) (hc : c ∈ H) (Imax Jmax : ℕ) (R : GenericFloorStaircase.CanonicalRectangle I a b c Imax Jmax) (k : ℕ)
+  (E : Finset (ℕ × ℕ)) (hI0 : 0 < Imax) (hkJ : k < Jmax) (hanti : ∀ p ∈ E, ∀ q ∈ E, q.1 ≤ p.1 → q.2 ≤ p.2 → p = q)
+  (hbounds : ∀ p ∈ E, 0 < p.1 ∧ p.1 < Imax ∧ p.2 < k)
+  (hfloor : ∀ (i j : ℕ), i < Imax → j < Jmax → (↑i * ↑b + ↑j * ↑c ∈ I ↔ ∃ p ∈ insert (0, k) E, p.1 ≤ i ∧ p.2 ≤ j)) :
+  E.card ≤ Nat.card (L5A2C4I.ResidueData.ExactUnusedMergeBases (P3R60.idealData I a b c hb hc))
+NS25Lean.GenericFloorStaircase.c_nonexceptional_of_earlier_floor {H : NumericalSemigroup} (I : RelativeIdeal H)
+  (a b c : ℕ) [NeZero a] (hb : b ∈ H) (hc : c ∈ H) (Imax Jmax : ℕ)
+  (R : GenericFloorStaircase.CanonicalRectangle I a b c Imax Jmax) (S : Finset (ℕ × ℕ))
+  (hfloor : ∀ (i j : ℕ), i < Imax → j < Jmax → (↑i * ↑b + ↑j * ↑c ∈ I ↔ ∃ p ∈ S, p.1 ≤ i ∧ p.2 ≤ j))
+  (s : L5A2C4I.ResidueData.CSourceTargetBranches (P3R60.idealData I a b c hb hc)) (i j x y : ℕ) (hiI : i < Imax)
+  (hyJ : y < Jmax) (hp : (x, y) ∈ S) (hxi : x < i) (hjy : j < y)
+  (ht : I.aperyRepresentative a ((P3R60.idealData I a b c hb hc).branchTarget ↑s) = ↑(i * b + j * c)) :
+  L5A2C4I.ResidueData.CFirstStageNonexceptional (P3R60.idealData I a b c hb hc) s
+NS25Lean.GenericFloorStaircase.b_nonexceptional_of_later_floor {H : NumericalSemigroup} (I : RelativeIdeal H)
+  (a b c : ℕ) [NeZero a] (hb : b ∈ H) (hc : c ∈ H) (Imax Jmax : ℕ)
+  (R : GenericFloorStaircase.CanonicalRectangle I a b c Imax Jmax) (S : Finset (ℕ × ℕ))
+  (hfloor : ∀ (i j : ℕ), i < Imax → j < Jmax → (↑i * ↑b + ↑j * ↑c ∈ I ↔ ∃ p ∈ S, p.1 ≤ i ∧ p.2 ≤ j))
+  (s : L5A2C4I.ResidueData.BSourceTargetBranches (P3R60.idealData I a b c hb hc)) (i j x y : ℕ) (hjJ : j < Jmax)
+  (hxI : x < Imax) (hp : (x, y) ∈ S) (hix : i < x) (hyj : y < j)
+  (ht : I.aperyRepresentative a ((P3R60.idealData I a b c hb hc).branchTarget ↑s) = ↑(i * b + j * c)) :
+  L5A2C4I.ResidueData.BFirstStageNonexceptional (P3R60.idealData I a b c hb hc) s
+'NS25Lean.OriginalSourceFibers.nonmonomial_original_source_chains' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.OriginalSourceFibers.nonmonomial_original_source_binomials' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.GenericFloorStaircase.sentinel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericFloorStaircase.c_nonexceptional_of_earlier_floor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.GenericFloorStaircase.b_nonexceptional_of_later_floor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

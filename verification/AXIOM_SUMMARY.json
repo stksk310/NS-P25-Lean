@@ -1,0 +1,14 @@
+{
+  "matching_final_log_axiom_prints": 214,
+  "all_standard_only": true,
+  "allowed": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "public_driver_prints": {
+    "PublicAxioms": 5,
+    "PublicExactTargets": 5
+  },
+  "scope": "Axiom prints actually present in hash-bound successful final module logs; not a print of every declaration in Mathlib or every local declaration."
+}

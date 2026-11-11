@@ -1,6 +1,7 @@
 import NS25Lean.P3R3PrincipalR67
 import NS25Lean.P3R3ComplementR67
 import NS25Lean.P3HerzogLatticeR59
+import NS25Lean.P3CriticalDivisorAlignment
 set_option linter.style.header false
 set_option autoImplicit false
 noncomputable section
@@ -177,40 +178,82 @@ theorem principal_complement_factorization_unique (M : MultiplicityBase Gamma)
       (principalIndex (routingH M.base e) M.base.q.val M.base.q_positive*M.base.q.val : ℕ) =
       (x':ℤ)*routingA M.base e+y'*routingB M.base e+z'*routingC M.base e) :
     x=x' ∧ y=y' ∧ z=z' := by
+  by_contra hne
+  have hneq : (x,y,z) ≠ (x',y',z') := by
+    intro he
+    have hx := congrArg (fun p : ℕ × ℕ × ℕ => p.1) he
+    have hy := congrArg (fun p : ℕ × ℕ × ℕ => p.2.1) he
+    have hz := congrArg (fun p : ℕ × ℕ × ℕ => p.2.2) he
+    exact hne ⟨hx,hy,hz⟩
+  have hdegree : L5A2C4OR20.monomialDegree M.base e (x,y,z) =
+      L5A2C4OR20.monomialDegree M.base e (x',y',z') := by
+    change x*routingA M.base e+y*routingB M.base e+z*routingC M.base e =
+      x'*routingA M.base e+y'*routingB M.base e+z'*routingC M.base e
+    have heZ : ((x*routingA M.base e+y*routingB M.base e+z*routingC M.base e:ℕ):ℤ) =
+        ((x'*routingA M.base e+y'*routingB M.base e+z'*routingC M.base e:ℕ):ℤ) := by
+      simp only [Nat.cast_add,Nat.cast_mul]
+      linarith only [h,h']
+    exact_mod_cast heZ
+  obtain ⟨k,r,hr,hdiv⟩ := P3CriticalDivisor.nonunique_critical_divisor M.base e
+    (P3R58.p3_coherentHerzogData M hp e) (x,y,z) (x',y',z') hdegree hneq
   let Q := principalIndex (routingH M.base e) M.base.q.val M.base.q_positive
-  obtain ⟨fa,fb,fc,hf⟩ := routingH_factorization M.base e
-    (principalIndex_spec (routingH M.base e) M.base.q.val M.base.q_positive).2
-  have hfZ : (principalIndex (routingH M.base e) M.base.q.val M.base.q_positive:ℤ)*M.base.q.val =
-      (fa:ℤ)*routingA M.base e+fb*routingB M.base e+fc*routingC M.base e := by exact_mod_cast hf
-  have hadd (v w t : ℕ) (hv : ((omegaDegree M hp e:ℕ):ℤ)-
-      (principalIndex (routingH M.base e) M.base.q.val M.base.q_positive*M.base.q.val:ℕ) =
-      (v:ℤ)*routingA M.base e+w*routingB M.base e+t*routingC M.base e) :
-      (fa+v)*routingA M.base e+(fb+w)*routingB M.base e+(fc+t)*routingC M.base e = omegaDegree M hp e := by
-    have hhZ : ((fa+v:ℕ):ℤ)*routingA M.base e+((fb+w:ℕ):ℤ)*routingB M.base e+
-        ((fc+t:ℕ):ℤ)*routingC M.base e=(omegaDegree M hp e:ℤ) := by
-      simp only [Nat.cast_add, Nat.cast_mul] at hv ⊢
-      nlinarith only [hv,hfZ]
-    exact_mod_cast hhZ
-  have hh := hadd x y z h
-  have hh' := hadd x' y' z' h'
-  apply complement_table_unique_aux
-    (criticalExponent M.base (e 0)) (criticalExponent M.base (e 1)) (criticalExponent M.base (e 2))
-    (P3R57.roleCoefficient M hp e 1 0) (P3R57.roleCoefficient M hp e 2 1)
-    (P3R57.roleCoefficient M hp e 0 2) fa fb fc x y z x' y' z'
-    (P3R57.roleCoefficient_lt_critical M hp e 1 0 (by decide))
-    (P3R57.roleCoefficient_lt_critical M hp e 2 1 (by decide))
-    (P3R57.roleCoefficient_lt_critical M hp e 0 2 (by decide))
-  · intro hb hc
-    apply principal_pure_ge_critical M hp hR3 e 0 fa
-    simpa [hb,hc,P3R59.normalizedRoleWeight] using hf
-  · intro ha hc
-    apply principal_pure_ge_critical M hp hR3 e 1 fb
-    simpa [ha,hc,P3R59.normalizedRoleWeight] using hf
-  · intro ha hb
-    apply principal_pure_ge_critical M hp hR3 e 2 fc
-    simpa [ha,hb,P3R59.normalizedRoleWeight] using hf
-  · exact omega_factorization_table M hp e _ _ _ hh
-  · exact omega_factorization_table M hp e _ _ _ hh'
+  have hQ := (principalIndex_spec (routingH M.base e) M.base.q.val M.base.q_positive).1
+  have hs := P3R58.p3_coefficient_sums M hp e
+  have hrels := L5A2C4OR5.coherent_normalized_relations M.base e
+    (P3R58.p3_coherentHerzogData M hp e)
+  have hsum : L5A2C4OR20.monomialDegree M.base e (x,y,z)+Q*M.base.q.val=
+      omegaDegree M hp e := by
+    have hN : (x*routingA M.base e+y*routingB M.base e+z*routingC M.base e)+Q*M.base.q.val=
+        omegaDegree M hp e := by
+      have heZ : (((x*routingA M.base e+y*routingB M.base e+z*routingC M.base e)+Q*M.base.q.val:ℕ):ℤ)=
+          (omegaDegree M hp e:ℤ) := by
+        dsimp only [Q]
+        simp only [Nat.cast_add,Nat.cast_mul]
+        have hh := h
+        simp only [Nat.cast_mul] at hh
+        linarith only [hh]
+      exact_mod_cast heZ
+    exact hN
+  have absent (axis : Fin 3) (t : ℕ) (ht : t<criticalExponent M.base (e axis))
+      (he : t*P3R59.normalizedRoleWeight M.base e axis=Q*M.base.q.val+r) : False := by
+    apply live_subcritical_pure_return_absent M hp hR3 e axis t Q ht hQ
+    have hg : P3R59.normalizedRoleWeight M.base e axis ∈ routingH M.base e := by
+      apply (P3R59.routing_scaled_mem_iff M.base e _).mp
+      rw [P3R59.normalizedRoleWeight_scale]
+      exact (M.base.tailDegrees (e axis)).property
+    refine ⟨⟨_,(routingH M.base e).toAddSubmonoid.nsmul_mem hg t,rfl⟩,r,hr,?_⟩
+    rw [he]
+    push_cast
+    ring
+  fin_cases k
+  · apply absent 1 (P3R57.roleCoefficient M hp e 2 1)
+      (P3R57.roleCoefficient_lt_critical M hp e 2 1 (by decide))
+    change _ = criticalExponent M.base (e 0)*routingA M.base e+r at hdiv
+    change _*routingB M.base e=Q*M.base.q.val+r
+    dsimp only [omegaDegree] at hsum
+    omega
+  · apply absent 2 (P3R57.roleCoefficient M hp e 0 2)
+      (P3R57.roleCoefficient_lt_critical M hp e 0 2 (by decide))
+    change _ = criticalExponent M.base (e 1)*routingB M.base e+r at hdiv
+    change _*routingC M.base e=Q*M.base.q.val+r
+    have ha := hrels.1
+    change criticalExponent M.base (e 0)*routingA M.base e=
+      P3R57.roleCoefficient M hp e 0 1*routingB M.base e+
+      P3R57.roleCoefficient M hp e 0 2*routingC M.base e at ha
+    dsimp only [omegaDegree] at hsum
+    have heB := congrArg (fun n => n*routingB M.base e) hs.2.1
+    nlinarith only [hdiv,hsum,ha,heB]
+  · apply absent 0 (P3R57.roleCoefficient M hp e 1 0)
+      (P3R57.roleCoefficient_lt_critical M hp e 1 0 (by decide))
+    change _ = criticalExponent M.base (e 2)*routingC M.base e+r at hdiv
+    change _*routingA M.base e=Q*M.base.q.val+r
+    have hc := hrels.2.2
+    change criticalExponent M.base (e 2)*routingC M.base e=
+      P3R57.roleCoefficient M hp e 2 0*routingA M.base e+
+      P3R57.roleCoefficient M hp e 2 1*routingB M.base e at hc
+    dsimp only [omegaDegree] at hsum
+    have heA := congrArg (fun n => n*routingA M.base e) hs.1
+    nlinarith only [hdiv,hsum,hc,heA]
 
 
 /-- NF.05: any actual principal factorization has a supported deficit surplus.

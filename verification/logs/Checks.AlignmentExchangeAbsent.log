@@ -1,0 +1,18 @@
+NS25Lean.ReturnExchange.guarded_live_reflection (H : NS25Lean.NumericalSemigroup) (m n s r h g d e p : ℕ) (hn : 0 < n)
+  (hret : s = n * m + r) (hd : d ∈ H) (he : e ∈ H) (hp : p ∈ H) (hdiv : h = s + d) (hrg : r = g + e) (hhg : h = g + p) :
+  p ∈ NS25Lean.L5A2C4OR19.cyclicCut H m
+NS25Lean.ReturnExchange.unique_cut_literal_source_divisor.{u_1} {ι : Type u_1} [DecidableEq ι]
+  (H : NS25Lean.NumericalSemigroup) (I : Set ℕ) (hIH : ∀ h ∈ I, h ∈ H) (W : (ι →₀ ℕ) →+ ℕ)
+  (hfac : ∀ h ∈ H, ∃ u, W u = h) (M : ι →₀ ℕ) (hcut : W M ∈ I) (hUF : ∀ (z : ι →₀ ℕ), W z = W M → z = M) :
+  ∃ s u, W u = ↑s ∧ u ≤ M ∧ ∀ (w : ι →₀ ℕ), W w = ↑s → w = u
+NS25Lean.ErasedSourceScreen.erased_source_pure_a {H : NS25Lean.NumericalSemigroup}
+  {T : NS25Lean.ErasedSourceScreen.Triple H} {C : NS25Lean.ErasedSourceScreen.Critical T}
+  (D : NS25Lean.ErasedSourceScreen.PositivePresentation C) (m : ℕ) (hm : 0 < m) (E : Set ℕ)
+  (hE : ∀ n ∈ E, n < NS25Lean.L5A2C4OR19.firstPrincipal H m hm)
+  (hlb : (C.exponent 1 - 1) * T.g 1 ∉ NS25Lean.L5A2C4OR19.cyclicCut H m)
+  (hlU : T.grid (D.U - 1) 0 D.V ∉ NS25Lean.L5A2C4OR19.cyclicCut H m)
+  (hlc : (C.exponent 2 - 1) * T.g 2 ∉ NS25Lean.L5A2C4OR19.cyclicCut H m)
+  (hlW : T.grid (D.W - 1) D.Z 0 ∉ NS25Lean.L5A2C4OR19.cyclicCut H m) (s : NS25Lean.ReturnExchange.Sources H m E)
+  (hs : NS25Lean.ErasedSourceScreen.Erased m (NS25Lean.L5A2C4OR19.firstPrincipal H m hm) s) :
+  ∃ a, 0 < a ∧ a < C.exponent 0 ∧ ↑s = a * T.g 0
+'NS25Lean.GenericCriticalCompensation.remaining_compensation' depends on axioms: [propext, Classical.choice, Quot.sound]

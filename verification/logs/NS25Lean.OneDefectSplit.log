@@ -1,0 +1,29 @@
+NS25Lean/OneDefectSplit.lean:54:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/OneDefectSplit.lean:70:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/OneDefectSplit.lean:81:37: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/OneDefectSplit.lean:131:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/OneDefectSplit.lean:132:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/OneDefectSplit.lean:158:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/OneDefectSplit.lean:179:51: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+NS25Lean/OneDefectSplit.lean:180:51: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead

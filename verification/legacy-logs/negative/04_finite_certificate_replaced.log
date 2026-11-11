@@ -1,0 +1,6 @@
+legacy-checks\negative\04_finite_certificate_replaced.lean:8:2: error: Type mismatch
+  EC.R75.finite_intrinsic_equality_iff Gamma M
+has type
+  Gamma.asRelativeIdeal.idealType = Presentation.rho Gamma - 1 ↔ EC.R75.FiniteEqualityCertificate M
+but is expected to have type
+  Gamma.asRelativeIdeal.idealType = Presentation.rho Gamma - 1 ↔ True

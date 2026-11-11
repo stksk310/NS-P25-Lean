@@ -1,0 +1,52 @@
+NS25Lean/PrincipalTensorColonGraded.lean:293:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/PrincipalTensorColonGraded.lean:294:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/PrincipalTensorColonGraded.lean:295:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'NS25Lean.PrincipalTensorColon.mixed_comparison_images_independent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.PrincipalTensorColon.mixed_corner_count_le_comparison_rank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+NS25Lean/PrincipalTensorColonGraded.lean:363:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/PrincipalTensorColonGraded.lean:364:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'NS25Lean.L5A2BFinalRepair.nonsymmetric_shared_comparison_images_independent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.L5A2BFinalRepair.nonsymmetric_shared_principal_comparison_rank_lower_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,49 @@
+NS25Lean/WeightedInitialInclusion.lean:23:37: warning: This simp argument is unused:
+  hdu
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_sub, coeff_monomial, hdv, Ne.symm hdu, Ne.symm hdv] at hc
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/WeightedInitialInclusion.lean:23:42: warning: This simp argument is unused:
+  hdv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_sub, coeff_monomial, hdu, Ne.symm hdu, Ne.symm hdv] at hc
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/WeightedInitialInclusion.lean:25:54: warning: This simp argument is unused:
+  huv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mem_support_iff, coeff_sub, coeff_monomial, Ne.symm huv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/WeightedInitialInclusion.lean:35:19: warning: This simp argument is unused:
+  huv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Ne.symm huv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/WeightedInitialInclusion.lean:37:24: warning: This simp argument is unused:
+  Ne.symm huv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [huv, ne_of_lt h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/WeightedInitialInclusion.lean:38:37: warning: This simp argument is unused:
+  hdu
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_sub, coeff_monomial, hdv, Ne.symm hdu, Ne.symm hdv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/WeightedInitialInclusion.lean:38:42: warning: This simp argument is unused:
+  hdv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_sub, coeff_monomial, hdu, Ne.symm hdu, Ne.symm hdv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

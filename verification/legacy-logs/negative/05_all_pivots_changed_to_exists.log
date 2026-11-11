@@ -1,0 +1,7 @@
+legacy-checks\negative\05_all_pivots_changed_to_exists.lean:9:2: error: Type mismatch
+  EC.R75.equality_iff_all_original_pivots B
+has type
+  Gamma.asRelativeIdeal.idealType = Presentation.rho Gamma - 1 ↔
+    ∀ (i : Fin 4), EC.R75.PivotFiniteCertificate (L2C.atPivot B i)
+but is expected to have type
+  Gamma.asRelativeIdeal.idealType = Presentation.rho Gamma - 1 ↔ ∃ i, EC.R75.PivotFiniteCertificate (L2C.atPivot B i)

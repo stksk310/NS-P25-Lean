@@ -1,0 +1,42 @@
+import NS25Lean.P2GenericCriticalDuality
+import NS25Lean.P2CriticalReturnCapAdapter
+import NS25Lean.P2PurePairCapAdapter
+import NS25Lean.P2BranchBPrefixSourceLoss
+
+#check NS25Lean.CriticalFullSignature.Front
+#check NS25Lean.GenericCriticalDuality.compensation_source_count
+#check NS25Lean.GenericCriticalDuality.fullSupport_source_count
+#check NS25Lean.GenericCriticalDuality.fullSupport_original_count
+#check NS25Lean.L5A2BFinalRepair.nonsymmetric_erased_sources_subsingleton
+#check NS25Lean.L5A2C4OR29.model_source_return_no_common_summand
+#check NS25Lean.L5A2C4OR40.cut_source_cover
+
+#print axioms NS25Lean.ReturnExchange.source_return_separation
+#print axioms NS25Lean.ReturnExchange.guarded_live_reflection
+#print axioms NS25Lean.ReturnExchange.unique_cut_literal_source_divisor
+#print axioms NS25Lean.ReturnExchange.principal_adjoin_source_count
+#print axioms NS25Lean.ReturnExchange.return_sources_finite
+#print axioms NS25Lean.ReturnExchange.gap_return_source_count
+#print axioms NS25Lean.ReturnExchange.missing_predecessor_guard_counterexample
+#print axioms NS25Lean.ReturnExchange.critical_transport
+#print axioms NS25Lean.ErasedSourceScreen.no_erasure_of_three_live
+#print axioms NS25Lean.ErasedSourceScreen.erased_source_pure_a
+#print axioms NS25Lean.ErasedSourceScreen.pure_principal_forbids_integral_boundaries
+#print axioms NS25Lean.ErasedSourceScreen.critical_transport_cut
+#print axioms NS25Lean.CriticalNormalForm.sourceNormal_spec
+#print axioms NS25Lean.PureInternalTransverse.transverse_minimum
+#print axioms NS25Lean.CriticalFullSignature.Front.normal_unique
+#print axioms NS25Lean.GenericCriticalDuality.compensation_source_count
+#print axioms NS25Lean.GenericCriticalDuality.fullSupport_source_count
+#print axioms NS25Lean.GenericCriticalDuality.fullSupport_original_count
+#print axioms NS25Lean.GenericCriticalDuality.additional_finite
+#print axioms NS25Lean.GenericCriticalDuality.exceptional_finite
+#print axioms NS25Lean.GenericCriticalDuality.internal_cut_zero
+#print axioms NS25Lean.GenericCriticalDuality.mixed_alive_zero
+#print axioms NS25Lean.CriticalReturnCapAdapter.actual_packet_type_bound_shared
+#print axioms NS25Lean.PurePairCapAdapter.boundary_compensation
+#print axioms NS25Lean.L5A2BFinalRepair.nonsymmetric_erased_sources_subsingleton
+#print axioms NS25Lean.ActualGenericDualityAdapter.actual_packet_compensation
+#print axioms NS25Lean.PurePairGenericDualityAdapter.boundary_compensation
+#print axioms NS25Lean.PurePairGenericDualityAdapter.actualFront
+#print axioms NS25Lean.CriticalPermutation.critical

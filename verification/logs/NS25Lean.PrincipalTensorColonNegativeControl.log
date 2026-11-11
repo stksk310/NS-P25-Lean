@@ -1,0 +1,48 @@
+NS25Lean/PrincipalTensorColonNegativeControl.lean:29:56: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/PrincipalTensorColonNegativeControl.lean:38:46: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/PrincipalTensorColonNegativeControl.lean:39:44: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/PrincipalTensorColonNegativeControl.lean:40:41: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/PrincipalTensorColonNegativeControl.lean:67:53: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/PrincipalTensorColonNegativeControl.lean:134:36: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/PrincipalTensorColonNegativeControl.lean:139:36: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/PrincipalTensorColonNegativeControl.lean:143:57: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/PrincipalTensorColonNegativeControl.lean:191:50: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/PrincipalTensorColonNegativeControl.lean:192:51: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/PrincipalTensorColonNegativeControl.lean:193:51: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'NS25Lean.PrincipalTensorColonNegativeControl.membership_iff_coefficients' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.PrincipalTensorColonNegativeControl.old_socle_exact' depends on axioms: [propext, Quot.sound]
+'NS25Lean.PrincipalTensorColonNegativeControl.new_socle_exact' depends on axioms: [propext, Quot.sound]
+'NS25Lean.PrincipalTensorColonNegativeControl.source_iff_no_divisor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.PrincipalTensorColonNegativeControl.erased_source_exact' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.PrincipalTensorColonNegativeControl.overstrong_bound_false' does not depend on any axioms
+'NS25Lean.PrincipalTensorColonNegativeControl.actual_overstrong_bound_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

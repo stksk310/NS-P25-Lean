@@ -1,4 +1,4 @@
-import NS25Lean.P2BranchBPrefixOrigin
+import NS25Lean.P2BranchBUniformMinPlus
 
 set_option linter.style.header false
 noncomputable section
@@ -113,7 +113,8 @@ theorem nonsymmetric_prefix_height_candidate_lt_c1 (R : SectorBCriticalRoleBranc
 theorem nonsymmetric_prefix_diagram_height_lt_c1 (R : SectorBCriticalRoleBranchB P)
     (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) (x y : ℕ) :
     nonsymmetricPrefixDiagramHeight R hB hQ x y < nsC1 R :=
-  nonsymmetric_prefix_height_candidate_lt_c1 R hB (nonsymmetric_prefix_diagram_height_attained R hB hQ x y)
+  BranchBUniformMinPlus.candidate_lt_c1 (nonsymmetricUniformMinPlusData R hB hQ)
+    (nonsymmetric_prefix_diagram_height_attained R hB hQ x y)
 
 theorem nonsymmetric_prefix_height_candidate_zero_iff (R : SectorBCriticalRoleBranchB P)
     (hB : SectorB P.M) (x y : ℕ) :
@@ -167,6 +168,18 @@ theorem nonsymmetric_prefix_diagram_le_candidate (R : SectorBCriticalRoleBranchB
   natMinImage_le (nonsymmetric_prefix_height_candidate_nonempty R hB hQ x y)
     Subtype.val ⟨h,hc⟩
 
+/-- Equality of the two independently defined minima, by their universal
+minimality properties. -/
+theorem nonsymmetric_prefix_height_eq_uniform (R : SectorBCriticalRoleBranchB P)
+    (hB : SectorB P.M) (hQ : 1<actualPrincipalIndex P.M.base) (x y : ℕ) :
+    nonsymmetricPrefixDiagramHeight R hB hQ x y=
+      BranchBUniformMinPlus.height (nonsymmetricUniformMinPlusData R hB hQ) x y := by
+  apply le_antisymm
+  · exact nonsymmetric_prefix_diagram_le_candidate R hB hQ
+      (BranchBUniformMinPlus.height_attained (nonsymmetricUniformMinPlusData R hB hQ) x y)
+  · exact BranchBUniformMinPlus.le_candidate (nonsymmetricUniformMinPlusData R hB hQ)
+      (nonsymmetric_prefix_diagram_height_attained R hB hQ x y)
+
 theorem nonsymmetric_prefix_height_candidate_mono (R : SectorBCriticalRoleBranchB P)
     (hB : SectorB P.M) {x y x' y' h : ℕ}
     (hc : NonsymmetricPrefixHeightCandidate R hB x y h) (hx : x ≤ x') (hy : y ≤ y') :
@@ -185,79 +198,22 @@ theorem nonsymmetric_prefix_height_candidate_mono (R : SectorBCriticalRoleBranch
 theorem nonsymmetric_prefix_diagram_antitone (R : SectorBCriticalRoleBranchB P)
     (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) {x y x' y' : ℕ}
     (hx : x ≤ x') (hy : y ≤ y') :
-    nonsymmetricPrefixDiagramHeight R hB hQ x' y' ≤ nonsymmetricPrefixDiagramHeight R hB hQ x y :=
-  nonsymmetric_prefix_diagram_le_candidate R hB hQ
-    (nonsymmetric_prefix_height_candidate_mono R hB
-      (nonsymmetric_prefix_diagram_height_attained R hB hQ x y) hx hy)
+    nonsymmetricPrefixDiagramHeight R hB hQ x' y' ≤ nonsymmetricPrefixDiagramHeight R hB hQ x y := by
+  simp only [nonsymmetric_prefix_height_eq_uniform]
+  exact BranchBUniformMinPlus.antitone (nonsymmetricUniformMinPlusData R hB hQ) hx hy
 
 theorem nonsymmetric_prefix_diagram_outer_b (R : SectorBCriticalRoleBranchB P)
     (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) {y : ℕ} (hy : y < nsQ R) :
     nonsymmetricPrefixDiagramHeight R hB hQ 0 (y+nsV R) ≤
       nonsymmetricPrefixDiagramHeight R hB hQ (nsC2 R-1) y+nsU R := by
-  obtain ⟨ell,hc⟩ := nonsymmetric_prefix_diagram_height_attained R hB hQ (nsC2 R-1) y
-  have S := nonsymmetricReturnTuple_spec R hB ell
-  have hp := nonsymmetric_coefficients R
-  have hd := nonsymmetric_return_depth_lt_c1 R hB ell.property.1 S.1 S.2.2.2.2.2.2
-  have upper := nonsymmetric_prefix_diagram_height_lt_c1 R hB hQ 0 (y+nsV R)
-  have dom := S.1
-  unfold NonsymmetricLDomain at dom
-  have bound {h : ℕ} (hc : NonsymmetricPrefixHeightCandidate R hB 0 (y+nsV R) h) :=
-    nonsymmetric_prefix_diagram_le_candidate R hB hQ hc
-  rcases hc with ⟨hi,hj,he⟩ | ⟨hi,hj,he⟩ | ⟨hi,hx,he⟩ |
-    ⟨hj,hy',he⟩ | ⟨hi,hx,he⟩ | ⟨hj,hy',he⟩
-  · have hl := bound ⟨ell,Or.inr (Or.inr (Or.inr (Or.inr (Or.inr
-        ⟨by omega,by omega,rfl⟩))))⟩
-    omega
-  · have hl := bound ⟨ell,Or.inr (Or.inl ⟨hi,hj,rfl⟩)⟩
-    omega
-  · have hj : (nonsymmetricReturnTuple R hB ell).2.1 < nsQ R := by
-      rcases S.1.2.2 with h | h <;> omega
-    have hb := S.2.2.2.2.2.1 hj
-    omega
-  · have hl := bound ⟨ell,Or.inr (Or.inr (Or.inr (Or.inl ⟨hj,by omega,rfl⟩)))⟩
-    omega
-  · have hb := S.2.2.2.2.1 hi
-    by_cases hj : (nonsymmetricReturnTuple R hB ell).2.1 < nsQ R
-    · have hl := bound ⟨ell,Or.inr (Or.inl ⟨hi,hj,rfl⟩)⟩
-      omega
-    · have hl := bound ⟨ell,Or.inr (Or.inr (Or.inr (Or.inl ⟨by omega,by omega,rfl⟩)))⟩
-      omega
-  · have hl := bound ⟨ell,Or.inr (Or.inr (Or.inr (Or.inr (Or.inr ⟨hj,by omega,rfl⟩))))⟩
-    omega
+  simp only [nonsymmetric_prefix_height_eq_uniform]
+  exact BranchBUniformMinPlus.outer_b (nonsymmetricUniformMinPlusData R hB hQ) hy
 
 theorem nonsymmetric_prefix_diagram_outer_c (R : SectorBCriticalRoleBranchB P)
     (hB : SectorB P.M) (hQ : 1 < actualPrincipalIndex P.M.base) {x : ℕ} (hx : x < nsP R) :
     nonsymmetricPrefixDiagramHeight R hB hQ (x+nsZ R) 0 ≤
       nonsymmetricPrefixDiagramHeight R hB hQ x (nsC3 R-1)+nsW R := by
-  obtain ⟨ell,hc⟩ := nonsymmetric_prefix_diagram_height_attained R hB hQ x (nsC3 R-1)
-  have S := nonsymmetricReturnTuple_spec R hB ell
-  have hp := nonsymmetric_coefficients R
-  have hd := nonsymmetric_return_depth_lt_c1 R hB ell.property.1 S.1 S.2.2.2.2.2.2
-  have upper := nonsymmetric_prefix_diagram_height_lt_c1 R hB hQ (x+nsZ R) 0
-  have dom := S.1
-  unfold NonsymmetricLDomain at dom
-  have bound {h : ℕ} (hc : NonsymmetricPrefixHeightCandidate R hB (x+nsZ R) 0 h) :=
-    nonsymmetric_prefix_diagram_le_candidate R hB hQ hc
-  rcases hc with ⟨hi,hj,he⟩ | ⟨hi,hj,he⟩ | ⟨hi,hx',he⟩ |
-    ⟨hj,hy,he⟩ | ⟨hi,hx',he⟩ | ⟨hj,hy,he⟩
-  · have hl := bound ⟨ell,Or.inr (Or.inr (Or.inr (Or.inr (Or.inl
-        ⟨by omega,by omega,rfl⟩))))⟩
-    omega
-  · have hl := bound ⟨ell,Or.inr (Or.inl ⟨hi,hj,rfl⟩)⟩
-    omega
-  · have hl := bound ⟨ell,Or.inr (Or.inr (Or.inl ⟨hi,by omega,rfl⟩))⟩
-    omega
-  · have hi : (nonsymmetricReturnTuple R hB ell).1 < nsP R := by
-      rcases S.1.2.2 with h | h <;> omega
-    have hb := S.2.2.2.2.1 hi
-    omega
-  · have hl := bound ⟨ell,Or.inr (Or.inr (Or.inr (Or.inr (Or.inl ⟨hi,by omega,rfl⟩))))⟩
-    omega
-  · have hb := S.2.2.2.2.2.1 hj
-    by_cases hi : (nonsymmetricReturnTuple R hB ell).1 < nsP R
-    · have hl := bound ⟨ell,Or.inr (Or.inl ⟨hi,hj,rfl⟩)⟩
-      omega
-    · have hl := bound ⟨ell,Or.inr (Or.inr (Or.inl ⟨by omega,by omega,rfl⟩))⟩
-      omega
+  simp only [nonsymmetric_prefix_height_eq_uniform]
+  exact BranchBUniformMinPlus.outer_c (nonsymmetricUniformMinPlusData R hB hQ) hx
 
 end NS25Lean.L5A2BFinalRepair

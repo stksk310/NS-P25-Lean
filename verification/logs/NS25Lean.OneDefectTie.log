@@ -1,0 +1,3 @@
+NS25Lean/OneDefectTie.lean:67:2: warning: Try `simp at ha` instead of `simpa using ha`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

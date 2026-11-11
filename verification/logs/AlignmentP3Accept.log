@@ -1,0 +1,232 @@
+NS25Lean.P3R68.p3_strong_of_chosenDefect_three {Gamma : NS25Lean.NumericalSemigroup}
+  (M : NS25Lean.L2B.MultiplicityBase Gamma) (hp : NS25Lean.L2B.chosenDefect M.base = 3) :
+  Gamma.asRelativeIdeal.idealType ≤ NS25Lean.Presentation.rho Gamma - 2
+NS25Lean.P3R67.principal_complement_factorization_unique {Gamma : NS25Lean.NumericalSemigroup}
+  (M : NS25Lean.L2B.MultiplicityBase Gamma) (hp : NS25Lean.L2B.chosenDefect M.base = 3)
+  (hR3 : (NS25Lean.P3R51.internalDegrees M).card = 3) (e : Fin 3 ≃ Fin 3) (x y z x' y' z' : ℕ)
+  (h :
+    ↑(NS25Lean.P3R67.omegaDegree M hp e) -
+        ↑(NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ * ↑M.base.q) =
+      ↑x * ↑(NS25Lean.L5A2C4H.routingA M.base e) + ↑y * ↑(NS25Lean.L5A2C4H.routingB M.base e) +
+        ↑z * ↑(NS25Lean.L5A2C4H.routingC M.base e))
+  (h' :
+    ↑(NS25Lean.P3R67.omegaDegree M hp e) -
+        ↑(NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ * ↑M.base.q) =
+      ↑x' * ↑(NS25Lean.L5A2C4H.routingA M.base e) + ↑y' * ↑(NS25Lean.L5A2C4H.routingB M.base e) +
+        ↑z' * ↑(NS25Lean.L5A2C4H.routingC M.base e)) :
+  x = x' ∧ y = y' ∧ z = z'
+NS25Lean.P3R67.residual_safe_rb_role {Gamma : NS25Lean.NumericalSemigroup} (M : NS25Lean.L2B.MultiplicityBase Gamma)
+  (hp : NS25Lean.L2B.chosenDefect M.base = 3) (hR3 : (NS25Lean.P3R51.internalDegrees M).card = 3) (e : Fin 3 ≃ Fin 3)
+  (hQ : 1 < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯)
+  (hn : ¬NS25Lean.P3R67.PrincipalFullSupport M e) :
+  ∃ f,
+    NS25Lean.L5A2C4H.routingH M.base f = NS25Lean.L5A2C4H.routingH M.base e ∧
+      (∀ (q : ℕ),
+          0 < q →
+            q < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base f) ↑M.base.q ⋯ →
+              NS25Lean.P3R59.RBReturn M hp f q) ∧
+        ∃ d i j,
+          NS25Lean.P3R61.RBLevel M hp f 1 i j d ∧
+            ↑(NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base f) ↑M.base.q ⋯ * ↑M.base.q) -
+                  ↑(NS25Lean.L5A2C4H.routingA M.base f) ∈
+                (NS25Lean.L5A2C4H.routingH M.base f).asRelativeIdeal ∧
+              ∀ (D : ℕ),
+                d ≤ D →
+                  ↑(NS25Lean.P3R67.omegaDegree M hp f) -
+                        ↑(NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base f) ↑M.base.q ⋯ *
+                            ↑M.base.q) -
+                      ↑D * ↑(NS25Lean.L5A2C4H.routingA M.base f) ∉
+                    (NS25Lean.L5A2C4H.routingH M.base f).asRelativeIdeal
+NS25Lean.P3R67.protected_rb_corner_heights {Gamma : NS25Lean.NumericalSemigroup}
+  (M : NS25Lean.L2B.MultiplicityBase Gamma) (hp : NS25Lean.L2B.chosenDefect M.base = 3) (e : Fin 3 ≃ Fin 3)
+  (hQ : 1 < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯)
+  (hlevels :
+    ∀ (n : ℕ),
+      0 < n →
+        n < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ →
+          ∃ i j d, NS25Lean.P3R61.RBLevel M hp e n i j d)
+  (D : ℕ)
+  (hatt :
+    ∃ n i j,
+      0 < n ∧
+        n < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ ∧
+          NS25Lean.P3R61.RBLevel M hp e n i j D)
+  (hmax :
+    ∀ (n i j d : ℕ),
+      0 < n →
+        n < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ →
+          NS25Lean.P3R61.RBLevel M hp e n i j d → d ≤ D)
+  (hprotect :
+    ↑(NS25Lean.P3R67.omegaDegree M hp e) -
+          ↑(NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ * ↑M.base.q) -
+        ↑D * ↑(NS25Lean.L5A2C4H.routingA M.base e) ∉
+      (NS25Lean.L5A2C4H.routingH M.base e).asRelativeIdeal) :
+  NS25Lean.L5A2C4C.eta M.base e 0 (NS25Lean.L2B.criticalExponent M.base (e 2) - 1) =
+      NS25Lean.P3R57.roleCoefficient M hp e 1 0 - D ∧
+    NS25Lean.L5A2C4C.eta M.base e (NS25Lean.P3R57.roleCoefficient M hp e 2 1 - 1) 0 =
+        NS25Lean.L2B.criticalExponent M.base (e 0) - D ∧
+      NS25Lean.L5A2C4C.eta M.base e (NS25Lean.P3R57.roleCoefficient M hp e 2 1) 0 =
+        NS25Lean.L2B.criticalExponent M.base (e 0) - D
+'NS25Lean.P3R68.p3_strong_of_chosenDefect_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.principal_complement_factorization_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+NS25Lean.P3CommonFinal.euler_total.{u_1} {R : Type u_1} [Fintype R] (D : NS25Lean.CombinatorialCore.ResidueData R) :
+  D.sinkCount + Nat.card (NS25Lean.L5A2C4I.ResidueData.ExactUnusedMergeBases D) =
+    D.sourceCount + NS25Lean.L5A2C4I.ResidueData.sourceTargetBranchCount D
+NS25Lean.P3CommonFinal.same_final_partitions.{u_1} {R : Type u_1} [Fintype R]
+  (D : NS25Lean.CombinatorialCore.ResidueData R) :
+  NS25Lean.L5A2C4I.ResidueData.sourceTargetBranchCount D =
+      Nat.card (NS25Lean.L5A2C4I.ResidueData.CUsedFirstStageBases D) +
+        NS25Lean.L5A2C4I.ResidueData.cExceptionalCount D ∧
+    Nat.card (NS25Lean.L5A2C4I.ResidueData.ExactUnusedMergeBases D) =
+      Nat.card (NS25Lean.L5A2C4I.ResidueData.CUsedFirstStageBases D) +
+        Nat.card (NS25Lean.L5A2C4I.ResidueData.CFreshUnusedMergeBases D)
+NS25Lean.P3CriticalDivisor.nonunique_critical_divisor {Gamma : NS25Lean.NumericalSemigroup}
+  (B : NS25Lean.ChosenBase.Data Gamma) (e : Fin 3 ≃ Fin 3) (HD : NS25Lean.L5A2C4D.CoherentHerzogData B e)
+  (z z' : NS25Lean.L5A2C4OR20.Monomial)
+  (he : NS25Lean.L5A2C4OR20.monomialDegree B e z = NS25Lean.L5A2C4OR20.monomialDegree B e z') (hne : z ≠ z') :
+  ∃ i,
+    ∃ r ∈ NS25Lean.L5A2C4H.routingH B e,
+      NS25Lean.L5A2C4OR20.monomialDegree B e z =
+        NS25Lean.L2B.criticalExponent B (e i) * NS25Lean.P3R59.normalizedRoleWeight B e i + r
+NS25Lean.P3R65.actual_lt_sentinel_merge_count {Gamma : NS25Lean.NumericalSemigroup}
+  (M : NS25Lean.L2B.MultiplicityBase Gamma) (hp : NS25Lean.L2B.chosenDefect M.base = 3) (e : Fin 3 ≃ Fin 3)
+  (hQ : 1 < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯)
+  (hlevels :
+    ∀ (n : ℕ),
+      0 < n →
+        n < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ →
+          ∃ i j d, NS25Lean.P3R61.LTLevel M hp e n i j d)
+  (k : ℕ) (hk : 0 < k) (hkC : k < NS25Lean.L2B.criticalExponent M.base (e 2))
+  (ht :
+    NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ * ↑M.base.q =
+      k * NS25Lean.L5A2C4H.routingC M.base e)
+  (hdeep :
+    ∀ (n i j d : ℕ),
+      0 < n →
+        n < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ →
+          NS25Lean.P3R61.LTLevel M hp e n i j d → j < k) :
+  (NS25Lean.P3R67.coordinateMinima (NS25Lean.P3R67.ltFloorPoints M hp e)).card ≤
+    Nat.card (NS25Lean.L5A2C4I.ResidueData.ExactUnusedMergeBases (NS25Lean.L5A2C4H.routingData M.base e))
+NS25Lean.P3R65.actual_lt_x_target_unique {Gamma : NS25Lean.NumericalSemigroup} (M : NS25Lean.L2B.MultiplicityBase Gamma)
+  (hp : NS25Lean.L2B.chosenDefect M.base = 3) (e : Fin 3 ≃ Fin 3) (k : ℕ)
+  (hkC : k < NS25Lean.L2B.criticalExponent M.base (e 2))
+  (hprincipal : ↑(k * NS25Lean.L5A2C4H.routingC M.base e) ∈ NS25Lean.L5A2C4H.routingI M.base e)
+  (s t : NS25Lean.L5A2C4I.ResidueData.CSourceTargetBranches (NS25Lean.L5A2C4H.routingData M.base e))
+  (hs :
+    ∃ n i j d,
+      NS25Lean.P3R61.LTLevel M hp e n i j d ∧
+        (NS25Lean.L5A2C4H.routingI M.base e).aperyRepresentative (NS25Lean.L5A2C4H.routingA M.base e)
+            ((NS25Lean.L5A2C4H.routingData M.base e).branchTarget ↑s) =
+          NS25Lean.P3R61.ltAxisA M hp e i j d)
+  (ht :
+    ∃ n i j d,
+      NS25Lean.P3R61.LTLevel M hp e n i j d ∧
+        (NS25Lean.L5A2C4H.routingI M.base e).aperyRepresentative (NS25Lean.L5A2C4H.routingA M.base e)
+            ((NS25Lean.L5A2C4H.routingData M.base e).branchTarget ↑t) =
+          NS25Lean.P3R61.ltAxisA M hp e i j d) :
+  s = t
+NS25Lean.P3R65.actual_lt_target_count {Gamma : NS25Lean.NumericalSemigroup} (M : NS25Lean.L2B.MultiplicityBase Gamma)
+  (hp : NS25Lean.L2B.chosenDefect M.base = 3) (e : Fin 3 ≃ Fin 3)
+  (hQ : 1 < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯)
+  (hlevels :
+    ∀ (n : ℕ),
+      0 < n →
+        n < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ →
+          ∃ i j d, NS25Lean.P3R61.LTLevel M hp e n i j d)
+  (k : ℕ) (hkC : k < NS25Lean.L2B.criticalExponent M.base (e 2)) (hkT : NS25Lean.P3R57.roleCoefficient M hp e 0 2 < k)
+  (hkV : k ≤ NS25Lean.P3R57.roleCoefficient M hp e 1 2)
+  (ht :
+    NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ * ↑M.base.q =
+      k * NS25Lean.L5A2C4H.routingC M.base e)
+  (hdeep :
+    ∀ (n i j d : ℕ),
+      0 < n →
+        n < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ →
+          NS25Lean.P3R61.LTLevel M hp e n i j d → j < k) :
+  NS25Lean.L5A2C4I.ResidueData.sourceTargetBranchCount (NS25Lean.L5A2C4H.routingData M.base e) ≤
+    (NS25Lean.P3R67.coordinateMinima (NS25Lean.P3R67.ltFloorPoints M hp e)).card + 1
+NS25Lean.P3R65.r1_original_type_via_final_sentinel {Gamma : NS25Lean.NumericalSemigroup}
+  (M : NS25Lean.L2B.MultiplicityBase Gamma) (hp : NS25Lean.L2B.chosenDefect M.base = 3)
+  (hR1 : (NS25Lean.P3R51.internalDegrees M).card = 1) :
+  Gamma.asRelativeIdeal.idealType ≤ NS25Lean.Presentation.rho Gamma - 2
+NS25Lean.P3R63.r2_original_type_via_final_staircase {Gamma : NS25Lean.NumericalSemigroup}
+  (M : NS25Lean.L2B.MultiplicityBase Gamma) (hp : NS25Lean.L2B.chosenDefect M.base = 3)
+  (hR2 : (NS25Lean.P3R51.internalDegrees M).card = 2) :
+  Gamma.asRelativeIdeal.idealType ≤ NS25Lean.Presentation.rho Gamma - 2
+NS25Lean.P3R67.shared_protected_rb_corner {Gamma : NS25Lean.NumericalSemigroup}
+  (M : NS25Lean.L2B.MultiplicityBase Gamma) (hp : NS25Lean.L2B.chosenDefect M.base = 3) (e : Fin 3 ≃ Fin 3)
+  (hR3 : (NS25Lean.P3R51.internalDegrees M).card = 3) (D : ℕ)
+  (hatt :
+    ∃ n i j,
+      0 < n ∧
+        n < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ ∧
+          NS25Lean.P3R61.RBLevel M hp e n i j D)
+  (hmax :
+    ∀ (n i j d : ℕ),
+      0 < n →
+        n < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ →
+          NS25Lean.P3R61.RBLevel M hp e n i j d → d ≤ D)
+  (hprotect :
+    ↑(NS25Lean.P3R67.omegaDegree M hp e) -
+          ↑(NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ * ↑M.base.q) -
+        ↑D * ↑(NS25Lean.L5A2C4H.routingA M.base e) ∉
+      (NS25Lean.L5A2C4H.routingH M.base e).asRelativeIdeal) :
+  NS25Lean.L5A2C4I.ResidueData.ExactUnusedMergeReverseBase (NS25Lean.L5A2C4H.routingData M.base e)
+    (NS25Lean.L5A2C4H.gridResidue M.base e (NS25Lean.L2B.criticalExponent M.base (e 1) - 1)
+      (NS25Lean.P3R57.roleCoefficient M hp e 0 2 - 1))
+NS25Lean.P3R67.shared_protected_lt_corner {Gamma : NS25Lean.NumericalSemigroup}
+  (M : NS25Lean.L2B.MultiplicityBase Gamma) (hp : NS25Lean.L2B.chosenDefect M.base = 3) (e : Fin 3 ≃ Fin 3)
+  (hR3 : (NS25Lean.P3R51.internalDegrees M).card = 3) (D : ℕ)
+  (hatt :
+    ∃ n i j,
+      0 < n ∧
+        n < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ ∧
+          NS25Lean.P3R61.LTLevel M hp e n i j D)
+  (hmax :
+    ∀ (n i j d : ℕ),
+      0 < n →
+        n < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ →
+          NS25Lean.P3R61.LTLevel M hp e n i j d → d ≤ D)
+  (hprotect :
+    ↑(NS25Lean.P3R67.omegaDegree M hp (NS25Lean.P3R57.swapRole e)) -
+          ↑(NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ * ↑M.base.q) -
+        ↑D * ↑(NS25Lean.L5A2C4H.routingA M.base e) ∉
+      (NS25Lean.L5A2C4H.routingH M.base e).asRelativeIdeal) :
+  NS25Lean.L5A2C4I.ResidueData.ExactUnusedMergeReverseBase (NS25Lean.L5A2C4H.routingData M.base e)
+    (NS25Lean.L5A2C4H.gridResidue M.base e (NS25Lean.P3R57.roleCoefficient M hp e 0 1 - 1)
+      (NS25Lean.L2B.criticalExponent M.base (e 2) - 1))
+NS25Lean.P3R67.shared_protected_rb_corner_heights {Gamma : NS25Lean.NumericalSemigroup}
+  (M : NS25Lean.L2B.MultiplicityBase Gamma) (hp : NS25Lean.L2B.chosenDefect M.base = 3) (e : Fin 3 ≃ Fin 3)
+  (hR3 : (NS25Lean.P3R51.internalDegrees M).card = 3) (D : ℕ)
+  (hatt :
+    ∃ n i j,
+      0 < n ∧
+        n < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ ∧
+          NS25Lean.P3R61.RBLevel M hp e n i j D)
+  (hmax :
+    ∀ (n i j d : ℕ),
+      0 < n →
+        n < NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ →
+          NS25Lean.P3R61.RBLevel M hp e n i j d → d ≤ D)
+  (hprotect :
+    ↑(NS25Lean.P3R67.omegaDegree M hp e) -
+          ↑(NS25Lean.L5A2B4AR1.principalIndex (NS25Lean.L5A2C4H.routingH M.base e) ↑M.base.q ⋯ * ↑M.base.q) -
+        ↑D * ↑(NS25Lean.L5A2C4H.routingA M.base e) ∉
+      (NS25Lean.L5A2C4H.routingH M.base e).asRelativeIdeal) :
+  NS25Lean.L5A2C4C.eta M.base e 0 (NS25Lean.L2B.criticalExponent M.base (e 2) - 1) =
+      NS25Lean.P3R57.roleCoefficient M hp e 1 0 - D ∧
+    NS25Lean.L5A2C4C.eta M.base e (NS25Lean.P3R57.roleCoefficient M hp e 2 1 - 1) 0 =
+        NS25Lean.L2B.criticalExponent M.base (e 0) - D ∧
+      NS25Lean.L5A2C4C.eta M.base e (NS25Lean.P3R57.roleCoefficient M hp e 2 1) 0 =
+        NS25Lean.L2B.criticalExponent M.base (e 0) - D
+'NS25Lean.P3CommonFinal.euler_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3CommonFinal.same_final_partitions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3CriticalDivisor.nonunique_critical_divisor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R65.actual_lt_sentinel_merge_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R65.actual_lt_x_target_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R65.actual_lt_target_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R65.r1_original_type_via_final_sentinel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R63.r2_original_type_via_final_staircase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.shared_protected_rb_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.shared_protected_lt_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.P3R67.shared_protected_rb_corner_heights' depends on axioms: [propext, Classical.choice, Quot.sound]

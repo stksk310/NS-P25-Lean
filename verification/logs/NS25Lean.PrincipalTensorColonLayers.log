@@ -1,0 +1,19 @@
+NS25Lean/PrincipalTensorColonLayers.lean:94:38: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+NS25Lean/PrincipalTensorColonLayers.lean:130:27: warning: This simp argument is unused:
+  Ne.symm hne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_monomial, hne]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/PrincipalTensorColonLayers.lean:134:50: warning: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'NS25Lean.PrincipalTensorColonLayers.cohomology_finrank_of_operators' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.PrincipalTensorColonLayers.h0_finrank_of_operators' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.PrincipalTensorColonLayers.plane_H2_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]

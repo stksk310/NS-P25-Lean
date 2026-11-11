@@ -1,5 +1,13 @@
 # Source notices and provenance
 
+## v1.1.0 update
+
+Copyright 2026 Keisuke Sato. Apache-2.0 continues to apply. The author authorized this updated GitHub/Zenodo release on 2026-11-11. Source headers and third-party notices remain intact. Compared with the 395-file alignment baseline, this release adds 99 Lean files, modifies 32 and retains 363 byte-identically. The 13 v1.0.0 individual checks retain their bytes in legacy-checks/. The unchanged toolchain/dependency configuration retains the historical internal package version 0.1.0.
+
+## Historical v1.0.0 provenance (statements below concern that snapshot)
+
+# Source notices and provenance
+
 391 nonroot Lean proof modules are copied byte for byte from the Commander-accepted R77 research snapshot supplied in the R78 input. Only the public NS25Lean.lean import root is replaced by the four-import input proposal. Configuration and exact target driver are also preserved byte for byte. R78 adds documentation and probe drivers, without editing inherited proofs or their notices.
 
 The supplied R77 parent RESULT SHA-256 is `cf9c4796b435b4973e3f9cf5aefb0531934848f99cdc595b2bd2bad1a121620f`. It is recorded in the input authority and detailed Commander audit. R78 located the actual parent ZIP in the existing workspace, independently verified this full archive SHA-256 and CRC, and compared all 1,020 frozen entries directly to its bytes. R78 also directly validates the actual supplied input ZIP. See the outer private evidence and preserved-input for full audit provenance.

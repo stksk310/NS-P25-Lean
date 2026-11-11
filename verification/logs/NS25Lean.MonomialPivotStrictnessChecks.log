@@ -1,0 +1,22 @@
+'NS25Lean.MonomialPivotStrictness.monomial_apery_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.MonomialPivotStrictness.two_axis_distinct_degree_impossible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.MonomialPivotStrictness.positive_has_nonunique_pure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.MonomialPivotStrictness.monomial_positive_degree_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.MonomialPivotStrictness.monomial_contribution_le_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.MonomialPivotStrictness.original_pivot_full_support_defect_le_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.MonomialPivotStrictness.original_pivot_monomial_q_fs_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.MonomialPivotStrictness.original_pivot_monomial_strict_type' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

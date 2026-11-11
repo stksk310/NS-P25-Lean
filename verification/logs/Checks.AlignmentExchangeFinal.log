@@ -1,0 +1,69 @@
+NS25Lean.CriticalFullSignature.Front {H : NS25Lean.NumericalSemigroup} (B : NS25Lean.CriticalCapGeometry.Base H)
+  (D : NS25Lean.CriticalPresentationModes.Mode B) : Type
+NS25Lean.GenericCriticalDuality.compensation_source_count {H : NS25Lean.NumericalSemigroup}
+  {B : NS25Lean.CriticalCapGeometry.Base H} {D : NS25Lean.CriticalPresentationModes.Mode B}
+  (F : NS25Lean.CriticalFullSignature.Front B D) :
+  (NS25Lean.GenericCriticalDuality.additional F).ncard +
+      Nat.card { s // 0 < (B.norm s) 0 ∧ 0 < (B.norm s) 1 ∧ 0 < (B.norm s) 2 } ≤
+    (NS25Lean.GenericCriticalDuality.exceptional F).ncard
+NS25Lean.GenericCriticalDuality.fullSupport_source_count {H : NS25Lean.NumericalSemigroup}
+  {B : NS25Lean.CriticalCapGeometry.Base H} {D : NS25Lean.CriticalPresentationModes.Mode B}
+  (F : NS25Lean.CriticalFullSignature.Front B D) :
+  NS25Lean.GenericCriticalDuality.fullSupport F =
+    Nat.card { s // 0 < (B.norm s) 0 ∧ 0 < (B.norm s) 1 ∧ 0 < (B.norm s) 2 }
+NS25Lean.GenericCriticalDuality.fullSupport_original_count {H : NS25Lean.NumericalSemigroup}
+  {B : NS25Lean.CriticalCapGeometry.Base H} {D : NS25Lean.CriticalPresentationModes.Mode B}
+  (F : NS25Lean.CriticalFullSignature.Front B D) :
+  NS25Lean.GenericCriticalDuality.fullSupport F = (NS25Lean.GenericCriticalDuality.fullOriginals F).ncard
+NS25Lean.L5A2BFinalRepair.nonsymmetric_erased_sources_subsingleton {Gamma : NS25Lean.NumericalSemigroup}
+  {P : NS25Lean.L5A1.P2Data Gamma} (R : NS25Lean.L5A2B4AR4R1.SectorBCriticalRoleBranchB P)
+  (hB : NS25Lean.L5A1.SectorB P.M) (hQ : 1 < NS25Lean.L5A2B4AR1.actualPrincipalIndex P.M.base) :
+  Subsingleton (NS25Lean.L5A2BFinalRepair.NonsymmetricErasedSources R hQ)
+NS25Lean.L5A2C4OR29.model_source_return_no_common_summand {Gamma : NS25Lean.NumericalSemigroup}
+  (B : NS25Lean.ChosenBase.Data Gamma) (e : Fin 3 ≃ Fin 3) (s : NS25Lean.L5A2C4OR29.ModelSources B e) {n y z h : ℕ}
+  (hn : 0 < n) (hy : y ∈ NS25Lean.L5A2C4H.routingH B e) (hz : z ∈ NS25Lean.L5A2C4H.routingH B e)
+  (hh : h ∈ NS25Lean.L5A2C4H.routingH B e) (hs : ↑s = z + h)
+  (hreturn : ↑s = n * NS25Lean.L5A2C4OR1.routingM B e + (y + h)) : h = 0
+NS25Lean.L5A2C4OR40.cut_source_cover {Gamma : NS25Lean.NumericalSemigroup} (B : NS25Lean.ChosenBase.Data Gamma)
+  (e : Fin 3 ≃ Fin 3) (n : ℕ)
+  (hn : n ∈ NS25Lean.L5A2C4OR19.cyclicCut (NS25Lean.L5A2C4H.routingH B e) (NS25Lean.L5A2C4OR1.routingM B e)) :
+  ∃ v, ∃ t ∈ NS25Lean.L5A2C4H.routingH B e, n = ↑v + t
+'NS25Lean.ReturnExchange.source_return_separation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.ReturnExchange.guarded_live_reflection' depends on axioms: [propext, Quot.sound]
+'NS25Lean.ReturnExchange.unique_cut_literal_source_divisor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.ReturnExchange.principal_adjoin_source_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.ReturnExchange.return_sources_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.ReturnExchange.gap_return_source_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.ReturnExchange.missing_predecessor_guard_counterexample' depends on axioms: [propext, Quot.sound]
+'NS25Lean.ReturnExchange.critical_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.ErasedSourceScreen.no_erasure_of_three_live' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.ErasedSourceScreen.erased_source_pure_a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.ErasedSourceScreen.pure_principal_forbids_integral_boundaries' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.ErasedSourceScreen.critical_transport_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.CriticalNormalForm.sourceNormal_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.PureInternalTransverse.transverse_minimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.CriticalFullSignature.Front.normal_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericCriticalDuality.compensation_source_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericCriticalDuality.fullSupport_source_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericCriticalDuality.fullSupport_original_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericCriticalDuality.additional_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericCriticalDuality.exceptional_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericCriticalDuality.internal_cut_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericCriticalDuality.mixed_alive_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.CriticalReturnCapAdapter.actual_packet_type_bound_shared' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.PurePairCapAdapter.boundary_compensation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.L5A2BFinalRepair.nonsymmetric_erased_sources_subsingleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.ActualGenericDualityAdapter.actual_packet_compensation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.PurePairGenericDualityAdapter.boundary_compensation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.PurePairGenericDualityAdapter.actualFront' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.CriticalPermutation.critical' depends on axioms: [propext, Classical.choice, Quot.sound]

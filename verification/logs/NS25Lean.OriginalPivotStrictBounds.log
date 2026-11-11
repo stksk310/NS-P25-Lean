@@ -1,0 +1,2 @@
+'NS25Lean.OriginalPivotStrictBounds.p2_original_source_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.OriginalPivotStrictBounds.p3_original_source_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

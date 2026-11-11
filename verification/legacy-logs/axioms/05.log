@@ -1,0 +1,1 @@
+'NS25Lean.EC.R75.equality_iff_all_original_pivots' depends on axioms: [propext, Classical.choice, Quot.sound]

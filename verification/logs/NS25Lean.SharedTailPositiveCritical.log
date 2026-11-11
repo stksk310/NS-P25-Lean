@@ -1,0 +1,28 @@
+NS25Lean/SharedTailPositiveCritical.lean:101:15: warning: This simp argument is unused:
+  Finsupp.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finsupp.tsub_apply, Finsupp.single_eq_of_ne hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/SharedTailPositiveCritical.lean:101:33: warning: This simp argument is unused:
+  Finsupp.tsub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finsupp.add_apply, Finsupp.single_eq_of_ne hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/SharedTailPositiveCritical.lean:106:15: warning: This simp argument is unused:
+  Finsupp.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finsupp.tsub_apply, Finsupp.single_eq_of_ne hkj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/SharedTailPositiveCritical.lean:106:33: warning: This simp argument is unused:
+  Finsupp.tsub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finsupp.add_apply, Finsupp.single_eq_of_ne hkj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

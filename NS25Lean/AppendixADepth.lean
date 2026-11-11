@@ -29,26 +29,7 @@ theorem shared_slab_source_unique (F : InternalFrontend k M h)
     (hu : 0 < u.val j) (hv : 0 < v.val j)
     (huSlab : u.val (F.normal.perm 0) < F.normal.a)
     (hvSlab : v.val (F.normal.perm 0) < F.normal.a) : u = v := by
-  obtain ⟨z, hz⟩ := shared_source_factorization_difference F s u v j hu hv
-  have hx := hz (F.normal.perm 0)
-  rw [tieDelta_x] at hx
-  have ha := F.normal.a_ge_two
-  have hz0 : z = 0 := by
-    by_contra hn
-    rcases lt_or_gt_of_ne hn with hneg | hpos
-    · have hz1 : z ≤ -1 := by omega
-      have hm : z * (F.normal.a : ℤ) ≤ -1 * (F.normal.a : ℤ) :=
-        mul_le_mul_of_nonneg_right hz1 (by positivity)
-      omega
-    · have hz1 : 1 ≤ z := by omega
-      have hm : 1 * (F.normal.a : ℤ) ≤ z * (F.normal.a : ℤ) :=
-        mul_le_mul_of_nonneg_right hz1 (by positivity)
-      omega
-  apply Subtype.ext
-  ext i
-  have hi := hz i
-  simp only [hz0, zero_mul, add_zero] at hi
-  exact_mod_cast hi.symm
+  exact source_slab_factorization_unique F s u v huSlab hvSlab
 
 /-- Actual full-support depth dominance, derived from source minimality. -/
 theorem full_support_depth_dominance (F : InternalFrontend k M h)

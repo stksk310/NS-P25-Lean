@@ -1,0 +1,19 @@
+NS25Lean.PrincipalTensorColon.principal_tensor_cut_integralSocle_card_le_two.{u_1} {k : Type u_1} [Field k]
+  {H : NumericalSemigroup} {I : RelativeIdeal H} {f : ↥H.toAddSubmonoid} {g : Fin 3 → ↥H.toAddSubmonoid}
+  (T : GradedPresentation I f g) (hf : ↑↑f ∉ I) (hgen : H.IsGeneratedByThree ↑(g 0) ↑(g 1) ↑(g 2))
+  (hpos : ∀ (i : Fin 3), 0 < ↑(g i)) :
+  Nat.card { w // IsIntegralSocle (principalAdjoinedIdeal I f) w } ≤ Nat.card { w // IsIntegralSocle I w } + 2
+NS25Lean.PrincipalTensorColon.principal_tensor_cut_integralSocle_minus_sources.{u_1} {k : Type u_1} [Field k]
+  {H : NumericalSemigroup} {I : RelativeIdeal H} {f : ↥H.toAddSubmonoid} {g : Fin 3 → ↥H.toAddSubmonoid}
+  (T : GradedPresentation I f g) (hf : ↑↑f ∉ I) (hgen : H.IsGeneratedByThree ↑(g 0) ↑(g 1) ↑(g 2))
+  (hpos : ∀ (i : Fin 3), 0 < ↑(g i)) :
+  ↑(Nat.card { w // IsIntegralSocle (principalAdjoinedIdeal I f) w }) -
+      ↑(Nat.card (ReturnExchange.IdealSources H (naturalCarrier (principalAdjoinedIdeal I f)))) ≤
+    ↑(Nat.card { w // IsIntegralSocle I w }) - ↑(Nat.card (ReturnExchange.IdealSources H (naturalCarrier I))) + 1 +
+      ↑(Nat.card { s // ReturnExchange.PrincipalErased H (↑f) s })
+'NS25Lean.PrincipalTensorColon.principal_tensor_cut_integralSocle_card_le_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.PrincipalTensorColon.principal_tensor_cut_integralSocle_minus_sources' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

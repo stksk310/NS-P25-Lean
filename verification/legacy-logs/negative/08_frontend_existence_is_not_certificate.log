@@ -1,0 +1,7 @@
+legacy-checks\negative\08_frontend_existence_is_not_certificate.lean:9:2: error: Type mismatch
+  G
+has type
+  L3C.NormalizedSources F
+of sort `Type` but is expected to have type
+  EC.R74.PCRCountCertificate F G
+of sort `Prop`

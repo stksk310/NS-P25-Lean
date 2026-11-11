@@ -1,4 +1,5 @@
 import NS25Lean.P2DAResidueR49
+import NS25Lean.MonomialPivotStrictness
 
 set_option linter.style.header false
 noncomputable section
@@ -155,22 +156,13 @@ theorem sectorA_killed_axis_residue_zero (k : Type*) [Field k] (P : P2Data Gamma
 
 theorem sectorA_q_fs_zero (k : Type*) [Field k] (P : P2Data Gamma) (hA : SectorA P.M) :
     L3A.q_fs (P.J k) = 0 := by
-  obtain ⟨h, x, A, hApos, he, hk, _, hlive⟩ := sectorA_actual_endpoints P hA
-  obtain ⟨a, ha, hab, hmin⟩ := sectorA_minimal_killed_axis k P h x A hApos he hk
-  have hr := sectorA_killed_axis_residue_zero k P h x A a hab he hmin hlive
-  change (L3A.fullSupportGenerators (P.J k)).ncard = 0
-  rw [Set.ncard_eq_zero (hs := L3A.fullSupportGenerators_finite _)]
-  ext g
-  simp only [Set.mem_empty_iff_false, iff_false]
-  intro hg
-  exact pure_residue_zero_excludes_full_support k _ (sectorA_apery_unique P hA) x a ha hmin hr g hg
+  exact MonomialPivotStrictness.original_pivot_monomial_q_fs_zero k P.M.base
+    (sectorA_monomial P hA k) (by rw [P.hp])
 
 theorem sectorA_type_le_sourceCount (P : P2Data Gamma) (hA : SectorA P.M) :
     Gamma.asRelativeIdeal.idealType ≤ P.sourceCount := by
-  have hbound := L3A.support_refined_monomial_type_bound
-    (L3A.chosenArtinianMonomial P.M.base MonomialOrder.degLex (sectorA_monomial P hA ℚ))
-  change L3A.quotientType (P.J ℚ) ≤ L3A.mu (P.J ℚ) + L3A.q_fs (P.J ℚ) - 2 at hbound
-  rw [L3A.chosen_type_eq (k := ℚ), L3A.chosen_mu_eq (k := ℚ), sectorA_q_fs_zero ℚ P hA] at hbound
+  have hbound := MonomialPivotStrictness.original_pivot_monomial_strict_type ℚ P.M.base
+    (sectorA_monomial P hA ℚ) (by rw [P.hp])
   have := p2_rho_eq_sourceCount_add_two P
   omega
 

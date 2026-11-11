@@ -1,6 +1,7 @@
 import NS25Lean.AppendixASources
 import NS25Lean.AppendixAChains
 import NS25Lean.AppendixAOneWrap
+import NS25Lean.PrincipalSourceFibers
 
 set_option linter.style.header false
 noncomputable section
@@ -98,26 +99,12 @@ theorem tie_not_le_source (F : InternalFrontend k M h) (G : NormalizedSources F)
   have := G.slab s
   omega
 
-/-- Same-degree source firewall: cancellation gives an actual Apéry tie chain. -/
+/-- Compatibility endpoint for the whole-source principal-binomial theorem. -/
 theorem shared_source_factorization_difference (F : InternalFrontend k M h)
     (s : Source M.base) (u v : FactorizationFiber M.base s.val) (j : Fin 3)
     (hu : 0 < u.val j) (hv : 0 < v.val j) :
     ∃ z : ℤ, ∀ i, (v.val i : ℤ) = (u.val i : ℤ) + z * tieDelta F.normal i := by
-  have huw := removed_weight M.base s.val u j hu
-  have hvw := removed_weight M.base s.val v j hv
-  let u' : FactorizationFiber M.base (s.val - weights M.base j) :=
-    ⟨u.val - Finsupp.single j 1, by omega⟩
-  let v' : FactorizationFiber M.base (s.val - weights M.base j) :=
-    ⟨v.val - Finsupp.single j 1, by omega⟩
-  obtain ⟨z, hz⟩ := apery_factorization_difference F _ (source_remove_apery F s u j hu) u' v'
-  refine ⟨z, fun i => ?_⟩
-  have hiu := congrArg (fun w : Fin 3 →₀ ℕ => w i) (remove_variable_add u.val j hu)
-  have hiv := congrArg (fun w : Fin 3 →₀ ℕ => w i) (remove_variable_add v.val j hv)
-  have hzi := hz i
-  change ((v.val - Finsupp.single j 1 : Fin 3 →₀ ℕ) i : ℤ) =
-    ((u.val - Finsupp.single j 1 : Fin 3 →₀ ℕ) i : ℤ) + z * tieDelta F.normal i at hzi
-  simp only [Finsupp.add_apply] at hiu hiv
-  omega
+  exact source_factorization_difference F s u v
 
 theorem tie_minimal_oneWrap (F : InternalFrontend k M h) (G : NormalizedSources F) :
     F.normal.alpha.val ∈ L3A.minimalExponents (oneWrapIdeal F G) := by

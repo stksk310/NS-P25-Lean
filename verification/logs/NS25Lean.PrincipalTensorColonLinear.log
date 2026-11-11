@@ -1,0 +1,7 @@
+NS25Lean/PrincipalTensorColonLinear.lean:18:35: warning: This simp argument is unused:
+  mul_smul_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [smul_sub]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

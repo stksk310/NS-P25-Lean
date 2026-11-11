@@ -1,0 +1,56 @@
+NS25Lean/P2BranchBPrefixBranchCount.lean:20:3: warning: Variable name `u` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _u
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2BranchBPrefixBranchCount.lean:73:48: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+NS25Lean/P2BranchBPrefixBranchCount.lean:73:59: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+NS25Lean/P2BranchBPrefixBranchCount.lean:77:48: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+NS25Lean/P2BranchBPrefixBranchCount.lean:77:59: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+NS25Lean/P2BranchBPrefixBranchCount.lean:79:48: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+NS25Lean/P2BranchBPrefixBranchCount.lean:79:59: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+NS25Lean/P2BranchBPrefixBranchCount.lean:73:70: warning: This simp argument is unused:
+  Sum.inl.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nonsymmetricPrefixBranchResource, dif_pos hs, dif_pos ht] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBPrefixBranchCount.lean:77:70: warning: This simp argument is unused:
+  Sum.inl_ne_inr
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nonsymmetricPrefixBranchResource, dif_pos hs, dif_neg ht] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBPrefixBranchCount.lean:79:70: warning: This simp argument is unused:
+  Sum.inr_ne_inl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nonsymmetricPrefixBranchResource, dif_neg hs, dif_pos ht] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBPrefixBranchCount.lean:89:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBPrefixBranchCount.lean:90:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBPrefixBranchCount.lean:102:36: warning: This simp argument is unused:
+  Nat.card_eq_fintype_card
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [h, Finset.filter_true, Finset.card_univ, Fintype.card_unit]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

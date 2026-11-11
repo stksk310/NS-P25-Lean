@@ -1,0 +1,252 @@
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:97:36: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:105:32: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:185:24: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [faceVector, hj, Ne.symm hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:185:40: warning: This simp argument is unused:
+  Ne.symm hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [faceVector, hj, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:230:29: warning: This simp argument is unused:
+  Finsupp.tsub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:231:20: warning: This simp argument is unused:
+  Finsupp.tsub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, succ, Finsupp.single_apply, hj, Ne.symm hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:231:39: warning: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, succ, Finsupp.tsub_apply, hj, Ne.symm hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:231:60: warning: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, succ, Finsupp.tsub_apply, Finsupp.single_apply, Ne.symm hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:231:63: warning: This simp argument is unused:
+  Ne.symm hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, succ, Finsupp.tsub_apply, Finsupp.single_apply, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:242:20: warning: This simp argument is unused:
+  Finsupp.tsub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, succ, Finsupp.single_apply, hj, Ne.symm hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:242:39: warning: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, succ, Finsupp.tsub_apply, hj, Ne.symm hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:242:63: warning: This simp argument is unused:
+  Ne.symm hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, succ, Finsupp.tsub_apply, Finsupp.single_apply, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:252:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:259:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:274:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:323:24: warning: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [bottom, succ, hij, Ne.symm hij, hi, mul_basis_lt A hB hQ j a hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:323:49: warning: This simp argument is unused:
+  Ne.symm hij
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [bottom, succ, Finsupp.single_apply, hij, hi, mul_basis_lt A hB hQ j a hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:325:24: warning: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [bottom, succ, hij, Ne.symm hij, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:325:49: warning: This simp argument is unused:
+  Ne.symm hij
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [bottom, succ, Finsupp.single_apply, hij, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:339:33: warning: This simp argument is unused:
+  Ne.symm hij
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, succ, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:341:31: warning: This simp argument is unused:
+  hij
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, succ, Ne.symm hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:342:22: warning: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, succ, hli, Ne.symm hli, hlj, Ne.symm hlj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:342:47: warning: This simp argument is unused:
+  Ne.symm hli
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, succ, Finsupp.single_apply, hli, hlj, Ne.symm hlj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:342:63: warning: This simp argument is unused:
+  Ne.symm hlj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, succ, Finsupp.single_apply, hli, Ne.symm hli, hlj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:359:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:359:20: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:362:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:362:20: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:365:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:366:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:352:15: warning: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, hij, Ne.symm hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:352:36: warning: This simp argument is unused:
+  hij
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pred, Finsupp.single_apply, Ne.symm hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:356:17: warning: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [succ, hij, Ne.symm hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:356:42: warning: This simp argument is unused:
+  Ne.symm hij
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [succ, Finsupp.single_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:383:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:411:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:613:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:1001:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:1002:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:1010:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:1011:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:1012:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:1013:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:1056:28: warning: Variable name `hh` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hh
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:1180:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBFinalRepairKoszulSurgery.lean:1218:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

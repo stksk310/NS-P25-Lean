@@ -1,0 +1,123 @@
+NS25Lean/P2SectorCNormalStripR32.lean:89:13: warning: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:103:45: warning: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f2Normal, Prod.fst_add, Prod.snd_add, Nat.div_eq_of_lt h, Nat.mod_eq_of_lt h, mul_zero, add_zero,
+    Prod.snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:103:54: warning: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f2Normal, Prod.fst_add, Prod.snd_add, Nat.div_eq_of_lt h, Nat.mod_eq_of_lt h, mul_zero, add_zero,
+    Prod.fst]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:109:65: warning: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f2Normal, sourceWrap, Prod.fst_add, Prod.snd_add, Prod.snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:109:74: warning: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f2Normal, sourceWrap, Prod.fst_add, Prod.snd_add, Prod.fst]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:113:54: warning: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f2Normal, Prod.fst_add, Prod.snd_add, Prod.snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:113:63: warning: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f2Normal, Prod.fst_add, Prod.snd_add, Prod.fst]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:124:37: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/P2SectorCNormalStripR32.lean:128:37: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2SectorCNormalStripR32.lean:126:50: warning: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f2Normal, Prod.fst_add, Prod.snd_add, Prod.snd, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:126:59: warning: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f2Normal, Prod.fst_add, Prod.snd_add, Prod.fst, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:131:54: warning: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f2Normal, Prod.fst_add, Prod.snd_add, Prod.snd, Nat.div_eq_of_lt h, Nat.mod_eq_of_lt h, mul_zero,
+    add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:131:63: warning: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f2Normal, Prod.fst_add, Prod.snd_add, Prod.fst, Nat.div_eq_of_lt h, Nat.mod_eq_of_lt h, mul_zero,
+    add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:136:54: warning: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f2Normal, Prod.fst_add, Prod.snd_add, Prod.snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:136:63: warning: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f2Normal, Prod.fst_add, Prod.snd_add, Prod.fst]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:139:54: warning: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f2Normal, Prod.fst_add, Prod.snd_add, Prod.snd, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:139:63: warning: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f2Normal, Prod.fst_add, Prod.snd_add, Prod.fst, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCNormalStripR32.lean:441:63: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P2SectorCNormalStripR32.lean:481:19: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P2SectorCNormalStripR32.lean:491:25: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P2SectorCNormalStripR32.lean:502:53: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

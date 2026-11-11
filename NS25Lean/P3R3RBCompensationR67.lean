@@ -1,6 +1,7 @@
 import NS25Lean.P3R3TargetCountR67
 import NS25Lean.P3R3StaircaseCountR67
 import NS25Lean.P3R3CornersR67
+import NS25Lean.P3R3MixedCornersR67
 
 set_option autoImplicit false
 set_option linter.style.header false
@@ -80,6 +81,20 @@ theorem rb_fresh_of_protected (hQ : 1<Q)
       Nat.card (ResidueData.CFreshUnusedMergeBases (routingData M.base e))+1 := by
   exact rb_fresh_of_actual_corner M hp e hQ hlevels htau
     (protected_rb_corner M hp e hQ hlevels D hatt hmax hprotect)
+
+/-- NF uses exactly the same protected-corner core as TW, with both-arm
+interference proved once and the final carrier kept literal. -/
+theorem rb_fresh_of_shared_protected
+    (hR3 : (P3R51.internalDegrees M).card=3) (hQ : 1<Q)
+    (hlevels : ∀ n, 0<n → n<Q → ∃ i j d, RBLevel M hp e n i j d)
+    (htau : (Q*M.base.q.val : ℕ)-(a : ℤ) ∈ (routingH M.base e).asRelativeIdeal)
+    (D : ℕ) (hatt : ∃ n i j, 0<n ∧ n<Q ∧ RBLevel M hp e n i j D)
+    (hmax : ∀ n i j d, 0<n → n<Q → RBLevel M hp e n i j d → d≤D)
+    (hprotect : (omegaDegree M hp e : ℤ)-(Q*M.base.q.val : ℕ)-D*a ∉ (routingH M.base e).asRelativeIdeal) :
+    ResidueData.cExceptionalCount (routingData M.base e) ≤
+      Nat.card (ResidueData.CFreshUnusedMergeBases (routingData M.base e))+1 := by
+  exact rb_fresh_of_actual_corner M hp e hQ hlevels htau
+    (shared_protected_rb_corner M hp e hR3 D hatt hmax hprotect)
 
 end
 end NS25Lean.P3R67

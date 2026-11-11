@@ -1,0 +1,22 @@
+NS25Lean/P2SectorCSourceHitLocalSquareDictionaryR11.lean:66:49: warning: This simp argument is unused:
+  mul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [normalizedGrid, zero_mul, zero_add, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCSourceHitLocalSquareDictionaryR11.lean:66:59: warning: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [normalizedGrid, zero_mul, zero_add, mul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCSourceHitLocalSquareDictionaryR11.lean:137:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

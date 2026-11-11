@@ -1,0 +1,3 @@
+NS25Lean/DilationBoundary.lean:53:4: warning: Unused tactic linter: `change D * h - B.q.val = D * (r + 1) * B.q.val - B.q.val + D * g` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

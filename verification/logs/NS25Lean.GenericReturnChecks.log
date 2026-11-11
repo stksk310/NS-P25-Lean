@@ -1,0 +1,136 @@
+NS25Lean/GenericReturnChecks.lean:12:40: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+NS25Lean.GenericPhysical.Presentation.coprime {H Gamma : NumericalSemigroup} (D : Presentation H Gamma) :
+  D.delta.Coprime D.m
+NS25Lean.GenericPhysical.Presentation.normalizedCut_iff_returns {H Gamma : NumericalSemigroup}
+  (D : Presentation H Gamma) (x : ℕ) : x ∈ D.normalizedCut ↔ x ∈ cyclicCut H D.m
+NS25Lean.GenericPhysical.Presentation.cut_finite_reduction {H Gamma : NumericalSemigroup} (D : Presentation H Gamma)
+  (x : ℕ) : x ∈ D.normalizedCut ↔ x ∈ H ∧ ∃ q, 0 < q ∧ q ≤ firstPrincipal H D.m ⋯ ∧ ∃ h ∈ H, x = q * D.m + h
+NS25Lean.GenericPhysical.Presentation.cut_finite_complement {H Gamma : NumericalSemigroup} (D : Presentation H Gamma) :
+  {x | x ∉ D.normalizedCut}.Finite
+NS25Lean.GenericPhysical.Presentation.source_scaling {H Gamma : NumericalSemigroup} (D : Presentation H Gamma) (x : ℕ) :
+  FourGeneratedBridge.IsMinimalTailGenerator D.scaledTail D.physicalCut (D.delta * x) ↔
+    D.scaling.ideal.IsMinimalGenerator ↑x
+NS25Lean.GenericPhysical.Presentation.socle_scaling {H Gamma : NumericalSemigroup} (D : Presentation H Gamma) (x : ℕ) :
+  FourGeneratedBridge.IsSocle Gamma.toAddSubmonoid D.scaledTail D.m (D.delta * x) ↔
+    FourGeneratedBridge.IsIntegralSocle D.scaling.ideal ↑x
+NS25Lean.GenericPhysical.Presentation.factorization_graph {H Gamma : NumericalSemigroup} (D : Presentation H Gamma)
+  (n : ℕ) (u v : Fin 3 → ℕ) :
+  (vectorWeight (D.delta * D.a) (D.delta * D.b) (D.delta * D.c) u = D.delta * n ∧
+      vectorWeight (D.delta * D.a) (D.delta * D.b) (D.delta * D.c) v = D.delta * n ∧ u ≠ v ∧ ∃ i, 0 < u i ∧ 0 < v i) ↔
+    vectorWeight D.a D.b D.c u = n ∧ vectorWeight D.a D.b D.c v = n ∧ u ≠ v ∧ ∃ i, 0 < u i ∧ 0 < v i
+NS25Lean.GenericPhysical.Presentation.physical_return_multiplier {H Gamma : NumericalSemigroup}
+  (D : Presentation H Gamma) (x q h : ℕ) (he : x = q * D.m + h) : D.delta * x = D.delta * q * D.m + D.delta * h
+NS25Lean.GenericReturn.cut_apery_eq_finite_minimum (H : NumericalSemigroup) (m : ℕ) (hm : 0 < m) (a : ℕ) [NeZero a]
+  (ha : a ∈ H) (r : ZMod a) : (cutIdeal H m hm).aperyRepresentative a r = (residueCandidates H m hm a r).min' ⋯
+NS25Lean.GenericReturn.cut_apery_eq_alpha_add_height (H : NumericalSemigroup) (m : ℕ) (hm : 0 < m) (a : ℕ) [NeZero a]
+  (ha : a ∈ H) (r : ZMod a) :
+  ∃ eta, (cutIdeal H m hm).aperyRepresentative a r = H.asRelativeIdeal.aperyRepresentative a r + ↑(a * eta)
+NS25Lean.GenericReturn.physical_cutIdeal_eq {H Gamma : NumericalSemigroup} (D : Presentation H Gamma) :
+  D.scaling.ideal = cutIdeal H D.m ⋯
+NS25Lean.GenericReturn.strict_canonical_return {H : NumericalSemigroup} (D : Positive H) (K : LocalCut D) (nu : ℕ)
+  (hnu : 0 < nu) (hnon : nu ∉ H) (hRK : ∀ (x : ℕ), InReturn H nu x → x ∈ K.carrier) :
+  ∃! t, (RB D t.1 t.2.1 t.2.2 ∨ GenericReturn.LT D t.1 t.2.1 t.2.2) ∧ t.1 * D.b + t.2.1 * D.c = nu + t.2.2 * D.a
+NS25Lean.GenericReturn.all_live_critical_predecessors_absent {H : NumericalSemigroup} (D : Positive H) (K : LocalCut D)
+  (nu : ℕ) (hnu : 0 < nu) (hnon : nu ∉ H) (hRK : ∀ (x : ℕ), InReturn H nu x → x ∈ K.carrier) :
+  ¬InReturn H nu ((D.B - 1) * D.b) ∧
+    ¬InReturn H nu ((D.u - 1) * D.a + D.v * D.c) ∧
+      ¬InReturn H nu (D.u * D.a + (D.v - 1) * D.c) ∧
+        ¬InReturn H nu ((D.C - 1) * D.c) ∧
+          ¬InReturn H nu ((D.w - 1) * D.a + D.z * D.b) ∧ ¬InReturn H nu (D.w * D.a + (D.z - 1) * D.b)
+NS25Lean.GenericReturn.StrictFamily.level_one_anchor {H : NumericalSemigroup} {D : Positive H} {m : ℕ} {hm : 0 < m}
+  (F : StrictFamily D m hm) (hboth : (∃ q, F.OnRB q) ∧ ∃ q, F.OnLT q) :
+  ∃ q,
+    ↑q = firstPrincipal H m hm - 1 ∧
+      ∃ x y z, 2 ≤ x ∧ 2 ≤ y ∧ 2 ≤ z ∧ firstPrincipal H m hm * m = x * D.a + y * D.b + z * D.c
+NS25Lean.GenericReturn.StrictFamily.common_arm_of_no_full_support {H : NumericalSemigroup} {D : Positive H} {m : ℕ}
+  {hm : 0 < m} (F : StrictFamily D m hm)
+  (hno : ¬∃ x y z, 0 < x ∧ 0 < y ∧ 0 < z ∧ firstPrincipal H m hm * m = x * D.a + y * D.b + z * D.c) :
+  (∀ (q : PrefixIndex H m hm), F.OnRB q) ∨ ∀ (q : PrefixIndex H m hm), F.OnLT q
+NS25Lean.GenericReturn.prefix_empty_at_one (H : NumericalSemigroup) (m : ℕ) (hm : 0 < m)
+  (hQ : firstPrincipal H m hm = 1) : IsEmpty (PrefixIndex H m hm)
+NS25Lean.GenericReturn.StrictFamily.no_two_arms_at_two {H : NumericalSemigroup} {D : Positive H} {m : ℕ} {hm : 0 < m}
+  (F : StrictFamily D m hm) (hQ : firstPrincipal H m hm = 2) : ¬((∃ q, F.OnRB q) ∧ ∃ q, F.OnLT q)
+NS25Lean.GenericReturn.Return.exact_generators {H : NumericalSemigroup} {D : Positive H} (R : Return D) (x : ℤ) :
+  x ∈ L5A2B4AR1.returnIdeal H R.nu ↔
+    x - R.F ∈ H.asRelativeIdeal ∨ x - R.X ∈ H.asRelativeIdeal ∨ x - R.Y ∈ H.asRelativeIdeal
+NS25Lean.GenericReturn.Return.subset_of_generators_mem {H : NumericalSemigroup} {D : Positive H} (R : Return D)
+  (I : RelativeIdeal H) (hF : R.F ∈ I) (hX : R.X ∈ I) (hY : R.Y ∈ I) (x : ℤ) : x ∈ L5A2B4AR1.returnIdeal H R.nu → x ∈ I
+NS25Lean.GenericReturn.canonical_F_representative {H : NumericalSemigroup} (D : Positive H) (nu i j d : ℕ)
+  (hc : D.ChartA i j) (he : i * D.b + j * D.c = nu + d * D.a) :
+  H.asRelativeIdeal.aperyRepresentative D.a ↑nu = ↑(i * D.b + j * D.c)
+NS25Lean.GenericReturn.rb_axis_canonical {H : NumericalSemigroup} (D : Positive H) (nu i j d : ℕ) (hr : RB D i j d)
+  (he : ↑i * ↑D.b + ↑j * ↑D.c = ↑nu + ↑d * ↑D.a) :
+  H.asRelativeIdeal.aperyRepresentative D.c ↑nu = rbAxisA D i j d ∧
+    H.asRelativeIdeal.aperyRepresentative D.b ↑nu = rbAxisB D i j d
+NS25Lean.GenericReturn.lt_axis_canonical {H : NumericalSemigroup} (D : Positive H) (nu i j d : ℕ)
+  (hr : GenericReturn.LT D i j d) (he : ↑i * ↑D.b + ↑j * ↑D.c = ↑nu + ↑d * ↑D.a) :
+  H.asRelativeIdeal.aperyRepresentative D.c ↑nu = ltAxisA D i j d ∧
+    H.asRelativeIdeal.aperyRepresentative D.b ↑nu = ltAxisB D i j d
+NS25Lean.GenericReturn.rb_X_not_ST_target.{u_1} {H : NumericalSemigroup} {ι : Type u_1} (D : Positive H)
+  (I : RelativeIdeal H) (hsub : ∀ z ∈ I, z ∈ H.asRelativeIdeal) (F : ι → Return D)
+  (hcontain : ∀ (r : ι), ∀ z ∈ L5A2B4AR1.returnIdeal H (F r).nu, z ∈ I) (q : ι) (hr : RB D (F q).i (F q).j (F q).depth)
+  (hfloor : LocalZeroFloor D I hsub F ((F q).i - 1) (D.q - 1)) (s : ZMod D.a)
+  (hs : L5A2C4I.ResidueData.SourceTargetBranch (routing D I) s)
+  (hw : I.aperyRepresentative D.a ((routing D I).branchTarget s) = rbAxisA D (F q).i (F q).j (F q).depth) : False
+NS25Lean.GenericReturn.rb_Y_not_ST_target.{u_1} {H : NumericalSemigroup} {ι : Type u_1} (D : Positive H)
+  (I : RelativeIdeal H) (hsub : ∀ z ∈ I, z ∈ H.asRelativeIdeal) (F : ι → Return D)
+  (hcontain : ∀ (r : ι), ∀ z ∈ L5A2B4AR1.returnIdeal H (F r).nu, z ∈ I) (q : ι) (hr : RB D (F q).i (F q).j (F q).depth)
+  (hfloor : LocalZeroFloor D I hsub F (D.B - 1) ((F q).j - 1)) (s : ZMod D.a)
+  (hs : L5A2C4I.ResidueData.SourceTargetBranch (routing D I) s)
+  (hw : I.aperyRepresentative D.a ((routing D I).branchTarget s) = rbAxisB D (F q).i (F q).j (F q).depth) : False
+NS25Lean.GenericReturn.lt_X_not_ST_target.{u_1} {H : NumericalSemigroup} {ι : Type u_1} (D : Positive H)
+  (I : RelativeIdeal H) (hsub : ∀ z ∈ I, z ∈ H.asRelativeIdeal) (F : ι → Return D)
+  (hcontain : ∀ (r : ι), ∀ z ∈ L5A2B4AR1.returnIdeal H (F r).nu, z ∈ I) (q : ι)
+  (hr : GenericReturn.LT D (F q).i (F q).j (F q).depth) (hfloor : LocalZeroFloor D I hsub F ((F q).i - 1) (D.C - 1))
+  (s : ZMod D.a) (hs : L5A2C4I.ResidueData.SourceTargetBranch (routing D I) s)
+  (hw : I.aperyRepresentative D.a ((routing D I).branchTarget s) = ltAxisA D (F q).i (F q).j (F q).depth) : False
+NS25Lean.GenericReturn.lt_Y_not_ST_target.{u_1} {H : NumericalSemigroup} {ι : Type u_1} (D : Positive H)
+  (I : RelativeIdeal H) (hsub : ∀ z ∈ I, z ∈ H.asRelativeIdeal) (F : ι → Return D)
+  (hcontain : ∀ (r : ι), ∀ z ∈ L5A2B4AR1.returnIdeal H (F r).nu, z ∈ I) (q : ι)
+  (hr : GenericReturn.LT D (F q).i (F q).j (F q).depth) (hfloor : LocalZeroFloor D I hsub F (D.p - 1) ((F q).j - 1))
+  (s : ZMod D.a) (hs : L5A2C4I.ResidueData.SourceTargetBranch (routing D I) s)
+  (hw : I.aperyRepresentative D.a ((routing D I).branchTarget s) = ltAxisB D (F q).i (F q).j (F q).depth) : False
+NS25Lean.GenericReturn.rb_prefix_gate_heights.{u_1} {H : NumericalSemigroup} {ι : Type u_1} [Fintype ι] [Nonempty ι]
+  (D : Positive H) (nu i j depth : ι → ℕ) (hr : ∀ (q : ι), RB D (i q) (j q) (depth q))
+  (he : ∀ (q : ι), ↑(i q) * ↑D.b + ↑(j q) * ↑D.c = ↑(nu q) + ↑(depth q) * ↑D.a) :
+  unionHeight D nu (D.z - 1) 0 = D.A - depthMaximum depth ∧
+    unionHeight D nu D.z 0 = D.A - depthMaximum depth ∧ unionHeight D nu 0 (D.C - 1) = D.u - depthMaximum depth
+NS25Lean.GenericReturn.lt_prefix_gate_heights.{u_1} {H : NumericalSemigroup} {ι : Type u_1} [Fintype ι] [Nonempty ι]
+  (D : Positive H) (nu i j depth : ι → ℕ) (hr : ∀ (q : ι), GenericReturn.LT D (i q) (j q) (depth q))
+  (he : ∀ (q : ι), ↑(i q) * ↑D.b + ↑(j q) * ↑D.c = ↑(nu q) + ↑(depth q) * ↑D.a) :
+  unionHeight D nu (D.B - 1) 0 = D.w - depthMaximum depth ∧
+    unionHeight D nu 0 (D.v - 1) = D.A - depthMaximum depth ∧ unionHeight D nu 0 D.v = D.A - depthMaximum depth
+NS25Lean.GenericReturn.actual_return_exact_generators {Gamma : NumericalSemigroup} (B : ChosenBase.Data Gamma)
+  (e : Fin 3 ≃ Fin 3) (HD : L5A2C4D.CoherentHerzogData B e) (nu i j d : ℕ)
+  (hr : RB (actualPositive B e HD) i j d ∨ GenericReturn.LT (actualPositive B e HD) i j d)
+  (he : ↑i * ↑(L5A2C4H.routingB B e) + ↑j * ↑(L5A2C4H.routingC B e) = ↑nu + ↑d * ↑(L5A2C4H.routingA B e)) (x : ℤ) :
+  have R := actualReturn B e HD nu i j d hr he;
+  x ∈ L5A2B4AR1.returnIdeal (L5A2C4H.routingH B e) nu ↔
+    x - R.F ∈ (L5A2C4H.routingH B e).asRelativeIdeal ∨
+      x - R.X ∈ (L5A2C4H.routingH B e).asRelativeIdeal ∨ x - R.Y ∈ (L5A2C4H.routingH B e).asRelativeIdeal
+'NS25Lean.GenericPhysical.Presentation.coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericPhysical.Presentation.normalizedCut_iff_returns' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.GenericPhysical.Presentation.cut_finite_complement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericPhysical.Presentation.factorization_graph' depends on axioms: [propext, Quot.sound]
+'NS25Lean.GenericReturn.cut_apery_eq_finite_minimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericReturn.cut_apery_eq_alpha_add_height' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericReturn.strict_canonical_return' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericReturn.all_live_critical_predecessors_absent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.GenericReturn.StrictFamily.level_one_anchor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericReturn.StrictFamily.common_arm_of_no_full_support' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.GenericReturn.Return.exact_generators' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericReturn.rb_axis_canonical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericReturn.lt_axis_canonical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericReturn.rb_X_not_ST_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericReturn.rb_Y_not_ST_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericReturn.lt_X_not_ST_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericReturn.lt_Y_not_ST_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericReturn.rb_prefix_gate_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericReturn.lt_prefix_gate_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.GenericReturn.actual_return_exact_generators' depends on axioms: [propext, Classical.choice, Quot.sound]

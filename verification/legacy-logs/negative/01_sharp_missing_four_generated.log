@@ -1,0 +1,6 @@
+legacy-checks\negative\01_sharp_missing_four_generated.lean:8:2: error: Type mismatch
+  L4B.ns_sharp Gamma
+has type
+  CoarseP25.HasEmbeddingDimensionFour Gamma → Gamma.asRelativeIdeal.idealType ≤ Presentation.rho Gamma - 1
+but is expected to have type
+  Gamma.asRelativeIdeal.idealType ≤ Presentation.rho Gamma - 1

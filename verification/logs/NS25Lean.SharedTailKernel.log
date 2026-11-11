@@ -1,0 +1,7 @@
+NS25Lean/SharedTailKernel.lean:18:75: warning: This simp argument is unused:
+  nsmul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [tailDegrees, Presentation.factorizationMap_single, T.weight_single]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -91,14 +91,15 @@ theorem rb_strip_no_LT_Y_divisor (D n i j d : ℕ) (hD0 : 0<D) (hDA : D≤A)
   · omega
 
 /-- Mixed-arm NF/TW top protection uses the actual final mixed generator cover. -/
-theorem mixed_rb_top_predecessor_absent
-    (hR3 : (P3R51.internalDegrees M).card=3) (hfull : PrincipalFullSupport M e)
+theorem shared_protected_rb_top_predecessor_absent
+    (hR3 : (P3R51.internalDegrees M).card=3)
     (D : ℕ) (hD0 : 0<D) (hDA : D≤A)
-    (hmax : ∀ n i j d, 0<n → n<Q → RBLevel M hp e n i j d → d≤D) :
+    (hmax : ∀ n i j d, 0<n → n<Q → RBLevel M hp e n i j d → d≤D)
+    (hprotect : (omegaDegree M hp e:ℤ)-(Q*M.base.q.val:ℕ)-D*a ∉ (H).asRelativeIdeal) :
     ((A:ℤ)-D)*a+Z*b-a ∉ routingI M.base e := by
   intro hm
   rcases final_r3_membership_cover M hp hR3 e _ hm with h | h
-  · apply protected_top_principal_absent M hp e D (fullsupport_rb_protection M hp e hfull D) _ ?_ h
+  · apply protected_top_principal_absent M hp e D hprotect _ ?_ h
     convert routing_combination_mem M.base e 1 0 0 (by omega) (by omega) (by omega) using 1 <;>
       simp only [omegaDegree,Nat.cast_add,Nat.cast_mul] <;> ring
   · obtain ⟨n,i,j,d,hn,hnQ,(⟨hl,hf | hx | hy⟩ | ⟨hl,hf | hx | hy⟩)⟩ := h
@@ -108,12 +109,20 @@ theorem mixed_rb_top_predecessor_absent
     · exact rb_strip_no_LT_F_divisor M hp e D n i j d hD0 hDA hl hf
     · exact rb_strip_no_LT_X_divisor M hp e D n i j d hD0 hDA hl hx
     · exact rb_strip_no_LT_Y_divisor M hp e D n i j d hD0 hDA hl hy
+theorem mixed_rb_top_predecessor_absent
+    (hR3 : (P3R51.internalDegrees M).card=3) (hfull : PrincipalFullSupport M e)
+    (D : ℕ) (hD0 : 0<D) (hDA : D≤A)
+    (hmax : ∀ n i j d, 0<n → n<Q → RBLevel M hp e n i j d → d≤D) :
+    ((A:ℤ)-D)*a+Z*b-a ∉ routingI M.base e := by
+  exact shared_protected_rb_top_predecessor_absent M hp e hR3 D hD0 hDA hmax
+    (fullsupport_rb_protection M hp e hfull D)
+
 /-- NF.09 actual final protected RB corner; this is a TOTAL unused merge. -/
-theorem mixed_rb_corner (hR3 : (P3R51.internalDegrees M).card=3) (hfull : PrincipalFullSupport M e)
+theorem shared_protected_rb_corner (hR3 : (P3R51.internalDegrees M).card=3)
     (D : ℕ)
     (hatt : ∃ n i j, 0<n ∧ n<Q ∧ RBLevel M hp e n i j D)
     (hmax : ∀ n i j d, 0<n → n<Q → RBLevel M hp e n i j d → d≤D)
-    :
+    (hprotect : (omegaDegree M hp e:ℤ)-(Q*M.base.q.val:ℕ)-D*a ∉ (H).asRelativeIdeal) :
     ResidueData.ExactUnusedMergeReverseBase (routingData M.base e)
       (gridResidue M.base e (B-1) (T-1)) := by
   letI : NeZero a := ⟨Nat.ne_of_gt (routingA_pos M.base e)⟩
@@ -149,7 +158,7 @@ theorem mixed_rb_corner (hR3 : (P3R51.internalDegrees M).card=3) (hfull : Princi
     push_cast
     ring
   have hsabs : s-a ∉ routingI M.base e :=
-    mixed_rb_top_predecessor_absent M hp e hR3 hfull D hD0 hDA hmax
+    shared_protected_rb_top_predecessor_absent M hp e hR3 D hD0 hDA hmax hprotect
   have hmem := protected_rb_top_endpoints_mem M hp e D n i j hn hl
   have hsmem : s ∈ routingI M.base e := hmem.2.2
   have hsbmem : s-b ∈ routingI M.base e := hsb ▸ hmem.1
@@ -203,6 +212,75 @@ theorem mixed_rb_corner (hR3 : (P3R51.internalDegrees M).card=3) (hfull : Princi
 
   rw [hxres] at hum
   exact hum
+
+
+/-- Exact protected heights from the same shared both-arm top exclusion. -/
+theorem shared_protected_rb_corner_heights
+    (hR3 : (P3R51.internalDegrees M).card=3)
+    (D : ℕ)
+    (hatt : ∃ n i j, 0<n ∧ n<Q ∧ RBLevel M hp e n i j D)
+    (hmax : ∀ n i j d, 0<n → n<Q → RBLevel M hp e n i j d → d≤D)
+    (hprotect : (omegaDegree M hp e : ℤ)-(Q*M.base.q.val : ℕ)-D*a ∉ (H).asRelativeIdeal) :
+    eta M.base e 0 (C-1)=U-D ∧
+    eta M.base e (Z-1) 0=A-D ∧
+    eta M.base e Z 0=A-D := by
+  obtain ⟨n,i,j,hn,hnQ,hl⟩ := hatt
+  have hD0 := hl.2.2.1
+  have hDU := hl.2.2.2.2.2.2.2.1
+  have hs := P3R58.p3_coefficient_sums M hp e
+  have hr := normalized_relations M hp e
+  have hZ := P3R58.p3_coefficients_positive M hp e 2 1 (by decide)
+  have hT := P3R58.p3_coefficients_positive M hp e 0 2 (by decide)
+  have hC : 0<C := by omega
+  have hDA : D≤A := by omega
+  let s : ℤ := ((A:ℤ)-D)*a+Z*b
+  have hsc : s-c=((U:ℤ)-D)*a+(C-1:ℕ)*c := by
+    simp only [s]
+    rw [Nat.cast_sub (by omega : 1≤C)]
+    simp only [Nat.cast_one]
+    have hsA : (A:ℤ)=U+W := by exact_mod_cast hs.1
+    nlinarith only [hr.2.2,congrArg (fun t:ℤ=>t*a) hsA]
+  have hsb : s-b=((A:ℤ)-D)*a+(Z-1:ℕ)*b := by
+    simp only [s]
+    rw [Nat.cast_sub (by omega : 1≤Z)]
+    simp only [Nat.cast_one]
+    ring
+  have hsabs : s-a ∉ routingI M.base e :=
+    shared_protected_rb_top_predecessor_absent M hp e hR3 D hD0 hDA hmax hprotect
+  have hm := protected_rb_top_endpoints_mem M hp e D n i j hn hl
+  have hsbabs : s-b-a ∉ routingI M.base e := by
+    apply final_predecessor_absent_of_top M e s (s-b) hsabs
+    convert routing_combination_mem M.base e 0 1 0 (by omega) (by omega) (by omega) using 1 <;> ring
+  have hscabs : s-c-a ∉ routingI M.base e := by
+    apply final_predecessor_absent_of_top M e s (s-c) hsabs
+    convert routing_combination_mem M.base e 0 0 1 (by omega) (by omega) (by omega) using 1 <;> ring
+  have hcval : (normalizedGrid M.base e (U-D) 0 (C-1):ℤ)=s-c := by
+    rw [hsc]
+    simp only [normalizedGrid,Nat.cast_add,Nat.cast_mul,Nat.cast_sub hDU.le,Nat.cast_zero,zero_mul,add_zero]
+  have hbval : (normalizedGrid M.base e (A-D) (Z-1) 0:ℤ)=s-b := by
+    rw [hsb]
+    simp only [normalizedGrid,Nat.cast_add,Nat.cast_mul,Nat.cast_sub hDA,Nat.cast_zero,zero_mul,add_zero]
+  have hsval : (normalizedGrid M.base e (A-D) Z 0:ℤ)=s := by
+    simp only [s,normalizedGrid,Nat.cast_add,Nat.cast_mul,Nat.cast_sub hDA,Nat.cast_zero,zero_mul,add_zero]
+  refine ⟨final_height_eq_of_predecessor_absent M e (U-D) 0 (C-1) ?_ ?_,
+    final_height_eq_of_predecessor_absent M e (A-D) (Z-1) 0 ?_ ?_,
+    final_height_eq_of_predecessor_absent M e (A-D) Z 0 ?_ ?_⟩
+  · rw [hcval,hsc]; exact hm.2.1
+  · rwa [hcval]
+  · rw [hbval,hsb]; exact hm.1
+  · rwa [hbval]
+  · rw [hsval]; exact hm.2.2
+  · rwa [hsval]
+
+theorem mixed_rb_corner (hR3 : (P3R51.internalDegrees M).card=3) (hfull : PrincipalFullSupport M e)
+    (D : ℕ)
+    (hatt : ∃ n i j, 0<n ∧ n<Q ∧ RBLevel M hp e n i j D)
+    (hmax : ∀ n i j d, 0<n → n<Q → RBLevel M hp e n i j d → d≤D)
+    :
+    ResidueData.ExactUnusedMergeReverseBase (routingData M.base e)
+      (gridResidue M.base e (B-1) (T-1)) := by
+  exact shared_protected_rb_corner M hp e hR3 D hatt hmax
+    (fullsupport_rb_protection M hp e hfull D)
 
 
 #print axioms fullsupport_rb_protection
@@ -263,10 +341,11 @@ theorem fullsupport_swap (hfull : PrincipalFullSupport M e) :
     add_comm,add_left_comm,add_assoc] using he
 
 /-- TW.08: the occupied LT corner is a TOTAL exact unused merge in the same final graph. -/
-theorem mixed_lt_corner (hR3 : (P3R51.internalDegrees M).card=3)
-    (hfull : PrincipalFullSupport M e) (D : ℕ)
+theorem shared_protected_lt_corner (hR3 : (P3R51.internalDegrees M).card=3)
+    (D : ℕ)
     (hatt : ∃ n i j, 0<n ∧ n<Q ∧ LTLevel M hp e n i j D)
-    (hmax : ∀ n i j d, 0<n → n<Q → LTLevel M hp e n i j d → d≤D) :
+    (hmax : ∀ n i j d, 0<n → n<Q → LTLevel M hp e n i j d → d≤D)
+    (hprotect : (omegaDegree M hp (P3R57.swapRole e):ℤ)-(Q*M.base.q.val:ℕ)-D*a ∉ (H).asRelativeIdeal) :
     ResidueData.ExactUnusedMergeReverseBase (routingData M.base e)
       (gridResidue M.base e (P-1) (C-1)) := by
   have hatt' : ∃ n i j, 0<n ∧
@@ -281,7 +360,12 @@ theorem mixed_lt_corner (hR3 : (P3R51.internalDegrees M).card=3)
     intro n i j d hn hnQ hl
     apply hmax n j i d hn (by simpa only [P3R64.routingH_swapBC] using hnQ)
     exact (rb_swap_iff_lt M hp e n j i d).mp hl
-  have hcorner := mixed_rb_corner M hp (P3R57.swapRole e) hR3 (fullsupport_swap M e hfull) D hatt' hmax'
+  have hprotect' : (omegaDegree M hp (P3R57.swapRole e):ℤ)-
+      (principalIndex (routingH M.base (P3R57.swapRole e)) M.base.q.val M.base.q_positive*M.base.q.val:ℕ)-
+      D*routingA M.base (P3R57.swapRole e) ∉ (routingH M.base (P3R57.swapRole e)).asRelativeIdeal := by
+    rw [P3R64.routingH_swapBC M.base e, P3R57.routingA_swap M.base e]
+    exact hprotect
+  have hcorner := shared_protected_rb_corner M hp (P3R57.swapRole e) hR3 D hatt' hmax' hprotect'
   let x : ℤ := (P-1:ℕ)*b+(C-1:ℕ)*c
   have hgrid' : gridResidue M.base (P3R57.swapRole e)
       (criticalExponent M.base (P3R57.swapRole e 1)-1)
@@ -295,6 +379,19 @@ theorem mixed_lt_corner (hR3 : (P3R51.internalDegrees M).card=3)
   have hgrid : (x:ZMod a)=gridResidue M.base e (P-1) (C-1) := by
     simp only [x,gridResidue,Int.cast_add,Int.cast_mul,Int.cast_natCast]
   rwa [hgrid] at hactual
+
+theorem mixed_lt_corner (hR3 : (P3R51.internalDegrees M).card=3)
+    (hfull : PrincipalFullSupport M e) (D : ℕ)
+    (hatt : ∃ n i j, 0<n ∧ n<Q ∧ LTLevel M hp e n i j D)
+    (hmax : ∀ n i j d, 0<n → n<Q → LTLevel M hp e n i j d → d≤D) :
+    ResidueData.ExactUnusedMergeReverseBase (routingData M.base e)
+      (gridResidue M.base e (P-1) (C-1)) := by
+  apply shared_protected_lt_corner M hp e hR3 D hatt hmax
+  have hprotect := fullsupport_rb_protection M hp (P3R57.swapRole e)
+    (fullsupport_swap M e hfull) D
+  rw [P3R64.routingH_swapBC M.base e, P3R57.routingA_swap M.base e] at hprotect
+  exact hprotect
+
 #print axioms actual_unused_merge_swap_iff
 #print axioms rb_swap_iff_lt
 #print axioms fullsupport_swap

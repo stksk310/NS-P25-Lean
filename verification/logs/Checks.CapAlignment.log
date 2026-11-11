@@ -1,0 +1,5 @@
+NS25Lean.SharedCap.compensation (D : NS25Lean.SharedCap.Data) :
+  D.additionalWraps.ncard + D.fullSupport ≤ D.exceptional.ncard
+NS25Lean.SharedCap.additional_wrap_count (D : NS25Lean.SharedCap.Data) :
+  D.additionalWraps.ncard = if D.first.1 < D.U ∧ D.first.2.2 < D.V then 1 else 0
+'NS25Lean.SharedCap.compensation' depends on axioms: [propext, Classical.choice, Quot.sound]

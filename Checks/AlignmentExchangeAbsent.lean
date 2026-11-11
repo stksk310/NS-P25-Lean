@@ -1,0 +1,7 @@
+import NS25Lean.P2GenericCriticalCompensation
+import NS25Lean.P2ErasureActualAdapters
+
+#check NS25Lean.ReturnExchange.guarded_live_reflection
+#check NS25Lean.ReturnExchange.unique_cut_literal_source_divisor
+#check NS25Lean.ErasedSourceScreen.erased_source_pure_a
+#print axioms NS25Lean.GenericCriticalCompensation.remaining_compensation

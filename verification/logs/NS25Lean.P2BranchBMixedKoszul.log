@@ -1,0 +1,128 @@
+NS25Lean/P2BranchBMixedKoszul.lean:68:9: warning: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2BranchBMixedKoszul.lean:89:9: warning: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2BranchBMixedKoszul.lean:94:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBMixedKoszul.lean:95:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBMixedKoszul.lean:162:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBMixedKoszul.lean:207:31: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P2BranchBMixedKoszul.lean:230:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBMixedKoszul.lean:245:8: warning: This simp argument is unused:
+  Finsupp.erase_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hn, not_or, Nat.not_le]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBMixedKoszul.lean:245:38: warning: This simp argument is unused:
+  Nat.not_le
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.erase_apply, hn, not_or]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBMixedKoszul.lean:251:24: warning: This simp argument is unused:
+  Finsupp.erase_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBMixedKoszul.lean:268:6: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/P2BranchBMixedKoszul.lean:273:26: warning: This simp argument is unused:
+  Finsupp.erase_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBMixedKoszul.lean:337:6: warning: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearEquiv.piCongrRight, Finsupp.curryLinearEquiv, Finsupp.curry_single, Pi.single_apply, hi,
+    Ne.symm hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBMixedKoszul.lean:337:27: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearEquiv.piCongrRight, Finsupp.curryLinearEquiv, Finsupp.curry_single, Finsupp.single_apply, hi,
+    Ne.symm hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBMixedKoszul.lean:337:46: warning: This simp argument is unused:
+  Ne.symm hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearEquiv.piCongrRight, Finsupp.curryLinearEquiv, Finsupp.curry_single, Finsupp.single_apply,
+    Pi.single_apply, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBMixedKoszul.lean:436:77: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/P2BranchBMixedKoszul.lean:472:15: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+NS25Lean/P2BranchBMixedKoszul.lean:493:15: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+NS25Lean/P2BranchBMixedKoszul.lean:479:35: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [truncatedLayerShift, hj, hji]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBMixedKoszul.lean:502:35: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [truncatedLayerShift, hj, he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2BranchBMixedKoszul.lean:523:46: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [layerMultiply, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

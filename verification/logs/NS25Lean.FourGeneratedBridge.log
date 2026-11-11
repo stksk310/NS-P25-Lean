@@ -1,0 +1,107 @@
+NS25Lean/FourGeneratedBridge.lean:46:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/FourGeneratedBridge.lean:56:5: warning: Variable name `hmpos` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hmpos
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/FourGeneratedBridge.lean:82:39: warning: This simp argument is unused:
+  nsmul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.add_sub_cancel_left, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/FourGeneratedBridge.lean:82:53: warning: This simp argument is unused:
+  Nat.add_sub_cancel_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [nsmul_eq_mul, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/FourGeneratedBridge.lean:83:10: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [nsmul_eq_mul, Nat.add_sub_cancel_left, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/FourGeneratedBridge.lean:82:29: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/FourGeneratedBridge.lean:125:8: warning: This simp argument is unused:
+  generatedThree
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [generatedFour]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/FourGeneratedBridge.lean:125:24: warning: This simp argument is unused:
+  generatedFour
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [generatedThree]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/FourGeneratedBridge.lean:129:40: warning: This simp argument is unused:
+  generatedFour
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/FourGeneratedBridge.lean:397:62: warning: This simp argument is unused:
+  H
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [generatedThree]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/FourGeneratedBridge.lean:397:65: warning: This simp argument is unused:
+  generatedThree
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [H]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/FourGeneratedBridge.lean:398:62: warning: This simp argument is unused:
+  H
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [generatedThree]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/FourGeneratedBridge.lean:398:65: warning: This simp argument is unused:
+  generatedThree
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [H]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/FourGeneratedBridge.lean:399:62: warning: This simp argument is unused:
+  H
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [generatedThree]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/FourGeneratedBridge.lean:399:65: warning: This simp argument is unused:
+  generatedThree
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [H]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/FourGeneratedBridge.lean:428:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/FourGeneratedBridge.lean:472:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

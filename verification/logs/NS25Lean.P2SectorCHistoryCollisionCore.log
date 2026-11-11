@@ -1,0 +1,104 @@
+NS25Lean/P2SectorCHistoryCollisionCore.lean:42:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4K.ResidueData.follow_append`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:48:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4K.ResidueData.wordLegal_append`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:69:8: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4K.ResidueData.RawHistory.stateAt_zero`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:72:8: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4K.ResidueData.RawHistory.stateAt_length`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:116:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4K.ResidueData.RawHistory.stateAt_prefix_length`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:187:8: warning: automatically included section variable(s) unused in theorem `_private.NS25Lean.P2SectorCHistoryCollisionCore.0.NS25Lean.L5A2C4K.ResidueData.mixedReverseBase_of_b_c`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:251:5: warning: Variable name `hpaired` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpaired
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:333:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4K.ResidueData.sourceHit_of_common_start`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:337:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4K.ResidueData.literalRawReplay_stateAt`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:342:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4K.ResidueData.literalRawReplay_endpoint`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:370:8: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4K.ResidueData.pairedZeroCanonicalArm_start`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:374:8: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4K.ResidueData.pairedZeroCanonicalArm_word`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:501:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:519:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:536:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCHistoryCollisionCore.lean:550:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

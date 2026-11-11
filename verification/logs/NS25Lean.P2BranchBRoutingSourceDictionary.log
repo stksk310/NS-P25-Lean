@@ -1,0 +1,41 @@
+NS25Lean/P2BranchBRoutingSourceDictionary.lean:76:4: warning: Unused tactic linter: `change IsMinimalTailGenerator B.H B.K w.val` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NS25Lean/P2BranchBRoutingSourceDictionary.lean:79:4: warning: Unused tactic linter: `change
+  IsMinimalTailGenerator (generatedThree (routingN1 B e) (routingN2 B e) (routingN3 B e))
+    (aperyTail Gamma.toAddSubmonoid (generatedThree (routingN1 B e) (routingN2 B e) (routingN3 B e)) B.q.val)
+    s.val` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NS25Lean/P2BranchBRoutingSourceDictionary.lean:122:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBRoutingSourceDictionary.lean:132:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBRoutingSourceDictionary.lean:217:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2BranchBRoutingSourceDictionary.lean:281:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

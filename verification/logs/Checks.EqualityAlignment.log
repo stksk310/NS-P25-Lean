@@ -1,0 +1,48 @@
+NS25Lean.EqualityLossAlgebra.two_loss_identity (rho t muI typeI Q : ℤ) :
+  rho - 1 - t =
+    NS25Lean.EqualityLossAlgebra.bpsLoss muI typeI Q + NS25Lean.EqualityLossAlgebra.compensationLoss rho t muI typeI Q
+NS25Lean.L3A.Staircase.tag_injective_of_spec.{u_1} {k : Type u_1} [Field k] (I : Ideal (NS25Lean.L3A.Polynomial k))
+  (f : ↑(NS25Lean.L3A.socleExponents I) → NS25Lean.L3A.Staircase.Tags I)
+  (hf :
+    ∀ (p : ↑(NS25Lean.L3A.socleExponents I)),
+      (NS25Lean.L3A.Staircase.tagExponent I (f p)) 2 = NS25Lean.L3A.Staircase.birth I p ∧
+        (NS25Lean.L3A.Staircase.tagExponent I (f p)) (NS25Lean.L3A.Staircase.tagCoordinate I (f p)) =
+          ↑p (NS25Lean.L3A.Staircase.tagCoordinate I (f p)) + 1) :
+  Function.Injective f
+NS25Lean.EC.R75.PivotCertificate {Gamma : NS25Lean.NumericalSemigroup} (B : NS25Lean.ChosenBase.Data Gamma) : Prop
+NS25Lean.EC.R75.one_tie_certificate_defect_one {Gamma : NS25Lean.NumericalSemigroup}
+  (B : NS25Lean.ChosenBase.Data Gamma) (h : NS25Lean.EC.R75.OneTieFiniteCertificate B) : NS25Lean.L2B.chosenDefect B = 1
+NS25Lean.EC.R75.one_tie_certificate_implies_equality_unconditional {Gamma : NS25Lean.NumericalSemigroup}
+  (B : NS25Lean.ChosenBase.Data Gamma) (h : NS25Lean.EC.R75.OneTieFiniteCertificate B) :
+  Gamma.asRelativeIdeal.idealType = NS25Lean.Presentation.rho Gamma - 1
+NS25Lean.EC.R75.equality_iff_some_original_certificate {Gamma : NS25Lean.NumericalSemigroup}
+  (B : NS25Lean.ChosenBase.Data Gamma) :
+  Gamma.asRelativeIdeal.idealType = NS25Lean.Presentation.rho Gamma - 1 ↔
+    ∃ i, NS25Lean.EC.R75.PivotCertificate (NS25Lean.L2C.atPivot B i)
+NS25Lean.EC.R75.pivot_certificate_iff_guarded {Gamma : NS25Lean.NumericalSemigroup}
+  (B : NS25Lean.ChosenBase.Data Gamma) : NS25Lean.EC.R75.PivotCertificate B ↔ NS25Lean.EC.R75.PivotFiniteCertificate B
+def NS25Lean.EC.R75.MonomialFiniteCertificate : {Gamma : NS25Lean.NumericalSemigroup} →
+  NS25Lean.ChosenBase.Data Gamma → Prop :=
+fun {Gamma} B =>
+  NS25Lean.L2B.IsMonomialIdeal ℚ (NS25Lean.ChosenBase.Data.J ℚ B) ∧
+    NS25Lean.L3A.q_fs (NS25Lean.ChosenBase.Data.J ℚ B) = 1 ∧
+      Function.Surjective (NS25Lean.L3A.Staircase.tag (NS25Lean.ChosenBase.Data.J ℚ B))
+def NS25Lean.EC.R75.OneTieFiniteCertificate : {Gamma : NS25Lean.NumericalSemigroup} →
+  NS25Lean.ChosenBase.Data Gamma → Prop :=
+fun {Gamma} B =>
+  ∃ d F G, Function.Surjective (NS25Lean.L3A.Staircase.tag F.initial.ideal) ∧ NS25Lean.EC.R74.PCRCountCertificate F G
+def NS25Lean.EC.R74.PCRCountCertificate : {Gamma : NS25Lean.NumericalSemigroup} →
+  {M : NS25Lean.L2B.MultiplicityBase Gamma} →
+    {d : ℕ} → (F : NS25Lean.L3B.InternalFrontend ℚ M d) → NS25Lean.L3C.NormalizedSources F → Prop :=
+fun {Gamma} {M} {d} F G =>
+  ↑(NS25Lean.L3C.planarMaxD F G ∩ NS25Lean.L3C.planarE F G).ncard =
+    ↑(NS25Lean.L3C.survivingWraps F G).ncard + ↑(NS25Lean.L3A.q_fs F.initial.ideal) - 1
+'NS25Lean.EqualityLossAlgebra.two_loss_identity' depends on axioms: [propext, Quot.sound]
+'NS25Lean.EqualityLossAlgebra.two_loss_saturation_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.L3A.Staircase.tag_injective_of_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.EC.R74.two_loss_equality_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.EC.R75.one_tie_certificate_implies_equality_unconditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.EC.R75.equality_iff_some_original_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.EC.R75.pivot_certificate_iff_guarded' depends on axioms: [propext, Classical.choice, Quot.sound]

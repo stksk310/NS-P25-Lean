@@ -1,0 +1,36 @@
+NS25Lean/P2ReturnExchange.lean:22:33: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+NS25Lean/P2ReturnExchange.lean:230:17: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+NS25Lean/P2ReturnExchange.lean:232:17: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+NS25Lean/P2ReturnExchange.lean:237:17: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+NS25Lean/P2ReturnExchange.lean:246:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2ReturnExchange.lean:247:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2ReturnExchange.lean:289:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2ReturnExchange.lean:309:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

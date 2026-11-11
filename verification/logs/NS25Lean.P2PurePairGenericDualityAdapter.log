@@ -1,0 +1,7 @@
+NS25Lean/P2PurePairGenericDualityAdapter.lean:139:12: warning: This simp argument is unused:
+  actualFront
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [actualMode, endpoint, tuple, perm, base_L]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

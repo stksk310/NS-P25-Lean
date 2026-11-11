@@ -1,0 +1,6 @@
+NS25Lean/P2BranchBPrefixGeometry.lean:65:31: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/P2BranchBPrefixGeometry.lean:71:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2BranchBPrefixGeometry.lean:76:31: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/P2BranchBPrefixGeometry.lean:82:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2BranchBPrefixGeometry.lean:178:33: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2BranchBPrefixGeometry.lean:180:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead

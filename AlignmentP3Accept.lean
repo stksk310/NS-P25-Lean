@@ -1,0 +1,33 @@
+import NS25Lean.P3StrongAssemblyR68
+import NS25Lean.P3R3OmegaR67
+import NS25Lean.P3R3MixedCornersR67
+import NS25Lean.P3R1SentinelAlignment
+import NS25Lean.P3R2StaircaseAlignment
+#check NS25Lean.P3R68.p3_strong_of_chosenDefect_three
+#check NS25Lean.P3R67.principal_complement_factorization_unique
+#check NS25Lean.P3R67.residual_safe_rb_role
+#check NS25Lean.P3R67.protected_rb_corner_heights
+#print axioms NS25Lean.P3R68.p3_strong_of_chosenDefect_three
+#print axioms NS25Lean.P3R67.principal_complement_factorization_unique
+#check NS25Lean.P3CommonFinal.euler_total
+#check NS25Lean.P3CommonFinal.same_final_partitions
+#check NS25Lean.P3CriticalDivisor.nonunique_critical_divisor
+#check NS25Lean.P3R65.actual_lt_sentinel_merge_count
+#check NS25Lean.P3R65.actual_lt_x_target_unique
+#check NS25Lean.P3R65.actual_lt_target_count
+#check NS25Lean.P3R65.r1_original_type_via_final_sentinel
+#check NS25Lean.P3R63.r2_original_type_via_final_staircase
+#check NS25Lean.P3R67.shared_protected_rb_corner
+#check NS25Lean.P3R67.shared_protected_lt_corner
+#check NS25Lean.P3R67.shared_protected_rb_corner_heights
+#print axioms NS25Lean.P3CommonFinal.euler_total
+#print axioms NS25Lean.P3CommonFinal.same_final_partitions
+#print axioms NS25Lean.P3CriticalDivisor.nonunique_critical_divisor
+#print axioms NS25Lean.P3R65.actual_lt_sentinel_merge_count
+#print axioms NS25Lean.P3R65.actual_lt_x_target_unique
+#print axioms NS25Lean.P3R65.actual_lt_target_count
+#print axioms NS25Lean.P3R65.r1_original_type_via_final_sentinel
+#print axioms NS25Lean.P3R63.r2_original_type_via_final_staircase
+#print axioms NS25Lean.P3R67.shared_protected_rb_corner
+#print axioms NS25Lean.P3R67.shared_protected_lt_corner
+#print axioms NS25Lean.P3R67.shared_protected_rb_corner_heights

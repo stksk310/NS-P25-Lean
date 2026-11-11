@@ -1,0 +1,64 @@
+NS25Lean.PrincipalTensorColon.GradedPresentation.{u_1} {k : Type u_1} [Field k] {H : NumericalSemigroup}
+  (I : RelativeIdeal H) (f : ↥H.toAddSubmonoid) (g : Fin 3 → ↥H.toAddSubmonoid) : Type u_1
+NS25Lean.PrincipalTensorColon.principal_tensor_cut_socle_gain_le_two.{u_1} {k : Type u_1} [Field k]
+  {H : NumericalSemigroup} {I : RelativeIdeal H} {f : ↥H.toAddSubmonoid} {g : Fin 3 → ↥H.toAddSubmonoid}
+  (T : GradedPresentation I f g) (hf : ↑↑f ∉ I) :
+  Module.finrank k ↥(L5A2BFinalRepair.threeKoszulD0 (cutGenerator T)).ker ≤
+    Module.finrank k ↥(L5A2BFinalRepair.CarrierH0 I g) + 2
+NS25Lean.PrincipalTensorColon.principal_tensor_cut_type_minus_sources.{u_1} {k : Type u_1} [Field k]
+  {H : NumericalSemigroup} {I : RelativeIdeal H} {f : ↥H.toAddSubmonoid} {g : Fin 3 → ↥H.toAddSubmonoid}
+  (T : GradedPresentation I f g) (hf : ↑↑f ∉ I) :
+  ↑(Module.finrank k ↥(L5A2BFinalRepair.threeKoszulD0 (cutGenerator T)).ker) -
+      ↑(Nat.card (ReturnExchange.IdealSources H (ReturnExchange.principalAdjoin H (naturalCarrier I) ↑f))) ≤
+    ↑(Module.finrank k ↥(L5A2BFinalRepair.CarrierH0 I g)) -
+          ↑(Nat.card (ReturnExchange.IdealSources H (naturalCarrier I))) +
+        1 +
+      ↑(Nat.card { s // ReturnExchange.PrincipalErased H (↑f) s })
+NS25Lean.PrincipalTensorColon.mixed_corner_count_le_comparison_rank.{u_1} {k : Type u_1} [Field k]
+  {H : NumericalSemigroup} {I : RelativeIdeal H} {f : ↥H.toAddSubmonoid} {g : Fin 3 → ↥H.toAddSubmonoid}
+  (T : GradedPresentation I f g) : Nat.card (Corners T) ≤ Module.finrank k ↥(comparisonH1 T).range
+NS25Lean.PrincipalTensorColon.tensor_poly_operator_packet.{u_1} {k : Type u_1} [Field k] {H : NumericalSemigroup}
+  {I : RelativeIdeal H} {f : ↥H.toAddSubmonoid} {g : Fin 3 → ↥H.toAddSubmonoid} (T : GradedPresentation I f g) :
+  ∃ e,
+    ∀ (t : Poly T),
+      e (generators T 0 * t) = (L5A2BFinalRepair.truncatedLayerShift T.D) (e t) ∧
+        e (generators T 1 * t) = (L5A2BFinalRepair.layerMultiply T.D (tensorBivariateGenerator T 0)) (e t) ∧
+          e (generators T 2 * t) = (L5A2BFinalRepair.layerMultiply T.D (tensorBivariateGenerator T 1)) (e t)
+NS25Lean.L5A2BFinalRepair.nonsymmetric_principal_socle_gain_le_two {Gamma : NumericalSemigroup} {P : L5A1.P2Data Gamma}
+  (R : L5A2B4AR4R1.SectorBCriticalRoleBranchB P) (hB : L5A1.SectorB P.M)
+  (hQ : 1 < L5A2B4AR1.actualPrincipalIndex P.M.base) :
+  Gamma.asRelativeIdeal.idealType ≤
+    Nat.card { w // FourGeneratedBridge.IsIntegralSocle (L5A2BFinalRepair.nonsymmetricPrefixIdeal R hQ) w } + 2
+NS25Lean.L5A2BFinalRepair.symmetric_principal_socle_gain_le_two {Gamma : NumericalSemigroup} {P : L5A1.P2Data Gamma}
+  (A : L5A2B4AR4R1.SectorBCriticalRoleBranchA P) (hB : L5A1.SectorB P.M)
+  (hQ : 2 < L5A2B4AR1.actualPrincipalIndex P.M.base) :
+  have hQ1 := ⋯;
+  Gamma.asRelativeIdeal.idealType ≤
+    L5A2B3.actualSinkCount (L5A2BFinalRepair.symmetricPrefixIdeal A hQ1) (L5A2C4H.routingA P.M.base A.reindex)
+        (L5A2C4H.routingB P.M.base A.reindex) (L5A2C4H.routingC P.M.base A.reindex) ⋯ ⋯ +
+      2
+'NS25Lean.PrincipalTensorColon.principal_tensor_cut_socle_gain_le_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.PrincipalTensorColon.principal_tensor_cut_type_minus_sources' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.L5A2BFinalRepair.nonsymmetric_principal_algebraic_socle_gain_le_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.L5A2BFinalRepair.symmetric_principal_algebraic_socle_gain_le_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.L5A2BFinalRepair.nonsymmetric_principal_socle_gain_le_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.L5A2BFinalRepair.symmetric_principal_socle_gain_le_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.PrincipalTensorColonNegativeControl.actual_overstrong_bound_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NS25Lean.PrincipalTensorColonNegativeControl.H_generated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.PrincipalTensorColonNegativeControl.gamma_normalization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

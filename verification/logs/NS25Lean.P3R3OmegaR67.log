@@ -1,0 +1,63 @@
+NS25Lean/P3R3OmegaR67.lean:26:5: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3R3OmegaR67.lean:165:20: warning: Unused tactic linter: `(have := hfa (by omega) (by omega); omega)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NS25Lean/P3R3OmegaR67.lean:166:6: warning: Unused tactic linter: `(have := hfb (by omega) (by omega); omega)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NS25Lean/P3R3OmegaR67.lean:167:6: warning: Unused tactic linter: `(have := hfc (by omega) (by omega); omega)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NS25Lean/P3R3OmegaR67.lean:165:20: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+NS25Lean/P3R3OmegaR67.lean:166:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+NS25Lean/P3R3OmegaR67.lean:167:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+NS25Lean/P3R3OmegaR67.lean:583:92: warning: This simp argument is unused:
+  Equiv.swap_apply_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [cycleRole]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P3R3OmegaR67.lean:641:37: warning: This simp argument is unused:
+  cycleRole_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [P3R57.roleCoefficient, cycleRole_one, cycleRole_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P3R3OmegaR67.lean:641:66: warning: This simp argument is unused:
+  cycleRole_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [P3R57.roleCoefficient, cycleRole_zero, cycleRole_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P3R3OmegaR67.lean:740:5: warning: Variable name `htx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _htx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3R3OmegaR67.lean:740:18: warning: Variable name `hty` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hty
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P3R3OmegaR67.lean:740:31: warning: Variable name `htz` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _htz
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

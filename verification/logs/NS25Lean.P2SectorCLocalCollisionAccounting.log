@@ -1,0 +1,108 @@
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:21:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4J.ResidueData.mixedCoalescence_eq`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:25:8: warning: automatically included section variable(s) unused in theorem `_private.NS25Lean.P2SectorCLocalCollisionAccounting.0.NS25Lean.L5A2C4J.ResidueData.b_symm_branchTarget`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:30:8: warning: automatically included section variable(s) unused in theorem `_private.NS25Lean.P2SectorCLocalCollisionAccounting.0.NS25Lean.L5A2C4J.ResidueData.c_symm_branchTarget`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:64:0: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4J.ResidueData.sourceTargetBranch_not_pairedZero`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:82:8: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4J.ResidueData.branchTargetEquiv_apply`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:87:8: warning: automatically included section variable(s) unused in theorem `NS25Lean.L5A2C4J.ResidueData.mergeReverseBase_target`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:157:35: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:162:25: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:157:35: warning: This simp argument is unused:
+  if_pos
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [r.property.2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:162:25: warning: This simp argument is unused:
+  if_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:186:35: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:191:25: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:186:35: warning: This simp argument is unused:
+  if_pos
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [m.property.2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:191:25: warning: This simp argument is unused:
+  if_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:219:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:220:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:227:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:228:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/P2SectorCLocalCollisionAccounting.lean:250:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

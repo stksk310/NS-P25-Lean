@@ -21,15 +21,22 @@ theorem arbitrary_pivot_transfer_invariants (B : ChosenBase.Data Gamma) :
     (L3B.transferSemigroup B).asRelativeIdeal.idealType = Gamma.asRelativeIdeal.idealType ∧
     sourceCount (L3B.transferBase B).base = sourceCount B ∧
     L2B.chosenDefect (L3B.transferBase B).base = L2B.chosenDefect B := by
-  have ht := dilation_transfer B (L3B.transferScale B) (L3B.transferScale_gt B)
-    (L3B.transferScale_coprime B)
-  exact ⟨rfl,ht.1,dilatedData_J ℚ B (L3B.transferScale B) (L3B.transferScale_gt B)
-    (L3B.transferScale_coprime B),ht.2.1,ht.2.2.1,ht.2.2.2.1,ht.2.2.2.2⟩
+  exact arbitrary_pivot_transfer_invariants_field ℚ B
 
 theorem pivot_finite_equality_iff (B : ChosenBase.Data Gamma) :
     Gamma.asRelativeIdeal.idealType = Presentation.rho Gamma - 1 ↔
       PivotFiniteCertificate B :=
   chosen_pivot_finite_equality_iff B
+
+/-- Unguarded certificates and guarded certificates coincide after both strict bounds. -/
+theorem pivot_certificate_iff_guarded (B : ChosenBase.Data Gamma) :
+    PivotCertificate B ↔ PivotFiniteCertificate B := by
+  constructor
+  · intro h
+    exact (pivot_finite_equality_iff B).mp (pivot_certificate_implies_equality B h)
+  · rintro (⟨_,hm⟩ | ⟨_,hc⟩)
+    · exact Or.inl hm
+    · exact hc
 
 /-- Transport only invariants to apply the original-M theorem on the derived witness. -/
 theorem equality_iff_transferred_multiplicity_certificate (B : ChosenBase.Data Gamma) :

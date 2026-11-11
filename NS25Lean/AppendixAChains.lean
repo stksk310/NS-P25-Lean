@@ -235,6 +235,81 @@ theorem tie_admissible_interval {B : Data Gamma} {h : ℕ} (N : TieNormalForm B 
     exact tieAdmissible_between N u.val
       ((hs _).mp (s.min'_mem hn)) ((hs _).mp (s.max'_mem hn)) hl hr
 
+
+/-- One finite-interval engine for every fiber governed by a principal tie. -/
+theorem fiber_chain_of_difference {B : Data Gamma} {h : ℕ} (N : TieNormalForm B h)
+    (d : ℕ) (hdH : d ∈ B.H)
+    (hdiff : ∀ u v : FactorizationFiber B d,
+      ∃ j : ℤ, ∀ i, (v.val i : ℤ) = (u.val i : ℤ)+j*tieDelta N i) :
+    ∃ u₀ : FactorizationFiber B d, ∃ l r : ℤ, l ≤ r ∧
+      (∀ v : FactorizationFiber B d, ∃ j : ℤ, l ≤ j ∧ j ≤ r ∧
+        ∀ i, (v.val i : ℤ) = (u₀.val i : ℤ)+j*tieDelta N i) ∧
+      (∀ j : ℤ, l ≤ j → j ≤ r → ∃ v : FactorizationFiber B d,
+        ∀ i, (v.val i : ℤ) = (u₀.val i : ℤ)+j*tieDelta N i) := by
+  obtain ⟨u₀⟩ := fiber_nonempty B ⟨d,hdH⟩
+  obtain ⟨l,r,hlr,hi⟩ := tie_admissible_interval N u₀
+  refine ⟨u₀,l,r,hlr,?_,?_⟩
+  · intro v
+    obtain ⟨j,hj⟩ := hdiff u₀ v
+    have ha : TieAdmissible N u₀.val j := by
+      intro i;rw [←hj i];exact Int.natCast_nonneg _
+    exact ⟨j,((hi j).mp ha).1,((hi j).mp ha).2,hj⟩
+  · intro j hl hr
+    exact tieAdmissible_realized N u₀ ((hi j).mpr ⟨hl,hr⟩)
+
+theorem normalized_fiber_chain_of_difference (k : Type*) [Field k]
+    {B : Data Gamma} {h : ℕ} (N : TieNormalForm B h) (d : ℕ) (hdH : d ∈ B.H)
+    (hdiff : ∀ u v : FactorizationFiber B d,
+      ∃ j : ℤ, ∀ i, (v.val i : ℤ) = (u.val i : ℤ)+j*tieDelta N i) :
+    ∃ u₀ : FactorizationFiber B d, u₀.val (N.perm 0) < N.a ∧
+      ∃ r : ℤ, 0 ≤ r ∧
+        (∀ v : FactorizationFiber B d, ∃! j : ℤ, 0 ≤ j ∧ j ≤ r ∧
+          ∀ i, (v.val i : ℤ) = (u₀.val i : ℤ)+j*tieDelta N i) ∧
+        (∀ j : ℤ, 0 ≤ j → j ≤ r → ∃ v : FactorizationFiber B d,
+          ∀ i, (v.val i : ℤ) = (u₀.val i : ℤ)+j*tieDelta N i) := by
+  obtain ⟨u⟩ := fiber_nonempty B ⟨d,hdH⟩
+  obtain ⟨v₀,hv₀,hdeg,_⟩ := N.normalize_monomial k u.val
+  let u₀ : FactorizationFiber B d := ⟨v₀,hdeg.trans u.property⟩
+  obtain ⟨l,r,hlr,hi⟩ := tie_admissible_interval N u₀
+  have hl0 : l=0 := by
+    apply le_antisymm
+    · exact ((hi 0).mp (tieAdmissible_zero N u₀.val)).1
+    · exact tieAdmissible_nonneg_of_slab N u₀.val hv₀ ((hi l).mpr ⟨le_rfl,hlr⟩)
+  subst l
+  refine ⟨u₀,hv₀,r,hlr,?_,?_⟩
+  · intro v
+    obtain ⟨j,hj⟩ := hdiff u₀ v
+    have ha : TieAdmissible N u₀.val j := by
+      intro i;rw [←hj i];exact Int.natCast_nonneg _
+    refine ⟨j,⟨((hi j).mp ha).1,((hi j).mp ha).2,hj⟩,?_⟩
+    intro l hl
+    exact tie_parameter_unique N u₀.val v.val hl.2.2 hj
+  · intro j hl hr
+    exact tieAdmissible_realized N u₀ ((hi j).mpr ⟨hl,hr⟩)
+
+theorem slab_unique_of_integer_difference {B : Data Gamma} {h d : ℕ}
+    (N : TieNormalForm B h) (u v : FactorizationFiber B d)
+    (hdiff : ∃ j : ℤ, ∀ i, (v.val i : ℤ)=(u.val i : ℤ)+j*tieDelta N i)
+    (hu : u.val (N.perm 0) < N.a) (hv : v.val (N.perm 0) < N.a) : u=v := by
+  obtain ⟨j,hj⟩:=hdiff
+  have had : TieAdmissible N u.val j := by
+    intro i;rw [←hj i];exact Int.natCast_nonneg _
+  have hn := tieAdmissible_nonneg_of_slab N u.val hu had
+  have hjle : j ≤ 0 := by
+    by_contra hnot
+    have hjpos : 1 ≤ j := by omega
+    have hm := mul_le_mul_of_nonneg_right hjpos (Int.natCast_nonneg N.a)
+    have hx := hj (N.perm 0)
+    rw [tieDelta_x] at hx
+    have hv' : (v.val (N.perm 0) : ℤ) < N.a := by exact_mod_cast hv
+    have hu' := Int.natCast_nonneg (u.val (N.perm 0))
+    nlinarith
+  have hz : j=0 := by omega
+  apply Subtype.ext;ext i
+  have he := hj i
+  simp only [hz,zero_mul,add_zero] at he
+  exact_mod_cast he.symm
+
 /-- Appendix A factorization-chain theorem: every actual Apéry factorization is
 one point of a finite integer interval along delta, and every point in that interval
 is an actual factorization. Both directions include the original semigroup degree. -/
@@ -248,19 +323,8 @@ theorem apery_factorization_chain {k : Type*} [Field k]
       (∀ j : ℤ, l ≤ j → j ≤ r →
         ∃ v : FactorizationFiber M.base d,
           ∀ i, (v.val i : ℤ) = (u₀.val i : ℤ) + j * tieDelta F.normal i) := by
-  have hH : d ∈ M.base.H := (M.base.apery_eq_compl ▸ hd).1
-  obtain ⟨u₀⟩ := fiber_nonempty M.base ⟨d, hH⟩
-  obtain ⟨l, r, hlr, hi⟩ := tie_admissible_interval F.normal u₀
-  refine ⟨u₀, l, r, hlr, ?_, ?_⟩
-  · intro v
-    obtain ⟨j, hj⟩ := apery_factorization_difference F d hd u₀ v
-    have ha : TieAdmissible F.normal u₀.val j := by
-      intro i
-      rw [← hj i]
-      exact Int.natCast_nonneg _
-    exact ⟨j, (hi j).mp ha |>.1, (hi j).mp ha |>.2, hj⟩
-  · intro j hl hr
-    exact tieAdmissible_realized F.normal u₀ ((hi j).mpr ⟨hl, hr⟩)
+  exact fiber_chain_of_difference F.normal d (M.base.apery_eq_compl ▸ hd).1
+    (fun u v=>apery_factorization_difference F d hd u v)
 
 /-- A normalized version of the same chain: the base lies in the actual x-slab,
 the first integer parameter is zero, and each actual factorization has one parameter. -/
@@ -275,28 +339,7 @@ theorem apery_normalized_factorization_chain {k : Type*} [Field k]
         (∀ j : ℤ, 0 ≤ j → j ≤ r →
           ∃ v : FactorizationFiber M.base d,
             ∀ i, (v.val i : ℤ) = (u₀.val i : ℤ) + j * tieDelta F.normal i) := by
-  have hH : d ∈ M.base.H := (M.base.apery_eq_compl ▸ hd).1
-  obtain ⟨u⟩ := fiber_nonempty M.base ⟨d, hH⟩
-  obtain ⟨v₀, hv₀, hdeg, _⟩ := F.normal.normalize_monomial k u.val
-  let u₀ : FactorizationFiber M.base d := ⟨v₀, hdeg.trans u.property⟩
-  obtain ⟨l, r, hlr, hi⟩ := tie_admissible_interval F.normal u₀
-  have hl0 : l = 0 := by
-    apply le_antisymm
-    · exact ((hi 0).mp (tieAdmissible_zero F.normal u₀.val)).1
-    · exact tieAdmissible_nonneg_of_slab F.normal u₀.val hv₀
-        ((hi l).mpr ⟨le_rfl, hlr⟩)
-  subst l
-  refine ⟨u₀, hv₀, r, hlr, ?_, ?_⟩
-  · intro v
-    obtain ⟨j, hj⟩ := apery_factorization_difference F d hd u₀ v
-    have ha : TieAdmissible F.normal u₀.val j := by
-      intro i
-      rw [← hj i]
-      exact Int.natCast_nonneg _
-    refine ⟨j, ⟨((hi j).mp ha).1, ((hi j).mp ha).2, hj⟩, ?_⟩
-    intro l hl
-    exact tie_parameter_unique F.normal u₀.val v.val hl.2.2 hj
-  · intro j hl hr
-    exact tieAdmissible_realized F.normal u₀ ((hi j).mpr ⟨hl, hr⟩)
+  exact normalized_fiber_chain_of_difference k F.normal d (M.base.apery_eq_compl ▸ hd).1
+    (fun u v=>apery_factorization_difference F d hd u v)
 
 end NS25Lean.L3C

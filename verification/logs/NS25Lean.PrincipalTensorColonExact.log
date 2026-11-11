@@ -1,0 +1,17 @@
+NS25Lean/PrincipalTensorColonExact.lean:34:40: warning: This simp argument is unused:
+  mul_smul_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hz i]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/PrincipalTensorColonExact.lean:64:51: warning: This simp argument is unused:
+  mul_smul_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [map_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/PrincipalTensorColonExact.lean:193:6: warning: Unused tactic linter: `change S.c i * w = 0` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

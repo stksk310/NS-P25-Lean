@@ -1,0 +1,2 @@
+NS25Lean/AppendixBZeroSum.lean:75:74: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+NS25Lean/AppendixBZeroSum.lean:79:79: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead

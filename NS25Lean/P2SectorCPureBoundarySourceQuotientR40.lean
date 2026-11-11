@@ -12,19 +12,8 @@ variable {Gamma : NumericalSemigroup}
 theorem cut_source_cover (B : Data Gamma) (e : Fin 3 ≃ Fin 3) (n : ℕ)
     (hn : n ∈ cyclicCut (routingH B e) (routingM B e)) :
     ∃ v : ModelSources B e, ∃ t : ℕ, t ∈ routingH B e ∧ n=v.val+t := by
-  induction n using Nat.strong_induction_on with
-  | h n ih =>
-    by_cases hs : IsMinimalTailGenerator (routingH B e).toAddSubmonoid
-        (cyclicCut (routingH B e) (routingM B e)) n
-    · exact ⟨⟨n,hs⟩,0,(routingH B e).zero_mem,by simp⟩
-    have hnot : ¬∀ y t : ℕ, y ∈ cyclicCut (routingH B e) (routingM B e) →
-        t ∈ routingH B e → n=y+t → t=0 := by
-      intro hm
-      exact hs ((minimalTail_iff_literal _ _ _).mpr ⟨hn,hm⟩)
-    push Not at hnot
-    obtain ⟨y,t,hy,ht,he,hne⟩ := hnot
-    obtain ⟨v,u,hu,hvu⟩ := ih y (by omega) hy
-    exact ⟨v,u+t,(routingH B e).add_mem hu ht,by omega⟩
+  exact ReturnExchange.minimal_source_cover (routingH B e)
+    (cyclicCut (routingH B e) (routingM B e)) n hn
 
 /-- Critical minimality gives pure rigidity strictly below the critical exponent.
 This lemma uses no toric-ideal membership or pure-pair relation. -/

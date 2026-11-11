@@ -1,0 +1,99 @@
+NS25Lean/PrincipalTensorColonPresentationLayers.lean:18:20: warning: Variable name `T` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _T
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/PrincipalTensorColonPresentationLayers.lean:42:24: warning: This simp argument is unused:
+  Finsupp.erase_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/PrincipalTensorColonPresentationLayers.lean:58:6: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+NS25Lean/PrincipalTensorColonPresentationLayers.lean:63:26: warning: This simp argument is unused:
+  Finsupp.erase_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/PrincipalTensorColonPresentationLayers.lean:122:6: warning: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearEquiv.piCongrRight, Finsupp.curryLinearEquiv, Finsupp.curry_single, Pi.single_apply, hi,
+    Ne.symm hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/PrincipalTensorColonPresentationLayers.lean:122:27: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearEquiv.piCongrRight, Finsupp.curryLinearEquiv, Finsupp.curry_single, Finsupp.single_apply, hi,
+    Ne.symm hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/PrincipalTensorColonPresentationLayers.lean:122:46: warning: This simp argument is unused:
+  Ne.symm hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearEquiv.piCongrRight, Finsupp.curryLinearEquiv, Finsupp.curry_single, Finsupp.single_apply,
+    Pi.single_apply, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/PrincipalTensorColonPresentationLayers.lean:207:77: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NS25Lean/PrincipalTensorColonPresentationLayers.lean:244:46: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [layerMultiply, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NS25Lean/PrincipalTensorColonPresentationLayers.lean:293:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/PrincipalTensorColonPresentationLayers.lean:297:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/PrincipalTensorColonPresentationLayers.lean:299:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/PrincipalTensorColonPresentationLayers.lean:303:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NS25Lean/PrincipalTensorColonPresentationLayers.lean:304:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'NS25Lean.PrincipalTensorColon.tensor_poly_operator_packet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NS25Lean.PrincipalTensorColon.tensor_bivariate_proper' depends on axioms: [propext, Classical.choice, Quot.sound]

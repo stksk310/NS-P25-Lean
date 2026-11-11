@@ -1,0 +1,6 @@
+legacy-checks\negative\07_qfs_le_misused_as_eq.lean:8:2: error: Type mismatch
+  L3B.InternalFrontend.q_fs_le_one F
+has type
+  L3A.q_fs F.initial.ideal ≤ 1
+but is expected to have type
+  L3A.q_fs F.initial.ideal = 1

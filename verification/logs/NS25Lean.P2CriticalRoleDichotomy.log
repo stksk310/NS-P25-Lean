@@ -1,0 +1,9 @@
+NS25Lean/P2CriticalRoleDichotomy.lean:17:5: warning: Variable name `hjk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hjk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+NS25Lean/P2CriticalRoleDichotomy.lean:307:4: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
